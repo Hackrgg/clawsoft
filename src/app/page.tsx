@@ -98,7 +98,11 @@ export default function Home() {
 
         <div className="relative mx-auto grid max-w-7xl gap-10 lg:grid-cols-[1.1fr_0.9fr] lg:items-end">
           <div className="space-y-8">
-            <div className="inline-flex brutal-border bg-[var(--color-accent)] px-4 py-2 font-mono text-xs font-bold uppercase tracking-[0.24em] text-black brutal-shadow">
+            <div className="inline-flex items-center gap-2 brutal-border bg-[var(--color-accent)] px-4 py-2 font-mono text-xs font-bold uppercase tracking-[0.24em] text-black brutal-shadow">
+              <span className="relative flex h-2 w-2">
+                <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-[#3a8c6e] opacity-60" />
+                <span className="relative inline-flex h-2 w-2 rounded-full bg-[#3a8c6e]" />
+              </span>
               Available for projects
             </div>
 

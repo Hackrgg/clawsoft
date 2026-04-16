@@ -125,7 +125,7 @@ export const projects: Project[] = [
     status: "live",
     year: "2026",
     category: "Client project",
-    headline: "E-commerce storefront with CMS — full build, not a template.",
+    headline: "E-commerce storefront with custom CMS for product management.",
     summary:
       "Client project. Full e-commerce build — storefront, CMS for product management, cleaner layout, mobile-first. Live at thebedstore.shop.",
     intro:

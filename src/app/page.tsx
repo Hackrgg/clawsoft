@@ -260,7 +260,7 @@ export default function Home() {
               </h2>
             </div>
             <p className="max-w-xl text-sm leading-7 text-[var(--color-muted)]">
-              Built and shipped. Each project has a full breakdown — stack, decisions, outcome.
+              All projects shown with permission. Live links available where applicable.
             </p>
           </div>
 

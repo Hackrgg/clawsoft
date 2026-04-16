@@ -330,7 +330,7 @@ export default function Home() {
                 to build?
               </h2>
               <p className="mt-6 max-w-lg text-base leading-7 text-[var(--color-muted)]">
-                Send the brief on WhatsApp. Stack, timeline, budget — whatever's ready. Response same day.
+                Got a project in mind? Book a free call — discuss the idea, scope it out, no commitment.
               </p>
             </div>
 

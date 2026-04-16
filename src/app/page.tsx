@@ -115,19 +115,24 @@ export default function Home() {
               </p>
             </div>
 
-            <div className="flex flex-wrap gap-4">
-              <Link
-                href="/work"
-                className="brutal-border brutal-shadow bg-white px-7 py-3 text-sm font-black uppercase tracking-[0.18em] text-[var(--color-text)] transition hover:translate-x-[2px] hover:translate-y-[2px] hover:shadow-none"
-              >
-                View Work
-              </Link>
-              <a
-                href="mailto:onyxgymjo@gmail.com"
-                className="brutal-border brutal-shadow bg-[var(--color-accent-strong)] px-7 py-3 text-sm font-black uppercase tracking-[0.18em] text-[var(--color-text)] transition hover:translate-x-[2px] hover:translate-y-[2px] hover:shadow-none"
-              >
-                Get In Touch
-              </a>
+            <div className="space-y-3">
+              <div className="flex flex-wrap gap-4">
+                <Link
+                  href="/work"
+                  className="brutal-border brutal-shadow bg-white px-7 py-3 text-sm font-black uppercase tracking-[0.18em] text-[var(--color-text)] transition hover:translate-x-[2px] hover:translate-y-[2px] hover:shadow-none"
+                >
+                  View Work
+                </Link>
+                <a
+                  href="mailto:onyxgymjo@gmail.com"
+                  className="brutal-border brutal-shadow bg-[var(--color-accent-strong)] px-7 py-3 text-sm font-black uppercase tracking-[0.18em] text-[var(--color-text)] transition hover:translate-x-[2px] hover:translate-y-[2px] hover:shadow-none"
+                >
+                  Get In Touch
+                </a>
+              </div>
+              <p className="text-sm leading-7 text-[var(--color-muted)]">
+                Product-focused web builder with Next.js, Flutter range, and a security-aware mindset.
+              </p>
             </div>
           </div>
 

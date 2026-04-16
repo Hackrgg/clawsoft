@@ -330,7 +330,7 @@ export default function Home() {
                 to build?
               </h2>
               <p className="mt-6 max-w-lg text-base leading-7 text-[var(--color-muted)]">
-                Direct communication. No going quiet mid-project. Ships on the agreed timeline. Website, web app, or browser extension — get in touch.
+                Send the brief on WhatsApp. Stack, timeline, budget — whatever's ready. Response same day.
               </p>
             </div>
 

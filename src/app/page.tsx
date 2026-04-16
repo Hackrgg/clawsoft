@@ -208,31 +208,16 @@ export default function Home() {
         className="cross-hatch border-b-2 border-[rgba(44,35,28,0.85)] px-5 py-14 sm:px-8 lg:px-10"
       >
         <div className="mx-auto max-w-7xl">
-          <div className="mb-12 flex flex-col gap-4 lg:flex-row lg:items-end lg:justify-between">
-            <div>
-              <div className="mb-4 flex items-center gap-4">
-                <div className="h-1 w-14 bg-[var(--color-accent)]" />
-                <span className="font-mono text-xs font-bold uppercase tracking-[0.24em] text-[var(--color-muted)]">
-                  Stack / tools
-                </span>
-              </div>
-              <h2 className="text-3xl font-black uppercase tracking-[-0.04em] text-[var(--color-text)] sm:text-4xl">
-                Tech stack.
-              </h2>
-            </div>
-            <p className="max-w-2xl text-sm leading-7 text-[var(--color-muted)]">
-              Next.js, TypeScript, Supabase, Docker, Chrome extensions. The right tool for the project — nothing more.
-            </p>
+          <div className="mb-12">
+            <h2 className="text-3xl font-black uppercase tracking-[-0.04em] text-[var(--color-text)] sm:text-4xl">
+              Tech stack.
+            </h2>
           </div>
 
           <div className="grid gap-8 lg:grid-cols-3">
             {stackGroups.map((group) => (
               <div key={group.title} className="shell brutal-shadow p-6">
-                <div className={`inline-flex brutal-border px-4 py-2 text-xs font-black uppercase tracking-[0.2em] ${group.tone}`}>
-                  {group.title}
-                </div>
-                <div className="mt-6 grid grid-cols-2 gap-4">
-                  {group.items.map((item) => {
+                {group.items.map((item) => {
                     const Icon = item.icon;
                     return (
                       <div
@@ -244,7 +229,6 @@ export default function Home() {
                       </div>
                     );
                   })}
-                </div>
               </div>
             ))}
           </div>

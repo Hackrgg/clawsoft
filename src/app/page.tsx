@@ -16,6 +16,7 @@ import {
   SiTypescript,
   SiVercel,
 } from "react-icons/si";
+import { BookingWidget } from "@/components/booking-widget";
 import { SiteHeader } from "@/components/site-header";
 import { getProjects } from "@/data/projects";
 
@@ -319,36 +320,15 @@ export default function Home() {
       </section>
       <section className="dot-grid border-t-2 border-[rgba(44,35,28,0.85)] px-5 py-20 sm:px-8 lg:px-10">
         <div className="mx-auto max-w-7xl">
-          <div className="grid gap-10 lg:grid-cols-[1.1fr_0.9fr] lg:items-center">
-            <div>
-              <div className="mb-6 inline-flex brutal-border bg-[var(--color-accent-strong)] px-4 py-2 font-mono text-xs font-bold uppercase tracking-[0.24em] text-black brutal-shadow">
-                Available now
-              </div>
-              <h2 className="text-balance text-4xl font-black uppercase leading-[0.92] tracking-[-0.05em] text-[var(--color-text)] sm:text-5xl">
-                Have something
-                <br />
-                to build?
-              </h2>
-              <p className="mt-6 max-w-lg text-base leading-7 text-[var(--color-muted)]">
-                Drop a message. Free call to scope the project and get it moving.
-              </p>
+          <div className="mb-10">
+            <div className="mb-4 inline-flex brutal-border bg-[var(--color-accent-strong)] px-4 py-2 font-mono text-xs font-bold uppercase tracking-[0.24em] text-black brutal-shadow">
+              Available now
             </div>
-
-            <div className="shell brutal-shadow p-8">
-              <p className="mb-2 font-mono text-xs uppercase tracking-[0.24em] text-[var(--color-muted)]">
-                WhatsApp
-              </p>
-              <p className="mb-6 text-xl font-black text-[var(--color-text)] sm:text-2xl">
-                WhatsApp — +962 79 720 5018
-              </p>
-              <a
-                href="https://wa.me/962797205018"
-                className="brutal-border brutal-shadow inline-block bg-[var(--color-accent)] px-8 py-4 text-sm font-black uppercase tracking-[0.18em] text-black transition hover:translate-x-[2px] hover:translate-y-[2px] hover:shadow-none"
-              >
-                Message on WhatsApp →
-              </a>
-            </div>
+            <h2 className="text-4xl font-black uppercase leading-[0.92] tracking-[-0.05em] text-[var(--color-text)] sm:text-5xl">
+              Book a call.
+            </h2>
           </div>
+          <BookingWidget />
         </div>
       </section>
     </main>

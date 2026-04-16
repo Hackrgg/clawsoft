@@ -109,9 +109,7 @@ export const projects: Project[] = [
       { label: "Voice", value: "Telnyx WebRTC" },
       { label: "Type", value: "MV3 Extension" },
     ],
-    links: {
-      live: "https://nimra.app",
-    },
+    links: {},
     palette: {
       glow: "from-white/8 via-white/0 to-transparent",
       accent: "#dbdbd5",
@@ -130,7 +128,7 @@ export const projects: Project[] = [
       "Client project. Full e-commerce build — storefront, CMS for product management, cleaner layout, mobile-first. Live at thebedstore.shop.",
     intro:
       "Competing CTAs, crowded pages, no visual breathing room. Layout rebuilt: cleaner product browsing, tighter spacing, mobile done right before desktop. One clear path to checkout.",
-    stack: ["Next.js", "Responsive UI", "E-commerce UX"],
+    stack: ["Next.js", "CMS", "E-commerce UX", "Responsive UI"],
     responsibilities: [
       "Full layout rebuild — product listing, detail pages, mobile",
       "Visual hierarchy — cut competing CTAs, one action per page",

@@ -30,7 +30,7 @@ const marqueeItems = [
   "SUPABASE",
   "GRAPHQL",
   "VERCEL",
-  "RAILWAY",
+  "DOCKER",
   "POSTGRES",
   "CLAUDE CODE",
   "GITHUB",
@@ -116,7 +116,7 @@ export default function Home() {
                 Security.
               </h1>
               <p className="max-w-2xl text-base leading-7 text-[var(--color-muted)]">
-                Websites, web apps, browser extensions — built and shipped. Three projects live in 2026. Available for new work now.
+                Websites, web apps, browser extensions — built and shipped. Available for new work now.
               </p>
             </div>
 

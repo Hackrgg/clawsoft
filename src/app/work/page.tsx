@@ -19,7 +19,7 @@ export default function WorkPage() {
               Builds and case studies.
             </h1>
             <p className="max-w-xl text-sm leading-7 text-[var(--color-muted)]">
-              Real projects. Full breakdowns. Live links where available.
+              Things I actually built. Each one has a full breakdown — what it does, the hard parts, what I shipped, and a live link if it's deployed.
             </p>
           </div>
         </div>

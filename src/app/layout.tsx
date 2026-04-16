@@ -16,24 +16,24 @@ const ibmPlexMono = IBM_Plex_Mono({
 export const metadata: Metadata = {
   metadataBase: new URL("https://diguz.com"),
   title: {
-    default: "diguz",
+    default: "diguz — Web developer for hire",
     template: "%s | diguz",
   },
   description:
-    "A project-first portfolio for diguz featuring technical products, case studies, and evolving experiments.",
+    "Web developer available for hire. I build websites, web apps, and browser extensions. Recent work: hackr.gg (security training platform), nimra.app (Chrome phone extension), thebedstore.shop (e-commerce). Available now.",
   openGraph: {
-    title: "diguz",
+    title: "diguz — Web developer for hire",
     description:
-      "Dark, technical, project-led portfolio featuring hackr.gg, nimra.app, and thebedstore.shop.",
+      "Web developer available for hire. Shipped hackr.gg, nimra.app, and thebedstore.shop in 2026. Next.js, TypeScript, Supabase, Chrome extensions.",
     url: "https://diguz.com",
     siteName: "diguz",
     type: "website",
   },
   twitter: {
     card: "summary_large_image",
-    title: "diguz",
+    title: "diguz — Web developer for hire",
     description:
-      "Dark, technical, project-led portfolio featuring hackr.gg, nimra.app, and thebedstore.shop.",
+      "Web developer available for hire. Shipped hackr.gg, nimra.app, and thebedstore.shop in 2026.",
   },
 };
 

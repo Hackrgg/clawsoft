@@ -111,7 +111,7 @@ export default function Home() {
                 Cyber.
               </h1>
               <p className="max-w-2xl text-base leading-7 text-[var(--color-muted)]">
-                Websites, web apps, and Flutter products — built for marketing agencies and direct clients. Modern stack, fast turnaround.
+                I build websites, web apps, and browser extensions that actually ship. Three products live in 2026 — a security training platform, a Chrome phone extension, and a client e-commerce rebuild. If you need something built properly, I'm available now.
               </p>
             </div>
 
@@ -132,57 +132,47 @@ export default function Home() {
           </div>
 
           <div className="space-y-4">
-            <div className="shell brutal-shadow grid gap-4 p-6">
-              <div className="flex items-center justify-between">
+            <div className="shell brutal-shadow p-6">
+              <div className="mb-5 flex items-center justify-between">
                 <span className="font-mono text-xs uppercase tracking-[0.24em] text-[var(--color-muted)]">
-                  What gets built
+                  Shipped in 2026
                 </span>
                 <span className="brutal-border bg-[rgba(255,250,241,0.84)] px-3 py-1 font-mono text-[11px] uppercase tracking-[0.18em] text-[var(--color-text)]">
-                  2026
+                  All real
                 </span>
               </div>
 
-              <div className="grid gap-4 sm:grid-cols-2">
-                <div className="brutal-border bg-[rgba(255,250,241,0.84)] p-5">
-                  <p className="mb-3 font-mono text-[11px] uppercase tracking-[0.18em] text-[var(--color-muted)]">
-                    Approach
-                  </p>
-                  <p className="text-2xl font-black uppercase leading-tight text-[var(--color-text)] sm:text-3xl">
-                    Fast.
-                    <br />
-                    Clean.
-                    <br />
-                    Done.
-                  </p>
-                </div>
-
-                <div className="grid gap-4">
-                  <div className="brutal-border bg-[linear-gradient(135deg,#ea83b7_0%,#f3a7cf_100%)] p-4 text-[var(--color-text)]">
-                    <p className="font-mono text-[11px] uppercase tracking-[0.18em]">
-                      Stack
-                    </p>
-                    <p className="pt-2 text-lg font-black uppercase">Next.js / Flutter</p>
-                  </div>
-                  <div className="brutal-border bg-[linear-gradient(135deg,#71c1af_0%,#9fddd0_100%)] p-4 text-[var(--color-text)]">
-                    <p className="font-mono text-[11px] uppercase tracking-[0.18em]">
-                      Workflow
-                    </p>
-                    <p className="pt-2 text-lg font-black uppercase">GitHub / Claude Code</p>
-                  </div>
-                </div>
-              </div>
-
-              <div className="grid gap-4 sm:grid-cols-3">
+              <div className="space-y-3">
                 {[
-                  ["Web", "Custom websites and web apps for agencies and direct clients.", "rgba(233,122,178,0.13)"],
-                  ["Mobile", "Cross-platform Flutter apps. iOS and Android from one codebase.", "rgba(103,186,168,0.13)"],
-                  ["Security", "Built security-aware. Pen-testing background, no rookie mistakes.", "rgba(231,199,104,0.18)"],
-                ].map(([title, copy, bg]) => (
-                  <div key={title} className="brutal-border p-4" style={{ backgroundColor: bg as string }}>
-                    <p className="font-mono text-[11px] uppercase tracking-[0.18em] text-[var(--color-muted)]">
-                      {title}
-                    </p>
-                    <p className="pt-2 text-sm leading-6 text-[var(--color-text)]">{copy}</p>
+                  {
+                    name: "hackr.gg",
+                    status: "live",
+                    statusColor: "bg-[var(--color-teal)]",
+                    desc: "Security training platform. 60+ Docker-based hacking labs, in-browser Kali toolkit, Stripe billing, XP leaderboard. Built and shipped solo.",
+                  },
+                  {
+                    name: "nimra.app",
+                    status: "in dev",
+                    statusColor: "bg-[var(--color-accent-strong)]",
+                    desc: "Chrome extension. A full working phone line — real calls and SMS — inside your browser. WebRTC + Supabase Realtime, persistent background listener.",
+                  },
+                  {
+                    name: "thebedstore.shop",
+                    status: "live",
+                    statusColor: "bg-[var(--color-teal)]",
+                    desc: "E-commerce rebuild for a Jordan-based retailer. Cleaner product hierarchy, better mobile flow, less template feel.",
+                  },
+                ].map((project) => (
+                  <div key={project.name} className="brutal-border bg-[rgba(255,250,241,0.84)] p-4">
+                    <div className="mb-2 flex items-center justify-between">
+                      <span className="text-sm font-black uppercase tracking-[0.06em] text-[var(--color-text)]">
+                        {project.name}
+                      </span>
+                      <span className={`brutal-border px-2 py-0.5 font-mono text-[10px] uppercase tracking-[0.14em] text-black ${project.statusColor}`}>
+                        {project.status}
+                      </span>
+                    </div>
+                    <p className="text-xs leading-5 text-[var(--color-muted)]">{project.desc}</p>
                   </div>
                 ))}
               </div>
@@ -279,7 +269,7 @@ export default function Home() {
               </h2>
             </div>
             <p className="max-w-xl text-sm leading-7 text-[var(--color-muted)]">
-              Live builds and client projects. Open any one for the full breakdown.
+              Things I actually built and shipped. Each one has a full breakdown — what it does, what the hard parts were, and what I delivered.
             </p>
           </div>
 
@@ -344,6 +334,40 @@ export default function Home() {
                 </div>
               </article>
             ))}
+          </div>
+        </div>
+      </section>
+      <section className="dot-grid border-t-2 border-[rgba(44,35,28,0.85)] px-5 py-20 sm:px-8 lg:px-10">
+        <div className="mx-auto max-w-7xl">
+          <div className="grid gap-10 lg:grid-cols-[1.1fr_0.9fr] lg:items-center">
+            <div>
+              <div className="mb-6 inline-flex brutal-border bg-[var(--color-accent-strong)] px-4 py-2 font-mono text-xs font-bold uppercase tracking-[0.24em] text-black brutal-shadow">
+                Available now
+              </div>
+              <h2 className="text-balance text-4xl font-black uppercase leading-[0.92] tracking-[-0.05em] text-[var(--color-text)] sm:text-5xl">
+                Have something
+                <br />
+                to build?
+              </h2>
+              <p className="mt-6 max-w-lg text-base leading-7 text-[var(--color-muted)]">
+                Direct communication. No going quiet mid-project. I ship what I say I'll ship, on the timeline we agree on. If you have a website, web app, or product in mind — just email me.
+              </p>
+            </div>
+
+            <div className="shell brutal-shadow p-8">
+              <p className="mb-2 font-mono text-xs uppercase tracking-[0.24em] text-[var(--color-muted)]">
+                Reach out directly
+              </p>
+              <p className="mb-6 text-xl font-black text-[var(--color-text)] sm:text-2xl">
+                onyxgymjo@gmail.com
+              </p>
+              <a
+                href="mailto:onyxgymjo@gmail.com"
+                className="brutal-border brutal-shadow inline-block bg-[var(--color-accent)] px-8 py-4 text-sm font-black uppercase tracking-[0.18em] text-black transition hover:translate-x-[2px] hover:translate-y-[2px] hover:shadow-none"
+              >
+                Email Me →
+              </a>
+            </div>
           </div>
         </div>
       </section>

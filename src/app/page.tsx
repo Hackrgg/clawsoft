@@ -38,7 +38,7 @@ const marqueeItems = [
 
 const stackGroups = [
   {
-    title: "Web Stack",
+    title: "Frontend",
     tone: "bg-[var(--color-accent)] text-black",
     items: [
       { label: "Next.js", icon: SiNextdotjs },
@@ -48,7 +48,7 @@ const stackGroups = [
     ],
   },
   {
-    title: "Data + Deploy",
+    title: "Backend + Infra",
     tone: "bg-[var(--color-accent-strong)] text-black",
     items: [
       { label: "Supabase", icon: SiSupabase },
@@ -58,7 +58,7 @@ const stackGroups = [
     ],
   },
   {
-    title: "Mobile + Workflow",
+    title: "Mobile + Tools",
     tone: "bg-[var(--color-teal)] text-black",
     items: [
       { label: "Flutter", icon: SiFlutter },
@@ -217,6 +217,10 @@ export default function Home() {
           <div className="grid gap-8 lg:grid-cols-3">
             {stackGroups.map((group) => (
               <div key={group.title} className="shell brutal-shadow p-6">
+                <div className={`inline-flex brutal-border mb-6 px-4 py-2 text-xs font-black uppercase tracking-[0.2em] ${group.tone}`}>
+                  {group.title}
+                </div>
+                <div className="grid grid-cols-2 gap-4">
                 {group.items.map((item) => {
                     const Icon = item.icon;
                     return (
@@ -229,6 +233,7 @@ export default function Home() {
                       </div>
                     );
                   })}
+                </div>
               </div>
             ))}
           </div>

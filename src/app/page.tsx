@@ -74,7 +74,7 @@ export default function Home() {
     <main className="min-h-screen bg-[var(--color-bg)] text-[var(--color-text)]">
       <SiteHeader />
 
-      <section className="dot-grid relative overflow-hidden border-b-2 border-[rgba(44,35,28,0.85)] px-5 py-20 sm:px-8 lg:px-10 lg:py-24">
+      <section className="dot-grid relative overflow-hidden border-b-2 border-[rgba(44,35,28,0.85)] px-5 py-14 sm:px-8 lg:px-10 lg:py-18">
         <div className="absolute inset-0 overflow-hidden">
           <motion.div
             animate={{ y: [0, 40, 0], rotate: [0, 6, 0] }}
@@ -103,14 +103,14 @@ export default function Home() {
             </div>
 
             <div className="space-y-5">
-              <h1 className="text-balance text-6xl font-black uppercase leading-[0.92] tracking-[-0.06em] text-[var(--color-text)] sm:text-7xl lg:text-[7.5rem]">
+              <h1 className="text-balance text-5xl font-black uppercase leading-[0.92] tracking-[-0.06em] text-[var(--color-text)] sm:text-6xl lg:text-[6rem]">
                 Web.
                 <br />
                 Flutter.
                 <br />
                 Cyber.
               </h1>
-              <p className="max-w-2xl text-lg leading-8 text-[var(--color-muted)]">
+              <p className="max-w-2xl text-base leading-7 text-[var(--color-muted)]">
                 diguz. case studies, shipped builds, modern stack, AI-assisted workflow.
               </p>
             </div>
@@ -216,7 +216,7 @@ export default function Home() {
 
       <section
         id="stack"
-        className="cross-hatch border-b-2 border-[rgba(44,35,28,0.85)] px-5 py-20 sm:px-8 lg:px-10"
+        className="cross-hatch border-b-2 border-[rgba(44,35,28,0.85)] px-5 py-14 sm:px-8 lg:px-10"
       >
         <div className="mx-auto max-w-7xl">
           <div className="mb-12 flex flex-col gap-4 lg:flex-row lg:items-end lg:justify-between">
@@ -227,7 +227,7 @@ export default function Home() {
                   Stack / expertise
                 </span>
               </div>
-              <h2 className="text-4xl font-black uppercase tracking-[-0.04em] text-[var(--color-text)] sm:text-5xl">
+              <h2 className="text-3xl font-black uppercase tracking-[-0.04em] text-[var(--color-text)] sm:text-4xl">
                 Tech stack.
               </h2>
             </div>
@@ -263,7 +263,7 @@ export default function Home() {
         </div>
       </section>
 
-      <section id="cases" className="px-5 py-20 sm:px-8 lg:px-10">
+      <section id="cases" className="px-5 py-14 sm:px-8 lg:px-10">
         <div className="mx-auto max-w-7xl">
           <div className="mb-12 flex flex-col gap-4 lg:flex-row lg:items-end lg:justify-between">
             <div>
@@ -273,7 +273,7 @@ export default function Home() {
                   Selected case studies
                 </span>
               </div>
-              <h2 className="text-4xl font-black uppercase tracking-[-0.04em] text-[var(--color-text)] sm:text-5xl">
+              <h2 className="text-3xl font-black uppercase tracking-[-0.04em] text-[var(--color-text)] sm:text-4xl">
                 Projects.
               </h2>
             </div>
@@ -303,8 +303,8 @@ export default function Home() {
                   </div>
 
                   <div>
-                    <h3 className="text-3xl font-black text-[var(--color-text)] sm:text-4xl">{project.name}</h3>
-                    <p className="pt-3 text-lg leading-8 text-[var(--color-muted)]">
+                    <h3 className="text-2xl font-black text-[var(--color-text)] sm:text-3xl">{project.name}</h3>
+                    <p className="pt-3 text-base leading-7 text-[var(--color-muted)]">
                       {project.headline}
                     </p>
                   </div>

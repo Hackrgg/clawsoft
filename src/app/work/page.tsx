@@ -15,7 +15,7 @@ export default function WorkPage() {
             Work index
           </div>
           <div className="grid gap-6 lg:grid-cols-[1.05fr_0.95fr] lg:items-end">
-            <h1 className="text-5xl font-black uppercase tracking-[-0.05em] text-[var(--color-text)] sm:text-6xl">
+            <h1 className="text-4xl font-black uppercase tracking-[-0.05em] text-[var(--color-text)] sm:text-5xl">
               Case studies and shipped work.
             </h1>
             <p className="max-w-xl text-sm leading-7 text-[var(--color-muted)]">
@@ -47,8 +47,8 @@ export default function WorkPage() {
                 </div>
 
                 <div>
-                  <h2 className="text-3xl font-black text-[var(--color-text)] sm:text-4xl">{project.name}</h2>
-                  <p className="pt-3 text-lg leading-8 text-[var(--color-muted)]">
+                  <h2 className="text-2xl font-black text-[var(--color-text)] sm:text-3xl">{project.name}</h2>
+                  <p className="pt-3 text-base leading-7 text-[var(--color-muted)]">
                     {project.headline}
                   </p>
                 </div>

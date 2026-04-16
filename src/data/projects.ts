@@ -38,30 +38,33 @@ export const projects: Project[] = [
     url: "hackr.gg",
     status: "live",
     year: "2026",
-    category: "Competitive platform",
-    headline: "Competitive product, dark UI, fast read.",
-    summary: "Live project focused on speed, hierarchy, and a cleaner game-native feel.",
-    intro: "Built to feel active, direct, and easy to scan.",
-    stack: ["Next.js", "TypeScript", "Tailwind CSS", "Motion", "Product UX"],
+    category: "Security training platform",
+    headline: "Stop reading about it. Hack it.",
+    summary:
+      "60+ hands-on CTF labs across SQL injection, XSS, IDOR, JWT attacks, and more. One-click lab deployment, in-browser tools, no setup or VPN needed.",
+    intro:
+      "Built for people who learn by doing. Each lab is a Docker-containerised vulnerable app spun live on Railway. You get a real target, a real flag, and no excuses not to practice.",
+    stack: ["Next.js", "TypeScript", "Supabase", "Railway", "Docker", "Stripe", "Tailwind CSS"],
     responsibilities: [
-      "Interface direction and frontend architecture",
-      "Information hierarchy for competitive content",
-      "Visual system tuned for dark-mode product use",
+      "Frontend architecture and full UI direction",
+      "Lab orchestration interface and real-time deployment flows",
+      "Visual system built for a dark, competitive security product",
     ],
     highlights: [
-      "Fast scan hierarchy",
-      "Tight dark interface",
-      "Motion used sparingly",
+      "60+ vulnerable labs",
+      "In-browser Kali toolkit",
+      "Flag-based XP and leaderboard",
     ],
     challenge:
-      "Competitive products get noisy fast.",
+      "Security training tools are either too dry or too abstract. Most require complex local setup that kills momentum before you even start.",
     solution:
-      "Reduce the surface count. Keep contrast high. Let the hierarchy do the work.",
-    outcome: "Sharper feel, less clutter, easier extension.",
+      "Make it feel like a game. Real-world CVE scenarios mapped to OWASP Top 10. One click to spin a container. Guided walkthroughs unlock after solving so you always move forward.",
+    outcome:
+      "An active platform where learners actually hack, not just read. Structured learning paths across 30+ vulnerability types.",
     metrics: [
       { label: "State", value: "Live" },
-      { label: "Mode", value: "Product-first" },
-      { label: "Focus", value: "Speed + clarity" },
+      { label: "Labs", value: "60+" },
+      { label: "Stack", value: "Next.js + Railway" },
     ],
     links: {
       live: "https://hackr.gg",
@@ -78,30 +81,33 @@ export const projects: Project[] = [
     url: "nimra.app",
     status: "in-progress",
     year: "2026",
-    category: "Private app build",
-    headline: "Active build. Full case study later.",
-    summary: "Featured now with honest status. Details expand when the latest build is ready.",
-    intro: "Kept visible, but clearly marked as still in progress.",
-    stack: ["Next.js", "App design", "Systems thinking", "Ongoing iteration"],
+    category: "Browser extension",
+    headline: "A real phone number that lives in your browser.",
+    summary:
+      "Chrome extension for making and receiving calls and SMS using a virtual US, Canada, or UK number — powered by Telnyx WebRTC and Supabase.",
+    intro:
+      "Nimra gives you a working phone line inside your browser. Click any number on any page to dial. Inbound calls ring in a popup with answer and decline. SMS inbox with full conversation threading. Pay-as-you-go, no contract.",
+    stack: ["Chrome Extension MV3", "JavaScript", "Telnyx WebRTC", "Supabase", "Stripe"],
     responsibilities: [
-      "Product direction under the diguz identity",
-      "Interface exploration and interaction language",
-      "Case-study scaffolding prepared for later expansion",
+      "Full extension architecture — popup, service worker, offscreen document, and separate call window",
+      "Real-time WebRTC call handling with persistent inbound listener that survives popup close",
+      "SMS inbox with conversation threading and live delivery via Supabase Realtime",
     ],
     highlights: [
-      "Marked as in progress",
-      "Ready for later screenshots",
-      "Fits the same case-study system",
+      "Calls and SMS in-browser",
+      "Persistent inbound listener",
+      "Pay-as-you-go billing",
     ],
     challenge:
-      "Incomplete work can feel awkward in a portfolio.",
+      "WebRTC state doesn't survive when a Chrome popup closes — meaning inbound calls would silently fail whenever the user navigated away.",
     solution:
-      "Keep it in the lineup, but keep the status honest.",
-    outcome: "Still visible. No fake polish.",
+      "An offscreen document keeps the Telnyx listener alive in the background. A separate dedicated call window isolates the WebRTC session from the popup lifecycle entirely. Supabase Realtime handles SMS delivery without polling.",
+    outcome:
+      "Calls stay live even with the popup closed. Full working phone — calls, SMS, contacts, call history — inside a browser extension.",
     metrics: [
       { label: "State", value: "In progress" },
-      { label: "Next", value: "Detailed case study" },
-      { label: "Domain", value: "nimra.app" },
+      { label: "Voice", value: "Telnyx WebRTC" },
+      { label: "Type", value: "MV3 Extension" },
     ],
     links: {
       live: "https://nimra.app",
@@ -118,29 +124,32 @@ export const projects: Project[] = [
     url: "thebedstore.shop",
     status: "live",
     year: "2026",
-    category: "Ecommerce",
-    headline: "Commerce flow with cleaner structure.",
-    summary: "Live ecommerce work focused on clarity, trust, and less friction.",
-    intro: "A more controlled storefront with better rhythm across browsing and product detail.",
+    category: "E-commerce",
+    headline: "Premium beds and mattresses with a cleaner buying flow.",
+    summary:
+      "Jordan-based online bed and mattress retailer. Frontend work focused on trust signals, clear product hierarchy, and reducing friction through the purchase flow.",
+    intro:
+      "E-commerce for high-consideration purchases like beds needs to earn trust fast and keep the path to checkout clean. The work here was about building that rhythm — better hierarchy, less visual clutter, and a product experience that feels premium without being heavy.",
     stack: ["Next.js", "Ecommerce UX", "Responsive UI", "Design systems"],
     responsibilities: [
-      "Frontend structure and interaction refinement",
-      "Visual cleanup for a more premium commerce feel",
-      "Project framing around practical user decision-making",
+      "Frontend structure and interaction refinement across browsing and product detail",
+      "Visual cleanup for a more premium, trustworthy commerce feel",
+      "Mobile-first layout work to improve rhythm on smaller screens",
     ],
     highlights: [
-      "Clearer browsing flow",
-      "Better mobile rhythm",
+      "Clearer product browsing flow",
+      "Better mobile layout rhythm",
       "Less template feel",
     ],
     challenge:
-      "Commerce pages crowd easily.",
+      "Commerce pages crowd easily — too many products, too many CTAs, not enough breathing room. The original layout made it hard to focus on any single item.",
     solution:
-      "Tighten spacing, hierarchy, and product flow.",
-    outcome: "Cleaner storefront, clearer decisions.",
+      "Tighten spacing and visual hierarchy. Let each product breathe. Reduce competing calls to action on key pages so the path to purchase is obvious.",
+    outcome:
+      "A cleaner storefront that makes decisions easier and the brand feel more considered.",
     metrics: [
       { label: "State", value: "Live" },
-      { label: "Type", value: "Ecommerce" },
+      { label: "Type", value: "E-commerce" },
       { label: "Priority", value: "Clarity + trust" },
     ],
     links: {

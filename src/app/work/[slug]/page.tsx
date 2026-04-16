@@ -66,10 +66,10 @@ export default async function ProjectPage({ params }: ProjectPageProps) {
               <p className="mb-4 font-mono text-xs uppercase tracking-[0.24em] text-[var(--color-muted)]">
                 Case study / {project.category}
               </p>
-              <h1 className="text-5xl font-black uppercase tracking-[-0.05em] text-[var(--color-text)] sm:text-6xl">
+              <h1 className="text-4xl font-black uppercase tracking-[-0.05em] text-[var(--color-text)] sm:text-5xl">
                 {project.name}
               </h1>
-              <p className="max-w-3xl pt-5 text-xl leading-8 text-[var(--color-muted)]">
+              <p className="max-w-3xl pt-4 text-base leading-7 text-[var(--color-muted)]">
                 {project.headline}
               </p>
             </div>

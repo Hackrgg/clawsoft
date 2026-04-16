@@ -107,9 +107,9 @@ export default function Home() {
               <h1 className="text-balance text-5xl font-black uppercase leading-[0.92] tracking-[-0.06em] text-[var(--color-text)] sm:text-6xl lg:text-[6rem]">
                 Web.
                 <br />
-                Flutter.
+                Mobile.
                 <br />
-                Cyber.
+                Security.
               </h1>
               <p className="max-w-2xl text-base leading-7 text-[var(--color-muted)]">
                 Websites, web apps, browser extensions — built and shipped. Three projects live in 2026. Available for new work now.

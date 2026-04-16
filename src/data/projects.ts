@@ -39,7 +39,7 @@ export const projects: Project[] = [
     status: "live",
     year: "2026",
     category: "Full-stack build",
-    headline: "Full-stack. Solo. Shipped.",
+    headline: "Next.js, Docker, Railway, Supabase, Stripe — architecture to deployment.",
     summary:
       "Next.js, Supabase, Docker, Railway, Stripe — frontend to infra. Architecture, UI, lab orchestration, billing. Every layer designed and built. Live.",
     intro:

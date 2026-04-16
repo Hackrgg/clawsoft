@@ -3,7 +3,7 @@ import Link from "next/link";
 const navItems = [
   { href: "/#stack", label: "Stack" },
   { href: "/work", label: "Work" },
-  { href: "mailto:onyxgymjo@gmail.com", label: "Contact" },
+  { href: "https://wa.me/962797205018", label: "Contact" },
 ];
 
 export function SiteHeader() {

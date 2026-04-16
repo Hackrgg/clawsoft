@@ -123,10 +123,10 @@ export default function Home() {
                 View Work
               </Link>
               <a
-                href="mailto:onyxgymjo@gmail.com"
+                href="https://wa.me/962797205018"
                 className="brutal-border brutal-shadow bg-[var(--color-accent-strong)] px-7 py-3 text-sm font-black uppercase tracking-[0.18em] text-[var(--color-text)] transition hover:translate-x-[2px] hover:translate-y-[2px] hover:shadow-none"
               >
-                Get In Touch
+                WhatsApp
               </a>
             </div>
           </div>
@@ -336,16 +336,16 @@ export default function Home() {
 
             <div className="shell brutal-shadow p-8">
               <p className="mb-2 font-mono text-xs uppercase tracking-[0.24em] text-[var(--color-muted)]">
-                Reach out directly
+                WhatsApp
               </p>
               <p className="mb-6 text-xl font-black text-[var(--color-text)] sm:text-2xl">
-                onyxgymjo@gmail.com
+                WhatsApp — +962 79 720 5018
               </p>
               <a
-                href="mailto:onyxgymjo@gmail.com"
+                href="https://wa.me/962797205018"
                 className="brutal-border brutal-shadow inline-block bg-[var(--color-accent)] px-8 py-4 text-sm font-black uppercase tracking-[0.18em] text-black transition hover:translate-x-[2px] hover:translate-y-[2px] hover:shadow-none"
               >
-                Email Me →
+                Message on WhatsApp →
               </a>
             </div>
           </div>

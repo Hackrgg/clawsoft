@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import { IBM_Plex_Mono, Sora } from "next/font/google";
+import { WhatsAppWidget } from "@/components/whatsapp-widget";
 import "./globals.css";
 
 const sora = Sora({
@@ -49,6 +50,7 @@ export default function RootLayout({
     >
       <body className="min-h-full flex flex-col bg-[var(--color-bg)] text-[var(--color-text)]">
         {children}
+        <WhatsAppWidget />
       </body>
     </html>
   );

@@ -39,31 +39,31 @@ export const projects: Project[] = [
     status: "live",
     year: "2026",
     category: "Security training platform",
-    headline: "Designed and shipped a full cybersecurity training platform end-to-end.",
+    headline: "Full-stack cybersecurity learning platform — built and shipped to production.",
     summary:
-      "Full ownership of a production security academy — frontend architecture, lab interface, payment integration, and deployment pipeline. Taken from zero to live.",
+      "A structured security academy with live lab modules, user progression, and payment access control. Built with Next.js, Supabase, and Stripe — fully live and in active use.",
     intro:
-      "Sole responsibility for the entire frontend and product experience. Designed the UI system, built the lab module interface, integrated Stripe for payments, and connected the real-time lab deployment flow. Delivered a complete, production-ready platform.",
+      "The platform needed a real-time lab system, a structured course layout, user authentication, payment gating, and a progression engine — all working together in production. Each piece was built and integrated from scratch.",
     stack: ["Next.js", "TypeScript", "Supabase", "Stripe", "Tailwind CSS"],
     responsibilities: [
-      "Architected and built the full frontend from zero — routing, UI system, component library",
-      "Designed and shipped the lab module interface with real-time deployment and flag submission",
-      "Integrated Stripe payments, Supabase auth, and a full user progression and XP system",
+      "Built the full frontend — routing, UI system, and all course and lab interfaces",
+      "Implemented real-time lab deployment flow with live state tracking and flag submission",
+      "Integrated Stripe payment gating, Supabase auth, and a full XP and leaderboard system",
     ],
     highlights: [
-      "Shipped full platform end-to-end",
-      "60+ lab modules delivered",
-      "Complete auth, payments, and progression",
+      "60+ lab modules in production",
+      "Real-time lab state and flag system",
+      "Stripe + auth + XP — all integrated",
     ],
     challenge:
-      "Needed to deliver a complete product — not just a UI layer. Auth, payments, real-time lab state, user progression, and a content system all had to work together from day one.",
+      "Getting real-time lab state, payment access control, and user progression to work reliably together — without any one system blocking another.",
     solution:
-      "Took full ownership of the stack. Built each system incrementally with clean separation — auth first, then payments, then lab orchestration, then progression. Kept the codebase structured enough to extend quickly.",
+      "Each system was scoped and built independently with clean interfaces between them. Lab state handled separately from auth, payments decoupled from progression. Integration done layer by layer.",
     outcome:
-      "A production platform live at hackr.gg — fully operational with paying users, structured course content, and a working lab environment.",
+      "A live, fully operational security platform — real users, active labs, and a working payment system in production.",
     metrics: [
-      { label: "Ownership", value: "End-to-end" },
-      { label: "Modules", value: "60+" },
+      { label: "Labs", value: "60+" },
+      { label: "Stack", value: "Next.js + Supabase" },
       { label: "Status", value: "Live" },
     ],
     links: {
@@ -82,31 +82,31 @@ export const projects: Project[] = [
     status: "in-progress",
     year: "2026",
     category: "Browser extension",
-    headline: "Built a fully functional virtual phone system inside a Chrome extension.",
+    headline: "Chrome extension that turns your browser into a working virtual phone.",
     summary:
-      "Complete build of a Chrome MV3 extension — call handling, SMS inbox, contacts, billing, and real-time notifications. Full ownership from architecture to deployment.",
+      "A Chrome MV3 extension with real call handling, SMS inbox, contacts, and pay-as-you-go billing. Built on WebRTC and Supabase — calls and texts work directly from the browser.",
     intro:
-      "Sole developer on the entire extension. Responsible for the popup UI, background service worker, persistent call listener, SMS threading, Stripe billing integration, and Supabase backend. Solved non-trivial browser extension constraints to deliver a working phone product.",
+      "The extension needed live calling, inbound call handling, a full SMS inbox, contacts management, and a billing system — all running inside the browser with no native app. The core technical challenge was keeping call state alive across the extension lifecycle.",
     stack: ["Chrome Extension MV3", "JavaScript", "Supabase", "Stripe"],
     responsibilities: [
-      "Architected the full Chrome MV3 extension — popup, service worker, offscreen document, and isolated call window",
-      "Solved WebRTC session persistence so inbound calls survive popup close — a known hard problem in browser extensions",
-      "Built and shipped the full SMS inbox, call history, contacts, and pay-as-you-go billing system",
+      "Built the full extension — popup UI, background service worker, persistent offscreen listener, and dedicated call window",
+      "Solved live call persistence across popup close using an offscreen document architecture",
+      "Shipped the SMS inbox with conversation threading, contacts, call history, and Stripe credit billing",
     ],
     highlights: [
-      "Solved WebRTC lifecycle in MV3",
-      "Full call + SMS system shipped",
-      "End-to-end ownership",
+      "Live calls and SMS from the browser",
+      "Persistent inbound call listener",
+      "Full billing and contacts system",
     ],
     challenge:
-      "Chrome MV3 kills background state aggressively. Keeping a live phone call running when a user closes the extension popup is a non-trivial architectural problem with no clean out-of-the-box solution.",
+      "Chrome's MV3 lifecycle terminates background state when the popup closes — meaning inbound calls would silently drop whenever the user navigated away.",
     solution:
-      "Designed a three-layer architecture — an offscreen document holds the inbound listener persistently, a dedicated call window isolates the WebRTC session, and the popup handles all UI state independently. Each layer has a single responsibility.",
+      "A three-layer architecture: offscreen document holds the persistent listener, a dedicated call window owns the WebRTC session, and the popup handles UI only. Each layer isolated with a single responsibility.",
     outcome:
-      "A working virtual phone inside Chrome. Calls stay live across popup close. SMS, contacts, history, and billing all functional and in active use.",
+      "Calls stay live regardless of popup state. A fully working phone system — calls, SMS, contacts, history, and billing — running inside a browser extension.",
     metrics: [
-      { label: "Ownership", value: "End-to-end" },
       { label: "Type", value: "Chrome Extension" },
+      { label: "Stack", value: "WebRTC + Supabase" },
       { label: "Status", value: "In progress" },
     ],
     links: {
@@ -125,31 +125,31 @@ export const projects: Project[] = [
     status: "live",
     year: "2026",
     category: "E-commerce",
-    headline: "Rebuilt the frontend of a live furniture and mattress ecommerce store.",
+    headline: "Frontend rebuild of a live furniture and mattress ecommerce store.",
     summary:
-      "Frontend rebuild of a live ecommerce store — improved product layout, checkout flow, and mobile experience. Delivered a cleaner, more conversion-focused storefront.",
+      "Full frontend rebuild of an active ecommerce store selling furniture and mattresses. Redesigned product layout, mobile experience, and checkout flow — delivered on a live site.",
     intro:
-      "Responsible for the full frontend rebuild of an existing live store. Audited the existing layout, identified friction points across the browse-to-checkout flow, and delivered a redesigned storefront with better hierarchy, improved mobile layout, and a more premium visual feel.",
+      "The store needed a layout overhaul without disrupting the live purchase flow. Product pages, listing layout, mobile responsiveness, and the visual system were all rebuilt with a focus on clarity and reducing friction to checkout.",
     stack: ["Next.js", "Ecommerce UX", "Responsive UI", "Design systems"],
     responsibilities: [
-      "Audited and rebuilt the full storefront layout — product listing, detail pages, and checkout flow",
-      "Redesigned the mobile experience to improve readability and reduce drop-off",
-      "Delivered a cohesive visual system — spacing, typography, and component consistency across all pages",
+      "Rebuilt product listing and detail pages — layout, hierarchy, and spacing from the ground up",
+      "Redesigned the mobile layout to improve readability and reduce scroll friction",
+      "Established a consistent visual system across all storefront pages — type, spacing, and components",
     ],
     highlights: [
-      "Full storefront rebuild delivered",
-      "Mobile layout redesigned",
-      "Checkout friction reduced",
+      "Full storefront layout rebuilt",
+      "Mobile experience redesigned",
+      "Visual system standardised",
     ],
     challenge:
-      "The existing store had inconsistent spacing, competing visual elements, and a mobile layout that made browsing frustrating. Changes had to be delivered on a live store without breaking the existing purchase flow.",
+      "The store had inconsistent layout, crowded product pages, and a mobile experience that made browsing feel slow. All changes had to ship on a live, active store.",
     solution:
-      "Rebuilt page by page — product listing first, then detail pages, then checkout. Established a consistent spacing and type system early so every subsequent page had a clear reference point.",
+      "Rebuilt page by page — listing pages first to establish the grid and hierarchy, then detail pages, then checkout. A spacing and type system was locked in early so all pages stayed consistent.",
     outcome:
-      "A live, rebuilt storefront with cleaner product presentation, better mobile rhythm, and a more trustworthy checkout experience.",
+      "A live rebuilt storefront with cleaner product presentation, faster mobile browsing, and a more premium feel across all pages.",
     metrics: [
-      { label: "Ownership", value: "Full frontend" },
       { label: "Type", value: "E-commerce" },
+      { label: "Stack", value: "Next.js" },
       { label: "Status", value: "Live" },
     ],
     links: {

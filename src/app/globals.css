@@ -12,7 +12,7 @@
   --color-accent: #e97ab2;
   --color-accent-strong: #e7c768;
   --color-teal: #67baa8;
-  --shadow-glow: 6px 6px 0 rgba(48, 38, 31, 0.78);
+  --shadow-glow: 4px 4px 0 rgba(44, 35, 28, 0.55);
 }
 
 @theme inline {

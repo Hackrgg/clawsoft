@@ -15,7 +15,7 @@ export function SiteHeader() {
           className="text-xl font-extrabold tracking-tight text-[var(--color-text)]"
         >
           DIGUZ
-          <span className="ml-1 text-4xl leading-none text-[var(--color-accent)]">.</span>
+          <span className="ml-0.5 text-2xl leading-none text-[var(--color-accent)]">.</span>
         </Link>
 
         <nav className="hidden items-center gap-8 text-sm font-semibold text-[var(--color-text)] md:flex">

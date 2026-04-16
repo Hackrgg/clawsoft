@@ -147,7 +147,7 @@ export default function Home() {
                   <p className="mb-3 font-mono text-[11px] uppercase tracking-[0.18em] text-[var(--color-muted)]">
                     Focus
                   </p>
-                  <p className="text-3xl font-black uppercase leading-tight text-[var(--color-text)]">
+                  <p className="text-2xl font-black uppercase leading-tight text-[var(--color-text)] sm:text-3xl">
                     Built To
                     <br />
                     Ship Hard
@@ -172,11 +172,11 @@ export default function Home() {
 
               <div className="grid gap-4 sm:grid-cols-3">
                 {[
-                  ["Web", "Modern websites, interfaces, and launch-ready product builds."],
-                  ["Mobile", "Cross-platform Flutter work for real products."],
-                  ["Security", "Security-aware product thinking backed by cyber experience."],
-                ].map(([title, copy]) => (
-                  <div key={title} className="brutal-border bg-[rgba(255,250,241,0.8)] p-4">
+                  ["Web", "Modern websites, interfaces, and launch-ready product builds.", "rgba(233,122,178,0.13)"],
+                  ["Mobile", "Cross-platform Flutter work for real products.", "rgba(103,186,168,0.13)"],
+                  ["Security", "Security-aware product thinking backed by cyber experience.", "rgba(231,199,104,0.18)"],
+                ].map(([title, copy, bg]) => (
+                  <div key={title} className="brutal-border p-4" style={{ backgroundColor: bg as string }}>
                     <p className="font-mono text-[11px] uppercase tracking-[0.18em] text-[var(--color-muted)]">
                       {title}
                     </p>
@@ -249,10 +249,10 @@ export default function Home() {
                     return (
                       <div
                         key={item.label}
-                        className="brutal-border flex min-h-28 flex-col justify-between bg-[rgba(255,250,241,0.82)] p-4 transition hover:-translate-y-1"
+                        className="brutal-border flex min-h-24 flex-col justify-between bg-[rgba(255,250,241,0.82)] p-4 transition hover:-translate-y-1 hover:shadow-[2px_2px_0_rgba(44,35,28,0.4)]"
                       >
-                        <Icon className="text-3xl text-[var(--color-text)]" />
-                        <span className="text-sm font-bold text-[var(--color-text)]">{item.label}</span>
+                        <Icon className="text-2xl text-[var(--color-text)]" />
+                        <span className="text-xs font-bold uppercase tracking-[0.12em] text-[var(--color-text)]">{item.label}</span>
                       </div>
                     );
                   })}
@@ -297,7 +297,7 @@ export default function Home() {
                     <span className="brutal-border bg-black px-3 py-1 font-mono text-[11px] uppercase tracking-[0.18em] text-white">
                       {project.status}
                     </span>
-                    <span className="brutal-border px-3 py-1 font-mono text-[11px] uppercase tracking-[0.18em] text-black" style={{ backgroundColor: index === 0 ? "var(--color-accent)" : index === 1 ? "var(--color-teal)" : "var(--color-accent-strong)" }}>
+                    <span className="brutal-border px-3 py-1 font-mono text-[11px] uppercase tracking-[0.18em] text-black" style={{ backgroundColor: index % 3 === 0 ? "var(--color-accent)" : index % 3 === 1 ? "var(--color-teal)" : "var(--color-accent-strong)" }}>
                       {project.category}
                     </span>
                   </div>

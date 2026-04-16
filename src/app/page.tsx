@@ -99,7 +99,7 @@ export default function Home() {
         <div className="relative mx-auto grid max-w-7xl gap-10 lg:grid-cols-[1.1fr_0.9fr] lg:items-end">
           <div className="space-y-8">
             <div className="inline-flex brutal-border bg-[var(--color-accent)] px-4 py-2 font-mono text-xs font-bold uppercase tracking-[0.24em] text-black brutal-shadow">
-              Personal portfolio
+              Available for projects
             </div>
 
             <div className="space-y-5">
@@ -111,7 +111,7 @@ export default function Home() {
                 Cyber.
               </h1>
               <p className="max-w-2xl text-base leading-7 text-[var(--color-muted)]">
-                diguz. case studies, shipped builds, modern stack, AI-assisted workflow.
+                Websites, web apps, and Flutter products — built for marketing agencies and direct clients. Modern stack, fast turnaround.
               </p>
             </div>
 
@@ -120,13 +120,13 @@ export default function Home() {
                 href="/work"
                 className="brutal-border brutal-shadow bg-white px-7 py-3 text-sm font-black uppercase tracking-[0.18em] text-[var(--color-text)] transition hover:translate-x-[2px] hover:translate-y-[2px] hover:shadow-none"
               >
-                Open Work
+                View Work
               </Link>
               <a
-                href="#stack"
+                href="mailto:onyxgymjo@gmail.com"
                 className="brutal-border brutal-shadow bg-[var(--color-accent-strong)] px-7 py-3 text-sm font-black uppercase tracking-[0.18em] text-[var(--color-text)] transition hover:translate-x-[2px] hover:translate-y-[2px] hover:shadow-none"
               >
-                View Stack
+                Get In Touch
               </a>
             </div>
           </div>
@@ -135,7 +135,7 @@ export default function Home() {
             <div className="shell brutal-shadow grid gap-4 p-6">
               <div className="flex items-center justify-between">
                 <span className="font-mono text-xs uppercase tracking-[0.24em] text-[var(--color-muted)]">
-                  Operating Profile
+                  What gets built
                 </span>
                 <span className="brutal-border bg-[rgba(255,250,241,0.84)] px-3 py-1 font-mono text-[11px] uppercase tracking-[0.18em] text-[var(--color-text)]">
                   2026
@@ -145,12 +145,14 @@ export default function Home() {
               <div className="grid gap-4 sm:grid-cols-2">
                 <div className="brutal-border bg-[rgba(255,250,241,0.84)] p-5">
                   <p className="mb-3 font-mono text-[11px] uppercase tracking-[0.18em] text-[var(--color-muted)]">
-                    Focus
+                    Approach
                   </p>
                   <p className="text-2xl font-black uppercase leading-tight text-[var(--color-text)] sm:text-3xl">
-                    Built To
+                    Fast.
                     <br />
-                    Ship Hard
+                    Clean.
+                    <br />
+                    Done.
                   </p>
                 </div>
 
@@ -172,9 +174,9 @@ export default function Home() {
 
               <div className="grid gap-4 sm:grid-cols-3">
                 {[
-                  ["Web", "Modern websites, interfaces, and launch-ready product builds.", "rgba(233,122,178,0.13)"],
-                  ["Mobile", "Cross-platform Flutter work for real products.", "rgba(103,186,168,0.13)"],
-                  ["Security", "Security-aware product thinking backed by cyber experience.", "rgba(231,199,104,0.18)"],
+                  ["Web", "Custom websites and web apps for agencies and direct clients.", "rgba(233,122,178,0.13)"],
+                  ["Mobile", "Cross-platform Flutter apps. iOS and Android from one codebase.", "rgba(103,186,168,0.13)"],
+                  ["Security", "Built security-aware. Pen-testing background, no rookie mistakes.", "rgba(231,199,104,0.18)"],
                 ].map(([title, copy, bg]) => (
                   <div key={title} className="brutal-border p-4" style={{ backgroundColor: bg as string }}>
                     <p className="font-mono text-[11px] uppercase tracking-[0.18em] text-[var(--color-muted)]">
@@ -224,7 +226,7 @@ export default function Home() {
               <div className="mb-4 flex items-center gap-4">
                 <div className="h-1 w-14 bg-[var(--color-accent)]" />
                 <span className="font-mono text-xs font-bold uppercase tracking-[0.24em] text-[var(--color-muted)]">
-                  Stack / expertise
+                  Stack / tools
                 </span>
               </div>
               <h2 className="text-3xl font-black uppercase tracking-[-0.04em] text-[var(--color-text)] sm:text-4xl">
@@ -232,8 +234,7 @@ export default function Home() {
               </h2>
             </div>
             <p className="max-w-2xl text-sm leading-7 text-[var(--color-muted)]">
-              Not backend-heavy yet. Mostly modern website and app delivery, product shipping,
-              deployment, and AI-assisted workflow.
+              Frontend-focused delivery across web and mobile. Modern stack, AI-assisted workflow, fast from concept to live URL.
             </p>
           </div>
 
@@ -270,15 +271,15 @@ export default function Home() {
               <div className="mb-4 flex items-center gap-4">
                 <div className="h-1 w-14 bg-[var(--color-accent-strong)]" />
                 <span className="font-mono text-xs font-bold uppercase tracking-[0.24em] text-[var(--color-muted)]">
-                  Selected case studies
+                  Selected work
                 </span>
               </div>
               <h2 className="text-3xl font-black uppercase tracking-[-0.04em] text-[var(--color-text)] sm:text-4xl">
-                Projects.
+                Work.
               </h2>
             </div>
             <p className="max-w-xl text-sm leading-7 text-[var(--color-muted)]">
-              All featured projects here are cleared to be displayed and shared in this portfolio.
+              Live builds and client projects. Open any one for the full breakdown.
             </p>
           </div>
 
@@ -327,14 +328,14 @@ export default function Home() {
                       href={`/work/${project.slug}`}
                       className="brutal-border brutal-shadow bg-white px-5 py-3 text-sm font-black uppercase tracking-[0.18em] text-[var(--color-text)] transition hover:translate-x-[2px] hover:translate-y-[2px] hover:shadow-none"
                     >
-                      Open Case Study
+                      Full Breakdown
                     </Link>
                     {project.links.live ? (
                       <a
                         href={project.links.live}
                         target="_blank"
                         rel="noreferrer"
-                        className="brutal-border brutal-shadow bg-[var(--color-accent)] px-5 py-3 text-sm font-black uppercase tracking-[0.18em] text-[var(--color-text)] transition hover:translate-x-[2px] hover:translate-y-[2px] hover:shadow-none"
+                        className="brutal-border brutal-shadow bg-[var(--color-accent)] px-5 py-3 text-sm font-black uppercase tracking-[0.18em] text-black transition hover:translate-x-[2px] hover:translate-y-[2px] hover:shadow-none"
                       >
                         Visit Live
                       </a>

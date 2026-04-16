@@ -2,8 +2,8 @@ import Link from "next/link";
 
 const navItems = [
   { href: "/#stack", label: "Stack" },
-  { href: "/#cases", label: "Case Studies" },
   { href: "/work", label: "Work" },
+  { href: "mailto:onyxgymjo@gmail.com", label: "Contact" },
 ];
 
 export function SiteHeader() {
@@ -18,12 +18,12 @@ export function SiteHeader() {
           <span className="ml-0.5 text-2xl leading-none text-[var(--color-accent)]">.</span>
         </Link>
 
-        <nav className="hidden items-center gap-8 text-sm font-semibold text-[var(--color-text)] md:flex">
+        <nav className="hidden items-center gap-8 md:flex">
           {navItems.map((item) => (
             <Link
               key={item.href}
               href={item.href}
-              className="transition hover:text-[var(--color-accent)]"
+              className="text-sm font-semibold text-[var(--color-text)] transition hover:text-[var(--color-accent)]"
             >
               {item.label}
             </Link>

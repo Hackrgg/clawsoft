@@ -20,7 +20,7 @@ export const metadata: Metadata = {
     template: "%s | diguz",
   },
   description:
-    "Web developer available for hire. I build websites, web apps, and browser extensions. Recent work: hackr.gg (security training platform), nimra.app (Chrome phone extension), thebedstore.shop (e-commerce). Available now.",
+    "Web developer available for hire. Websites, web apps, and browser extensions — built and shipped. Recent work: hackr.gg, nimra.app, thebedstore.shop. Available now.",
   openGraph: {
     title: "diguz — Web developer for hire",
     description:

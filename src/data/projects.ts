@@ -125,9 +125,9 @@ export const projects: Project[] = [
     status: "live",
     year: "2026",
     category: "Client project",
-    headline: "E-commerce frontend rebuild.",
+    headline: "E-commerce storefront with CMS — full build, not a template.",
     summary:
-      "Client project. Product layout redesigned from scratch — cleaner hierarchy, mobile-first, one action per screen. Live at thebedstore.shop.",
+      "Client project. Full e-commerce build — storefront, CMS for product management, cleaner layout, mobile-first. Live at thebedstore.shop.",
     intro:
       "Competing CTAs, crowded pages, no visual breathing room. Layout rebuilt: cleaner product browsing, tighter spacing, mobile done right before desktop. One clear path to checkout.",
     stack: ["Next.js", "Responsive UI", "E-commerce UX"],

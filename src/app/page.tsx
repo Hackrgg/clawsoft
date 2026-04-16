@@ -330,7 +330,7 @@ export default function Home() {
                 to build?
               </h2>
               <p className="mt-6 max-w-lg text-base leading-7 text-[var(--color-muted)]">
-                Discussing ideas, scoping projects, free calls — open to all of it.
+                Drop a message. Free call to scope the project and get it moving.
               </p>
             </div>
 

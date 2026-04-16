@@ -39,32 +39,32 @@ export const projects: Project[] = [
     status: "live",
     year: "2026",
     category: "Security training platform",
-    headline: "Stop reading about it. Hack it.",
+    headline: "Hands-on cybersecurity academy. Learn by actually breaking things.",
     summary:
-      "60+ hands-on CTF labs across SQL injection, XSS, IDOR, JWT attacks, and more. One-click lab deployment, in-browser tools, no setup or VPN needed.",
+      "Structured cybersecurity courses and live lab modules. Each module spins a vulnerable target machine — capture the flag, move to the next. No setup, no VPN, no excuses.",
     intro:
-      "Built for people who learn by doing. Each lab is a Docker-containerised vulnerable app spun live on Railway. You get a real target, a real flag, and no excuses not to practice.",
-    stack: ["Next.js", "TypeScript", "Supabase", "Railway", "Docker", "Stripe", "Tailwind CSS"],
+      "Built for people who learn by doing. Theory only goes so far. Each lab module deploys a live vulnerable target — students attack it, capture the flag, and move on. Structured learning paths cover everything from web vulnerabilities to network attacks.",
+    stack: ["Next.js", "TypeScript", "Supabase", "Stripe", "Tailwind CSS"],
     responsibilities: [
       "Frontend architecture and full UI direction",
-      "Lab orchestration interface and real-time deployment flows",
+      "Lab module interface and real-time deployment flows",
       "Visual system built for a dark, competitive security product",
     ],
     highlights: [
-      "60+ vulnerable labs",
-      "In-browser Kali toolkit",
-      "Flag-based XP and leaderboard",
+      "60+ lab modules",
+      "Live vulnerable target machines",
+      "Structured learning paths",
     ],
     challenge:
-      "Security training tools are either too dry or too abstract. Most require complex local setup that kills momentum before you even start.",
+      "Cybersecurity is hard to learn from reading alone. Most platforms are either too theoretical or require complex local setup that stops learners before they even start.",
     solution:
-      "Make it feel like a game. Real-world CVE scenarios mapped to OWASP Top 10. One click to spin a container. Guided walkthroughs unlock after solving so you always move forward.",
+      "Remove every barrier. One click deploys a live target. Guided walkthroughs unlock after solving so there is always a clear path forward. Structure keeps learners on track.",
     outcome:
-      "An active platform where learners actually hack, not just read. Structured learning paths across 30+ vulnerability types.",
+      "An active security academy where students actually practice attacks, not just read about them.",
     metrics: [
       { label: "State", value: "Live" },
-      { label: "Labs", value: "60+" },
-      { label: "Stack", value: "Next.js + Railway" },
+      { label: "Modules", value: "60+" },
+      { label: "Type", value: "Academy" },
     ],
     links: {
       live: "https://hackr.gg",
@@ -82,32 +82,32 @@ export const projects: Project[] = [
     status: "in-progress",
     year: "2026",
     category: "Browser extension",
-    headline: "A real phone number that lives in your browser.",
+    headline: "Virtual phone numbers, straight from your browser.",
     summary:
-      "Chrome extension for making and receiving calls and SMS using a virtual US, Canada, or UK number — powered by Telnyx WebRTC and Supabase.",
+      "Chrome extension to buy and use a virtual US, UK, or Canada phone number. Make calls, send and receive texts — no app, no SIM, just the browser.",
     intro:
-      "Nimra gives you a working phone line inside your browser. Click any number on any page to dial. Inbound calls ring in a popup with answer and decline. SMS inbox with full conversation threading. Pay-as-you-go, no contract.",
-    stack: ["Chrome Extension MV3", "JavaScript", "Telnyx WebRTC", "Supabase", "Stripe"],
+      "Nimra puts a real working phone number inside Chrome. Pick a number, top up credits, and start calling or texting right from the extension popup. Inbound calls ring in the browser. SMS threads stay organised in the inbox. No extra apps, no hardware.",
+    stack: ["Chrome Extension", "JavaScript", "Supabase", "Stripe"],
     responsibilities: [
-      "Full extension architecture — popup, service worker, offscreen document, and separate call window",
-      "Real-time WebRTC call handling with persistent inbound listener that survives popup close",
-      "SMS inbox with conversation threading and live delivery via Supabase Realtime",
+      "Full extension build from popup UI to background service worker",
+      "Real-time call handling with persistent inbound listener",
+      "SMS inbox with conversation threading and live delivery",
     ],
     highlights: [
       "Calls and SMS in-browser",
-      "Persistent inbound listener",
-      "Pay-as-you-go billing",
+      "US, UK, and Canada numbers",
+      "Pay-as-you-go credits",
     ],
     challenge:
-      "WebRTC state doesn't survive when a Chrome popup closes — meaning inbound calls would silently fail whenever the user navigated away.",
+      "Getting a reliable phone line usually means a separate app, a SIM card, or a business phone plan. All of that is overkill for someone who just needs a number.",
     solution:
-      "An offscreen document keeps the Telnyx listener alive in the background. A separate dedicated call window isolates the WebRTC session from the popup lifecycle entirely. Supabase Realtime handles SMS delivery without polling.",
+      "Put the whole thing in a browser extension. Buy a number, make a call, send a text — without leaving the browser. Credits are pay-as-you-go so there is no commitment.",
     outcome:
-      "Calls stay live even with the popup closed. Full working phone — calls, SMS, contacts, call history — inside a browser extension.",
+      "A working virtual phone line that lives in Chrome. Calls, texts, history, and contacts — all in the extension.",
     metrics: [
       { label: "State", value: "In progress" },
-      { label: "Voice", value: "Telnyx WebRTC" },
-      { label: "Type", value: "MV3 Extension" },
+      { label: "Numbers", value: "US / UK / CA" },
+      { label: "Type", value: "Chrome Extension" },
     ],
     links: {
       live: "https://nimra.app",
@@ -125,32 +125,32 @@ export const projects: Project[] = [
     status: "live",
     year: "2026",
     category: "E-commerce",
-    headline: "Premium beds and mattresses with a cleaner buying flow.",
+    headline: "Premium furniture and mattress store, built for easier buying.",
     summary:
-      "Jordan-based online bed and mattress retailer. Frontend work focused on trust signals, clear product hierarchy, and reducing friction through the purchase flow.",
+      "Online furniture and mattress retailer. Frontend work focused on trust, clear product layout, and a smoother path from browsing to checkout.",
     intro:
-      "E-commerce for high-consideration purchases like beds needs to earn trust fast and keep the path to checkout clean. The work here was about building that rhythm — better hierarchy, less visual clutter, and a product experience that feels premium without being heavy.",
+      "Furniture is a high-consideration purchase — customers need to trust what they see before they commit. The work here was about giving every product room to breathe, making the layout feel premium, and cutting the friction that stops people from completing a purchase.",
     stack: ["Next.js", "Ecommerce UX", "Responsive UI", "Design systems"],
     responsibilities: [
-      "Frontend structure and interaction refinement across browsing and product detail",
-      "Visual cleanup for a more premium, trustworthy commerce feel",
-      "Mobile-first layout work to improve rhythm on smaller screens",
+      "Frontend structure and interaction refinement across browsing and product pages",
+      "Visual cleanup for a more premium, trustworthy storefront feel",
+      "Mobile layout work to improve rhythm and readability on smaller screens",
     ],
     highlights: [
-      "Clearer product browsing flow",
-      "Better mobile layout rhythm",
-      "Less template feel",
+      "Cleaner product browsing",
+      "Better mobile layout",
+      "Reduced checkout friction",
     ],
     challenge:
-      "Commerce pages crowd easily — too many products, too many CTAs, not enough breathing room. The original layout made it hard to focus on any single item.",
+      "Furniture stores easily feel cluttered — too many products competing for attention, inconsistent spacing, and a layout that makes it hard to focus on any single item.",
     solution:
-      "Tighten spacing and visual hierarchy. Let each product breathe. Reduce competing calls to action on key pages so the path to purchase is obvious.",
+      "Tighten the hierarchy, give products space, and reduce competing calls to action. Let the product be the focus at every stage of the flow.",
     outcome:
-      "A cleaner storefront that makes decisions easier and the brand feel more considered.",
+      "A cleaner, more trustworthy storefront where customers can browse comfortably and reach checkout without friction.",
     metrics: [
       { label: "State", value: "Live" },
       { label: "Type", value: "E-commerce" },
-      { label: "Priority", value: "Clarity + trust" },
+      { label: "Focus", value: "Furniture + Beds" },
     ],
     links: {
       live: "https://thebedstore.shop",

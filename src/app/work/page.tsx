@@ -11,6 +11,14 @@ export default function WorkPage() {
 
       <section className="dot-grid border-b-2 border-[rgba(44,35,28,0.85)] px-5 py-16 sm:px-8 lg:px-10">
         <div className="mx-auto max-w-7xl">
+          <div className="mb-8">
+            <Link
+              href="/"
+              className="brutal-border brutal-shadow inline-flex items-center gap-2 bg-white px-4 py-2 text-xs font-bold uppercase tracking-[0.18em] text-[var(--color-text)] transition hover:translate-x-[2px] hover:translate-y-[2px] hover:shadow-none"
+            >
+              ← Back
+            </Link>
+          </div>
           <div className="mb-4 inline-flex brutal-border bg-[var(--color-accent)] px-4 py-2 font-mono text-xs font-bold uppercase tracking-[0.24em] text-black brutal-shadow">
             All work
           </div>

@@ -38,33 +38,33 @@ export const projects: Project[] = [
     url: "hackr.gg",
     status: "live",
     year: "2026",
-    category: "Security training platform",
-    headline: "Stop reading about it. Hack it.",
+    category: "Solo full-stack build",
+    headline: "Built the whole platform myself — frontend, infra, billing, everything.",
     summary:
-      "60+ hands-on CTF labs across SQL injection, XSS, IDOR, JWT attacks, and more. One-click lab deployment, in-browser tools, no setup or VPN needed.",
+      "Security training platform with 60+ live hacking labs. I designed and built everything: the UI, Docker lab orchestration on Railway, Stripe billing, and a flag-based leaderboard. Deployed and running.",
     intro:
-      "Built for people who learn by doing. Each lab is a Docker-containerised vulnerable app spun live on Railway. You get a real target, a real flag, and no excuses not to practice.",
+      "Each lab is a Docker container that spins on demand. Pick a target, get a flag, move on. I built the entire thing solo — Next.js frontend, Supabase backend, Docker orchestration on Railway, Stripe billing, XP system, leaderboard. No agency, no team.",
     stack: ["Next.js", "TypeScript", "Supabase", "Railway", "Docker", "Stripe", "Tailwind CSS"],
     responsibilities: [
-      "Frontend architecture and full UI direction",
-      "Lab orchestration interface and real-time deployment flows",
-      "Visual system built for a dark, competitive security product",
+      "Full frontend — architecture, UI, design system",
+      "Lab orchestration — real-time Docker deployment flows",
+      "Backend + billing — Supabase, Stripe, auth, leaderboard",
     ],
     highlights: [
-      "60+ vulnerable labs",
-      "In-browser Kali toolkit",
-      "Flag-based XP and leaderboard",
+      "Built and deployed solo",
+      "Docker + Railway infra",
+      "Stripe billing integrated",
     ],
     challenge:
-      "Security training tools are either too dry or too abstract. Most require complex local setup that kills momentum before you even start.",
+      "Most security training tools are either too passive or require a painful local setup. People drop off before they even start.",
     solution:
-      "Make it feel like a game. Real-world CVE scenarios mapped to OWASP Top 10. One click to spin a container. Guided walkthroughs unlock after solving so you always move forward.",
+      "One click to spin a container. Real targets, real flags. Guided walkthroughs unlock only after you solve — so you always move forward, never just read.",
     outcome:
-      "An active platform where learners actually hack, not just read. Structured learning paths across 30+ vulnerability types.",
+      "Live and running. 60+ labs across SQL injection, XSS, IDOR, JWT attacks, SSRF, and more.",
     metrics: [
-      { label: "State", value: "Live" },
+      { label: "Status", value: "Live" },
       { label: "Labs", value: "60+" },
-      { label: "Stack", value: "Next.js + Railway" },
+      { label: "Built", value: "Solo" },
     ],
     links: {
       live: "https://hackr.gg",
@@ -81,31 +81,31 @@ export const projects: Project[] = [
     url: "nimra.app",
     status: "in-progress",
     year: "2026",
-    category: "Browser extension",
-    headline: "A real phone number that lives in your browser.",
+    category: "Chrome extension",
+    headline: "Chrome MV3 extension with live WebRTC calling and SMS — built from scratch.",
     summary:
-      "Chrome extension for making and receiving calls and SMS using a virtual US, Canada, or UK number — powered by Telnyx WebRTC and Supabase.",
+      "Chrome extension for real phone calls and SMS via virtual numbers. I built the full architecture: popup, service worker, offscreen document for persistent WebRTC, a separate call window, and Supabase Realtime for live SMS.",
     intro:
-      "Nimra gives you a working phone line inside your browser. Click any number on any page to dial. Inbound calls ring in a popup with answer and decline. SMS inbox with full conversation threading. Pay-as-you-go, no contract.",
+      "The extension gives you a working phone line in the browser. Click any number on any page to call. Inbound calls ring in a popup. SMS inbox with full threading. I built every piece of it — the Chrome MV3 architecture, the WebRTC call handling, the background listener, the Stripe billing.",
     stack: ["Chrome Extension MV3", "JavaScript", "Telnyx WebRTC", "Supabase", "Stripe"],
     responsibilities: [
-      "Full extension architecture — popup, service worker, offscreen document, and separate call window",
-      "Real-time WebRTC call handling with persistent inbound listener that survives popup close",
-      "SMS inbox with conversation threading and live delivery via Supabase Realtime",
+      "Full MV3 extension architecture — popup, service worker, offscreen document, call window",
+      "WebRTC call handling with a persistent listener that survives popup close",
+      "SMS inbox with threading via Supabase Realtime — no polling",
     ],
     highlights: [
-      "Calls and SMS in-browser",
-      "Persistent inbound listener",
-      "Pay-as-you-go billing",
+      "WebRTC survives popup close",
+      "Full SMS threading",
+      "MV3 service worker architecture",
     ],
     challenge:
-      "WebRTC state doesn't survive when a Chrome popup closes — meaning inbound calls would silently fail whenever the user navigated away.",
+      "WebRTC state dies when a Chrome popup closes. That means inbound calls silently fail the moment the user navigates away — which is most of the time.",
     solution:
-      "An offscreen document keeps the Telnyx listener alive in the background. A separate dedicated call window isolates the WebRTC session from the popup lifecycle entirely. Supabase Realtime handles SMS delivery without polling.",
+      "An offscreen document holds the Telnyx listener permanently in the background. A dedicated call window runs the WebRTC session independently of the popup lifecycle. Supabase Realtime delivers SMS without polling.",
     outcome:
-      "Calls stay live even with the popup closed. Full working phone — calls, SMS, contacts, call history — inside a browser extension.",
+      "Calls stay alive with the popup closed. Full working phone line — calls, SMS, contacts, history — inside an extension.",
     metrics: [
-      { label: "State", value: "In progress" },
+      { label: "Status", value: "In progress" },
       { label: "Voice", value: "Telnyx WebRTC" },
       { label: "Type", value: "MV3 Extension" },
     ],
@@ -124,33 +124,33 @@ export const projects: Project[] = [
     url: "thebedstore.shop",
     status: "live",
     year: "2026",
-    category: "E-commerce",
-    headline: "Premium beds and mattresses with a cleaner buying flow.",
+    category: "Client project",
+    headline: "Frontend rebuild for a furniture e-commerce client.",
     summary:
-      "Jordan-based online bed and mattress retailer. Frontend work focused on trust signals, clear product hierarchy, and reducing friction through the purchase flow.",
+      "E-commerce redesign for a furniture retailer. Rebuilt the product layout, fixed mobile, and removed the template feel. Client brief: make it feel like a proper shop.",
     intro:
-      "E-commerce for high-consideration purchases like beds needs to earn trust fast and keep the path to checkout clean. The work here was about building that rhythm — better hierarchy, less visual clutter, and a product experience that feels premium without being heavy.",
-    stack: ["Next.js", "Ecommerce UX", "Responsive UI", "Design systems"],
+      "The site was doing everything at once — competing CTAs, no breathing room, product pages that made it hard to decide. I rebuilt the frontend: cleaner product hierarchy, mobile-first layout, one action per page. Less noise, easier to buy.",
+    stack: ["Next.js", "Responsive UI", "E-commerce UX"],
     responsibilities: [
-      "Frontend structure and interaction refinement across browsing and product detail",
-      "Visual cleanup for a more premium, trustworthy commerce feel",
-      "Mobile-first layout work to improve rhythm on smaller screens",
+      "Full frontend rebuild — product listing, detail pages, mobile",
+      "Visual hierarchy — cut competing CTAs, simplified each page to one action",
+      "Mobile-first — smaller screens done first, desktop scaled up from there",
     ],
     highlights: [
-      "Clearer product browsing flow",
-      "Better mobile layout rhythm",
-      "Less template feel",
+      "Full frontend rebuild",
+      "Mobile-first layout",
+      "One CTA per screen",
     ],
     challenge:
-      "Commerce pages crowd easily — too many products, too many CTAs, not enough breathing room. The original layout made it hard to focus on any single item.",
+      "The original layout crowded every page — too many products pushed at once, too many buttons competing, no clear path to checkout.",
     solution:
-      "Tighten spacing and visual hierarchy. Let each product breathe. Reduce competing calls to action on key pages so the path to purchase is obvious.",
+      "Stripped it back. Each product gets space to breathe. One primary CTA per page. Navigation that gets out of the way. Mobile done right before touching desktop.",
     outcome:
-      "A cleaner storefront that makes decisions easier and the brand feel more considered.",
+      "A cleaner storefront. The buying flow is obvious. The brand looks like it was designed, not assembled.",
     metrics: [
-      { label: "State", value: "Live" },
-      { label: "Type", value: "E-commerce" },
-      { label: "Priority", value: "Clarity + trust" },
+      { label: "Status", value: "Live" },
+      { label: "Type", value: "Client project" },
+      { label: "Focus", value: "Frontend" },
     ],
     links: {
       live: "https://thebedstore.shop",

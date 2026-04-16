@@ -133,12 +133,9 @@ export default function Home() {
 
           <div className="space-y-4">
             <div className="shell brutal-shadow p-6">
-              <div className="mb-5 flex items-center justify-between">
+              <div className="mb-5">
                 <span className="font-mono text-xs uppercase tracking-[0.24em] text-[var(--color-muted)]">
-                  Shipped in 2026
-                </span>
-                <span className="brutal-border bg-[rgba(255,250,241,0.84)] px-3 py-1 font-mono text-[11px] uppercase tracking-[0.18em] text-[var(--color-text)]">
-                  All real
+                  Recent projects
                 </span>
               </div>
 
@@ -160,7 +157,7 @@ export default function Home() {
                     name: "thebedstore.shop",
                     status: "live",
                     statusColor: "bg-[var(--color-teal)]",
-                    desc: "E-commerce rebuild for a Jordan-based retailer. Cleaner product hierarchy, better mobile flow, less template feel.",
+                    desc: "E-commerce rebuild. Cleaned up the product layout, fixed mobile, cut the template feel.",
                   },
                 ].map((project) => (
                   <div key={project.name} className="brutal-border bg-[rgba(255,250,241,0.84)] p-4">
@@ -224,7 +221,7 @@ export default function Home() {
               </h2>
             </div>
             <p className="max-w-2xl text-sm leading-7 text-[var(--color-muted)]">
-              Frontend-focused delivery across web and mobile. Modern stack, AI-assisted workflow, fast from concept to live URL.
+              Next.js, TypeScript, Supabase, Docker, Chrome extensions. I use what the project actually needs.
             </p>
           </div>
 
@@ -258,14 +255,8 @@ export default function Home() {
         <div className="mx-auto max-w-7xl">
           <div className="mb-12 flex flex-col gap-4 lg:flex-row lg:items-end lg:justify-between">
             <div>
-              <div className="mb-4 flex items-center gap-4">
-                <div className="h-1 w-14 bg-[var(--color-accent-strong)]" />
-                <span className="font-mono text-xs font-bold uppercase tracking-[0.24em] text-[var(--color-muted)]">
-                  Selected work
-                </span>
-              </div>
               <h2 className="text-3xl font-black uppercase tracking-[-0.04em] text-[var(--color-text)] sm:text-4xl">
-                Work.
+                Projects.
               </h2>
             </div>
             <p className="max-w-xl text-sm leading-7 text-[var(--color-muted)]">

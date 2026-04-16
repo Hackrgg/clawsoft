@@ -4,12 +4,12 @@ import { motion } from "framer-motion";
 import Link from "next/link";
 import {
   SiClaude,
+  SiDocker,
   SiFlutter,
   SiGithub,
   SiGraphql,
   SiNextdotjs,
   SiPostgresql,
-  SiRailway,
   SiReact,
   SiSupabase,
   SiTailwindcss,
@@ -54,7 +54,7 @@ const stackGroups = [
       { label: "Supabase", icon: SiSupabase },
       { label: "GraphQL", icon: SiGraphql },
       { label: "Vercel", icon: SiVercel },
-      { label: "Railway", icon: SiRailway },
+      { label: "Docker", icon: SiDocker },
     ],
   },
   {

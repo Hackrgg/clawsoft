@@ -38,12 +38,12 @@ export const projects: Project[] = [
     url: "hackr.gg",
     status: "live",
     year: "2026",
-    category: "Solo full-stack build",
-    headline: "Built the whole platform myself — frontend, infra, billing, everything.",
+    category: "Full-stack build",
+    headline: "Full-stack. Solo. Shipped.",
     summary:
-      "Security training platform with 60+ live hacking labs. I designed and built everything: the UI, Docker lab orchestration on Railway, Stripe billing, and a flag-based leaderboard. Deployed and running.",
+      "Next.js, Supabase, Docker, Railway, Stripe — frontend to infra. Architecture, UI, lab orchestration, billing. Every layer designed and built. Live.",
     intro:
-      "Each lab is a Docker container that spins on demand. Pick a target, get a flag, move on. I built the entire thing solo — Next.js frontend, Supabase backend, Docker orchestration on Railway, Stripe billing, XP system, leaderboard. No agency, no team.",
+      "Docker containers spin on demand. Next.js frontend, Supabase backend, Railway for orchestration, Stripe for billing, XP leaderboard. Every part of the stack covered — no handoffs, no gaps.",
     stack: ["Next.js", "TypeScript", "Supabase", "Railway", "Docker", "Stripe", "Tailwind CSS"],
     responsibilities: [
       "Full frontend — architecture, UI, design system",
@@ -51,14 +51,14 @@ export const projects: Project[] = [
       "Backend + billing — Supabase, Stripe, auth, leaderboard",
     ],
     highlights: [
-      "Built and deployed solo",
+      "Full-stack, solo build",
       "Docker + Railway infra",
-      "Stripe billing integrated",
+      "Stripe + Supabase",
     ],
     challenge:
-      "Most security training tools are either too passive or require a painful local setup. People drop off before they even start.",
+      "Security training tools are either too passive or require a painful local setup. People drop off before starting.",
     solution:
-      "One click to spin a container. Real targets, real flags. Guided walkthroughs unlock only after you solve — so you always move forward, never just read.",
+      "One click spins a container. Real targets, real flags. Walkthroughs unlock only after solving — forward momentum, no passive reading.",
     outcome:
       "Live and running. 60+ labs across SQL injection, XSS, IDOR, JWT attacks, SSRF, and more.",
     metrics: [
@@ -82,11 +82,11 @@ export const projects: Project[] = [
     status: "in-progress",
     year: "2026",
     category: "Chrome extension",
-    headline: "Chrome MV3 extension with live WebRTC calling and SMS — built from scratch.",
+    headline: "Chrome MV3 — WebRTC calling, SMS, persistent background architecture.",
     summary:
-      "Chrome extension for real phone calls and SMS via virtual numbers. I built the full architecture: popup, service worker, offscreen document for persistent WebRTC, a separate call window, and Supabase Realtime for live SMS.",
+      "MV3 Chrome extension. Full architecture: popup, service worker, offscreen document, dedicated call window. Telnyx WebRTC for voice, Supabase Realtime for SMS, Stripe for billing.",
     intro:
-      "The extension gives you a working phone line in the browser. Click any number on any page to call. Inbound calls ring in a popup. SMS inbox with full threading. I built every piece of it — the Chrome MV3 architecture, the WebRTC call handling, the background listener, the Stripe billing.",
+      "Click any number on any page to call. Inbound calls ring in the extension. SMS with full threading. The architecture keeps WebRTC alive in the background — call state survives popup close, no dropped connections.",
     stack: ["Chrome Extension MV3", "JavaScript", "Telnyx WebRTC", "Supabase", "Stripe"],
     responsibilities: [
       "Full MV3 extension architecture — popup, service worker, offscreen document, call window",
@@ -99,11 +99,11 @@ export const projects: Project[] = [
       "MV3 service worker architecture",
     ],
     challenge:
-      "WebRTC state dies when a Chrome popup closes. That means inbound calls silently fail the moment the user navigates away — which is most of the time.",
+      "WebRTC state dies when a Chrome popup closes. Inbound calls silently fail the moment the user navigates away.",
     solution:
       "An offscreen document holds the Telnyx listener permanently in the background. A dedicated call window runs the WebRTC session independently of the popup lifecycle. Supabase Realtime delivers SMS without polling.",
     outcome:
-      "Calls stay alive with the popup closed. Full working phone line — calls, SMS, contacts, history — inside an extension.",
+      "Calls stay alive with the popup closed. Full phone line — calls, SMS, contacts, history — inside an extension.",
     metrics: [
       { label: "Status", value: "In progress" },
       { label: "Voice", value: "Telnyx WebRTC" },
@@ -125,16 +125,16 @@ export const projects: Project[] = [
     status: "live",
     year: "2026",
     category: "Client project",
-    headline: "Frontend rebuild for a furniture e-commerce client.",
+    headline: "E-commerce frontend rebuild.",
     summary:
-      "E-commerce redesign for a furniture retailer. Rebuilt the product layout, fixed mobile, and removed the template feel. Client brief: make it feel like a proper shop.",
+      "Client project. Product layout redesigned from scratch — cleaner hierarchy, mobile-first, one action per screen. Live at thebedstore.shop.",
     intro:
-      "The site was doing everything at once — competing CTAs, no breathing room, product pages that made it hard to decide. I rebuilt the frontend: cleaner product hierarchy, mobile-first layout, one action per page. Less noise, easier to buy.",
+      "Competing CTAs, crowded pages, no visual breathing room. Layout rebuilt: cleaner product browsing, tighter spacing, mobile done right before desktop. One clear path to checkout.",
     stack: ["Next.js", "Responsive UI", "E-commerce UX"],
     responsibilities: [
-      "Full frontend rebuild — product listing, detail pages, mobile",
-      "Visual hierarchy — cut competing CTAs, simplified each page to one action",
-      "Mobile-first — smaller screens done first, desktop scaled up from there",
+      "Full layout rebuild — product listing, detail pages, mobile",
+      "Visual hierarchy — cut competing CTAs, one action per page",
+      "Mobile-first — smaller screens built first, desktop scaled from there",
     ],
     highlights: [
       "Full frontend rebuild",
@@ -142,11 +142,11 @@ export const projects: Project[] = [
       "One CTA per screen",
     ],
     challenge:
-      "The original layout crowded every page — too many products pushed at once, too many buttons competing, no clear path to checkout.",
+      "Every page was crowded — too many products pushed at once, competing buttons, no clear path to checkout.",
     solution:
-      "Stripped it back. Each product gets space to breathe. One primary CTA per page. Navigation that gets out of the way. Mobile done right before touching desktop.",
+      "Stripped it back. Each product gets room. One primary action per page. Navigation that stays out of the way. Mobile done before desktop.",
     outcome:
-      "A cleaner storefront. The buying flow is obvious. The brand looks like it was designed, not assembled.",
+      "Cleaner storefront. The buying flow is obvious. Looks designed, not assembled.",
     metrics: [
       { label: "Status", value: "Live" },
       { label: "Type", value: "Client project" },

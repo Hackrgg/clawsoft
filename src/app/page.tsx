@@ -111,7 +111,7 @@ export default function Home() {
                 Cyber.
               </h1>
               <p className="max-w-2xl text-base leading-7 text-[var(--color-muted)]">
-                I build websites, web apps, and browser extensions that actually ship. Three products live in 2026 — a security training platform, a Chrome phone extension, and a client e-commerce rebuild. If you need something built properly, I'm available now.
+                Websites, web apps, browser extensions — built and shipped. Three projects live in 2026. Available for new work now.
               </p>
             </div>
 
@@ -221,7 +221,7 @@ export default function Home() {
               </h2>
             </div>
             <p className="max-w-2xl text-sm leading-7 text-[var(--color-muted)]">
-              Next.js, TypeScript, Supabase, Docker, Chrome extensions. I use what the project actually needs.
+              Next.js, TypeScript, Supabase, Docker, Chrome extensions. The right tool for the project — nothing more.
             </p>
           </div>
 
@@ -260,7 +260,7 @@ export default function Home() {
               </h2>
             </div>
             <p className="max-w-xl text-sm leading-7 text-[var(--color-muted)]">
-              Things I actually built and shipped. Each one has a full breakdown — what it does, what the hard parts were, and what I delivered.
+              Built and shipped. Each project has a full breakdown — stack, decisions, outcome.
             </p>
           </div>
 
@@ -341,7 +341,7 @@ export default function Home() {
                 to build?
               </h2>
               <p className="mt-6 max-w-lg text-base leading-7 text-[var(--color-muted)]">
-                Direct communication. No going quiet mid-project. I ship what I say I'll ship, on the timeline we agree on. If you have a website, web app, or product in mind — just email me.
+                Direct communication. No going quiet mid-project. Ships on the agreed timeline. Website, web app, or browser extension — get in touch.
               </p>
             </div>
 

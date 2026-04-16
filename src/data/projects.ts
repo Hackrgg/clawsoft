@@ -149,8 +149,8 @@ export const projects: Project[] = [
       "Cleaner storefront. The buying flow is obvious. Looks designed, not assembled.",
     metrics: [
       { label: "Status", value: "Live" },
-      { label: "Type", value: "Client project" },
-      { label: "Focus", value: "Frontend" },
+      { label: "Stack", value: "Next.js" },
+      { label: "Layout", value: "Mobile-first" },
     ],
     links: {
       live: "https://thebedstore.shop",

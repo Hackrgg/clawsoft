@@ -63,8 +63,8 @@ export const projects: Project[] = [
       "Live and running. 60+ labs across SQL injection, XSS, IDOR, JWT attacks, SSRF, and more.",
     metrics: [
       { label: "Status", value: "Live" },
-      { label: "Labs", value: "60+" },
-      { label: "Built", value: "Solo" },
+      { label: "Scope", value: "Full-stack" },
+      { label: "Role", value: "Solo" },
     ],
     links: {
       live: "https://hackr.gg",

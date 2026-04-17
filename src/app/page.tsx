@@ -1,22 +1,22 @@
 "use client";
 
 import { motion } from "framer-motion";
-import Image from "next/image";
 import Link from "next/link";
 import {
   SiClaude,
+  SiDocker,
   SiFlutter,
   SiGithub,
   SiGraphql,
   SiNextdotjs,
   SiPostgresql,
-  SiRailway,
   SiReact,
   SiSupabase,
   SiTailwindcss,
   SiTypescript,
   SiVercel,
 } from "react-icons/si";
+import { BookingWidget } from "@/components/booking-widget";
 import { SiteHeader } from "@/components/site-header";
 import { getProjects } from "@/data/projects";
 
@@ -30,7 +30,7 @@ const marqueeItems = [
   "SUPABASE",
   "GRAPHQL",
   "VERCEL",
-  "RAILWAY",
+  "DOCKER",
   "POSTGRES",
   "CLAUDE CODE",
   "GITHUB",
@@ -39,7 +39,7 @@ const marqueeItems = [
 
 const stackGroups = [
   {
-    title: "Web Stack",
+    title: "Frontend",
     tone: "bg-[var(--color-accent)] text-black",
     items: [
       { label: "Next.js", icon: SiNextdotjs },
@@ -49,17 +49,17 @@ const stackGroups = [
     ],
   },
   {
-    title: "Data + Deploy",
+    title: "Backend + Infra",
     tone: "bg-[var(--color-accent-strong)] text-black",
     items: [
       { label: "Supabase", icon: SiSupabase },
       { label: "GraphQL", icon: SiGraphql },
       { label: "Vercel", icon: SiVercel },
-      { label: "Railway", icon: SiRailway },
+      { label: "Docker", icon: SiDocker },
     ],
   },
   {
-    title: "Mobile + Workflow",
+    title: "Mobile + Tools",
     tone: "bg-[var(--color-teal)] text-black",
     items: [
       { label: "Flutter", icon: SiFlutter },
@@ -101,8 +101,8 @@ export default function Home() {
           <div className="space-y-8">
             <div className="inline-flex items-center gap-2 brutal-border bg-[var(--color-accent)] px-4 py-2 font-mono text-xs font-bold uppercase tracking-[0.24em] text-black brutal-shadow">
               <span className="relative flex h-2 w-2">
-                <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-[#3a8c6e] opacity-60" />
-                <span className="relative inline-flex h-2 w-2 rounded-full bg-[#3a8c6e]" />
+                <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-[#22c55e] opacity-75" style={{ animationDuration: "2s" }} />
+                <span className="relative inline-flex h-2 w-2 rounded-full bg-[#22c55e]" />
               </span>
               Available for projects
             </div>
@@ -111,88 +111,70 @@ export default function Home() {
               <h1 className="text-balance text-5xl font-black uppercase leading-[0.92] tracking-[-0.06em] text-[var(--color-text)] sm:text-6xl lg:text-[6rem]">
                 Web.
                 <br />
-                Flutter.
+                Mobile.
                 <br />
-                Cyber.
+                Security.
               </h1>
               <p className="max-w-2xl text-base leading-7 text-[var(--color-muted)]">
-                Websites, web apps, and Flutter products — built for marketing agencies and direct clients. Modern stack, fast turnaround.
+                Websites, web apps, browser extensions — built and shipped. Available for new work now.
               </p>
             </div>
 
-            <div className="space-y-3">
-              <div className="flex flex-wrap gap-4">
-                <Link
-                  href="/work"
-                  className="brutal-border brutal-shadow bg-white px-7 py-3 text-sm font-black uppercase tracking-[0.18em] text-[var(--color-text)] transition hover:translate-x-[2px] hover:translate-y-[2px] hover:shadow-none"
-                >
-                  View Work
-                </Link>
-                <a
-                  href="mailto:onyxgymjo@gmail.com"
-                  className="brutal-border brutal-shadow bg-[var(--color-accent-strong)] px-7 py-3 text-sm font-black uppercase tracking-[0.18em] text-[var(--color-text)] transition hover:translate-x-[2px] hover:translate-y-[2px] hover:shadow-none"
-                >
-                  Get In Touch
-                </a>
-              </div>
-              <p className="text-sm leading-7 text-[var(--color-muted)]">
-                Product-focused web builder with Next.js, Flutter range, and a security-aware mindset.
-              </p>
+            <div className="flex flex-wrap gap-4">
+              <Link
+                href="/work"
+                className="brutal-border brutal-shadow bg-white px-7 py-3 text-sm font-black uppercase tracking-[0.18em] text-[var(--color-text)] transition hover:translate-x-[2px] hover:translate-y-[2px] hover:shadow-none"
+              >
+                View Work
+              </Link>
+              <a
+                href="https://wa.me/962797205018"
+                className="brutal-border brutal-shadow bg-[var(--color-accent-strong)] px-7 py-3 text-sm font-black uppercase tracking-[0.18em] text-[var(--color-text)] transition hover:translate-x-[2px] hover:translate-y-[2px] hover:shadow-none"
+              >
+                WhatsApp
+              </a>
             </div>
           </div>
 
           <div className="space-y-4">
-            <div className="shell brutal-shadow grid gap-4 p-6">
-              <div className="flex items-center justify-between">
+            <div className="shell brutal-shadow p-6">
+              <div className="mb-5">
                 <span className="font-mono text-xs uppercase tracking-[0.24em] text-[var(--color-muted)]">
-                  What gets built
-                </span>
-                <span className="brutal-border bg-[rgba(255,250,241,0.84)] px-3 py-1 font-mono text-[11px] uppercase tracking-[0.18em] text-[var(--color-text)]">
-                  2026
+                  Recent projects
                 </span>
               </div>
 
-              <div className="grid gap-4 sm:grid-cols-2">
-                <div className="brutal-border bg-[rgba(255,250,241,0.84)] p-5">
-                  <p className="mb-3 font-mono text-[11px] uppercase tracking-[0.18em] text-[var(--color-muted)]">
-                    Approach
-                  </p>
-                  <p className="text-2xl font-black uppercase leading-tight text-[var(--color-text)] sm:text-3xl">
-                    Fast.
-                    <br />
-                    Clean.
-                    <br />
-                    Done.
-                  </p>
-                </div>
-
-                <div className="grid gap-4">
-                  <div className="brutal-border bg-[linear-gradient(135deg,#ea83b7_0%,#f3a7cf_100%)] p-4 text-[var(--color-text)]">
-                    <p className="font-mono text-[11px] uppercase tracking-[0.18em]">
-                      Stack
-                    </p>
-                    <p className="pt-2 text-lg font-black uppercase">Next.js / Flutter</p>
-                  </div>
-                  <div className="brutal-border bg-[linear-gradient(135deg,#71c1af_0%,#9fddd0_100%)] p-4 text-[var(--color-text)]">
-                    <p className="font-mono text-[11px] uppercase tracking-[0.18em]">
-                      Workflow
-                    </p>
-                    <p className="pt-2 text-lg font-black uppercase">GitHub / Claude Code</p>
-                  </div>
-                </div>
-              </div>
-
-              <div className="grid gap-4 sm:grid-cols-3">
+              <div className="space-y-3">
                 {[
-                  ["Web", "Custom websites and web apps for agencies and direct clients.", "rgba(233,122,178,0.13)"],
-                  ["Mobile", "Cross-platform Flutter apps. iOS and Android from one codebase.", "rgba(103,186,168,0.13)"],
-                  ["Security", "Built security-aware. Pen-testing background, no rookie mistakes.", "rgba(231,199,104,0.18)"],
-                ].map(([title, copy, bg]) => (
-                  <div key={title} className="brutal-border p-4" style={{ backgroundColor: bg as string }}>
-                    <p className="font-mono text-[11px] uppercase tracking-[0.18em] text-[var(--color-muted)]">
-                      {title}
-                    </p>
-                    <p className="pt-2 text-sm leading-6 text-[var(--color-text)]">{copy}</p>
+                  {
+                    name: "hackr.gg",
+                    status: "live",
+                    statusColor: "bg-[var(--color-teal)]",
+                    desc: "Security training platform. 60+ Docker-based hacking labs, in-browser Kali toolkit, Stripe billing, XP leaderboard. Built and shipped solo.",
+                  },
+                  {
+                    name: "nimra.app",
+                    status: "in dev",
+                    statusColor: "bg-[var(--color-accent-strong)]",
+                    desc: "Chrome extension. A full working phone line — real calls and SMS — inside your browser. WebRTC + Supabase Realtime, persistent background listener.",
+                  },
+                  {
+                    name: "thebedstore.shop",
+                    status: "live",
+                    statusColor: "bg-[var(--color-teal)]",
+                    desc: "E-commerce rebuild. Cleaned up the product layout, fixed mobile, cut the template feel.",
+                  },
+                ].map((project) => (
+                  <div key={project.name} className="brutal-border bg-[rgba(255,250,241,0.84)] p-4">
+                    <div className="mb-2 flex items-center justify-between">
+                      <span className="text-sm font-black uppercase tracking-[0.06em] text-[var(--color-text)]">
+                        {project.name}
+                      </span>
+                      <span className={`brutal-border px-2 py-0.5 font-mono text-[10px] uppercase tracking-[0.14em] text-black ${project.statusColor}`}>
+                        {project.status}
+                      </span>
+                    </div>
+                    <p className="text-xs leading-5 text-[var(--color-muted)]">{project.desc}</p>
                   </div>
                 ))}
               </div>
@@ -231,31 +213,20 @@ export default function Home() {
         className="cross-hatch border-b-2 border-[rgba(44,35,28,0.85)] px-5 py-14 sm:px-8 lg:px-10"
       >
         <div className="mx-auto max-w-7xl">
-          <div className="mb-12 flex flex-col gap-4 lg:flex-row lg:items-end lg:justify-between">
-            <div>
-              <div className="mb-4 flex items-center gap-4">
-                <div className="h-1 w-14 bg-[var(--color-accent)]" />
-                <span className="font-mono text-xs font-bold uppercase tracking-[0.24em] text-[var(--color-muted)]">
-                  Stack / tools
-                </span>
-              </div>
-              <h2 className="text-3xl font-black uppercase tracking-[-0.04em] text-[var(--color-text)] sm:text-4xl">
-                Tech stack.
-              </h2>
-            </div>
-            <p className="max-w-2xl text-sm leading-7 text-[var(--color-muted)]">
-              Frontend-focused delivery across web and mobile. Modern stack, AI-assisted workflow, fast from concept to live URL.
-            </p>
+          <div className="mb-12">
+            <h2 className="text-3xl font-black uppercase tracking-[-0.04em] text-[var(--color-text)] sm:text-4xl">
+              Tech stack.
+            </h2>
           </div>
 
           <div className="grid gap-8 lg:grid-cols-3">
             {stackGroups.map((group) => (
               <div key={group.title} className="shell brutal-shadow p-6">
-                <div className={`inline-flex brutal-border px-4 py-2 text-xs font-black uppercase tracking-[0.2em] ${group.tone}`}>
+                <div className={`inline-flex brutal-border mb-6 px-4 py-2 text-xs font-black uppercase tracking-[0.2em] ${group.tone}`}>
                   {group.title}
                 </div>
-                <div className="mt-6 grid grid-cols-2 gap-4">
-                  {group.items.map((item) => {
+                <div className="grid grid-cols-2 gap-4">
+                {group.items.map((item) => {
                     const Icon = item.icon;
                     return (
                       <div
@@ -278,18 +249,12 @@ export default function Home() {
         <div className="mx-auto max-w-7xl">
           <div className="mb-12 flex flex-col gap-4 lg:flex-row lg:items-end lg:justify-between">
             <div>
-              <div className="mb-4 flex items-center gap-4">
-                <div className="h-1 w-14 bg-[var(--color-accent-strong)]" />
-                <span className="font-mono text-xs font-bold uppercase tracking-[0.24em] text-[var(--color-muted)]">
-                  Selected work
-                </span>
-              </div>
               <h2 className="text-3xl font-black uppercase tracking-[-0.04em] text-[var(--color-text)] sm:text-4xl">
-                Work.
+                Projects.
               </h2>
             </div>
             <p className="max-w-xl text-sm leading-7 text-[var(--color-muted)]">
-              Live builds and client projects. Open any one for the full breakdown.
+              All projects shown with permission. Live links available where applicable.
             </p>
           </div>
 
@@ -297,17 +262,10 @@ export default function Home() {
             {projects.map((project, index) => (
               <article
                 key={project.slug}
-                className="shell brutal-shadow grid gap-8 p-6 lg:grid-cols-[80px_1fr_0.8fr] lg:p-8"
+                className="shell brutal-shadow grid gap-8 p-6 lg:grid-cols-[0.12fr_1fr_0.8fr] lg:p-8"
               >
-                <div className="flex flex-col gap-4">
-                  <span className="font-mono text-xs uppercase tracking-[0.24em] text-[var(--color-muted)]">
-                    {String(index + 1).padStart(2, "0")}
-                  </span>
-                  {project.logo && (
-                    <div className="flex items-center justify-center">
-                      <Image src={project.logo} alt={project.name} width={80} height={80} className="h-[68px] w-auto object-contain" />
-                    </div>
-                  )}
+                <div className="font-mono text-xs uppercase tracking-[0.24em] text-[var(--color-muted)]">
+                  {String(index + 1).padStart(2, "0")}
                 </div>
 
                 <div className="space-y-5">
@@ -362,6 +320,19 @@ export default function Home() {
               </article>
             ))}
           </div>
+        </div>
+      </section>
+      <section className="dot-grid border-t-2 border-[rgba(44,35,28,0.85)] px-5 py-20 sm:px-8 lg:px-10">
+        <div className="mx-auto max-w-7xl">
+          <div className="mb-10">
+            <div className="mb-4 inline-flex brutal-border bg-[var(--color-accent-strong)] px-4 py-2 font-mono text-xs font-bold uppercase tracking-[0.24em] text-black brutal-shadow">
+              Available now
+            </div>
+            <h2 className="text-4xl font-black uppercase leading-[0.92] tracking-[-0.05em] text-[var(--color-text)] sm:text-5xl">
+              Book a call.
+            </h2>
+          </div>
+          <BookingWidget />
         </div>
       </section>
     </main>

@@ -39,33 +39,33 @@ export const projects: Project[] = [
     url: "hackr.gg",
     status: "live",
     year: "2026",
-    category: "Security training platform",
-    headline: "Full-stack cybersecurity learning platform — built and shipped to production.",
+    category: "Full-stack build",
+    headline: "Docker containers for live vulnerable machines — Next.js, Supabase, Stripe wired on top.",
     summary:
-      "A structured security academy with live lab modules, user progression, and payment access control. Built with Next.js, Supabase, and Stripe — fully live and in active use.",
+      "Next.js, Supabase, Docker, Railway, Stripe — frontend to infra. Architecture, UI, lab orchestration, billing. Every layer designed and built. Live.",
     intro:
-      "The platform needed a real-time lab system, a structured course layout, user authentication, payment gating, and a progression engine — all working together in production. Each piece was built and integrated from scratch.",
-    stack: ["Next.js", "TypeScript", "Supabase", "Stripe", "Tailwind CSS"],
+      "Docker containers spin on demand. Next.js frontend, Supabase backend, Railway for orchestration, Stripe for billing, XP leaderboard. Every part of the stack covered — no handoffs, no gaps.",
+    stack: ["Next.js", "TypeScript", "Supabase", "Railway", "Docker", "Stripe", "Tailwind CSS"],
     responsibilities: [
-      "Built the full frontend — routing, UI system, and all course and lab interfaces",
-      "Implemented real-time lab deployment flow with live state tracking and flag submission",
-      "Integrated Stripe payment gating, Supabase auth, and a full XP and leaderboard system",
+      "Full frontend — architecture, UI, design system",
+      "Lab orchestration — real-time Docker deployment flows",
+      "Backend + billing — Supabase, Stripe, auth, leaderboard",
     ],
     highlights: [
-      "60+ lab modules in production",
-      "Real-time lab state and flag system",
-      "Stripe + auth + XP — all integrated",
+      "Full-stack, solo build",
+      "Docker + Railway infra",
+      "Stripe + Supabase",
     ],
     challenge:
-      "Getting real-time lab state, payment access control, and user progression to work reliably together — without any one system blocking another.",
+      "Security training tools are either too passive or require a painful local setup. People drop off before starting.",
     solution:
-      "Each system was scoped and built independently with clean interfaces between them. Lab state handled separately from auth, payments decoupled from progression. Integration done layer by layer.",
+      "One click spins a container. Real targets, real flags. Walkthroughs unlock only after solving — forward momentum, no passive reading.",
     outcome:
-      "A live, fully operational security platform — real users, active labs, and a working payment system in production.",
+      "Live and running. 60+ labs across SQL injection, XSS, IDOR, JWT attacks, SSRF, and more.",
     metrics: [
-      { label: "Labs", value: "60+" },
-      { label: "Stack", value: "Next.js + Supabase" },
       { label: "Status", value: "Live" },
+      { label: "Scope", value: "Full-stack" },
+      { label: "Role", value: "Solo" },
     ],
     logo: "/logos/hackr-gg.png",
     links: {
@@ -83,41 +83,83 @@ export const projects: Project[] = [
     url: "nimra.app",
     status: "in-progress",
     year: "2026",
-    category: "Browser extension",
-    headline: "Chrome extension that turns your browser into a working virtual phone.",
+    category: "Chrome extension",
+    headline: "Chrome MV3 — WebRTC calling, SMS, persistent background architecture.",
     summary:
-      "A Chrome MV3 extension with real call handling, SMS inbox, contacts, and pay-as-you-go billing. Built on WebRTC and Supabase — calls and texts work directly from the browser.",
+      "MV3 Chrome extension. Full architecture: popup, service worker, offscreen document, dedicated call window. Telnyx WebRTC for voice, Supabase Realtime for SMS, Stripe for billing.",
     intro:
-      "The extension needed live calling, inbound call handling, a full SMS inbox, contacts management, and a billing system — all running inside the browser with no native app. The core technical challenge was keeping call state alive across the extension lifecycle.",
-    stack: ["Chrome Extension MV3", "JavaScript", "Supabase", "Stripe"],
+      "Click any number on any page to call. Inbound calls ring in the extension. SMS with full threading. The architecture keeps WebRTC alive in the background — call state survives popup close, no dropped connections.",
+    stack: ["Chrome Extension MV3", "JavaScript", "Telnyx WebRTC", "Supabase", "Stripe"],
     responsibilities: [
-      "Built the full extension — popup UI, background service worker, persistent offscreen listener, and dedicated call window",
-      "Solved live call persistence across popup close using an offscreen document architecture",
-      "Shipped the SMS inbox with conversation threading, contacts, call history, and Stripe credit billing",
+      "Full MV3 extension architecture — popup, service worker, offscreen document, call window",
+      "WebRTC call handling with a persistent listener that survives popup close",
+      "SMS inbox with threading via Supabase Realtime — no polling",
     ],
     highlights: [
-      "Live calls and SMS from the browser",
-      "Persistent inbound call listener",
-      "Full billing and contacts system",
+      "WebRTC survives popup close",
+      "Full SMS threading",
+      "MV3 service worker architecture",
     ],
     challenge:
-      "Chrome's MV3 lifecycle terminates background state when the popup closes — meaning inbound calls would silently drop whenever the user navigated away.",
+      "WebRTC state dies when a Chrome popup closes. Inbound calls silently fail the moment the user navigates away.",
     solution:
-      "A three-layer architecture: offscreen document holds the persistent listener, a dedicated call window owns the WebRTC session, and the popup handles UI only. Each layer isolated with a single responsibility.",
+      "An offscreen document holds the Telnyx listener permanently in the background. A dedicated call window runs the WebRTC session independently of the popup lifecycle. Supabase Realtime delivers SMS without polling.",
     outcome:
-      "Calls stay live regardless of popup state. A fully working phone system — calls, SMS, contacts, history, and billing — running inside a browser extension.",
+      "Calls stay alive with the popup closed. Full phone line — calls, SMS, contacts, history — inside an extension.",
     metrics: [
-      { label: "Type", value: "Chrome Extension" },
-      { label: "Stack", value: "WebRTC + Supabase" },
       { label: "Status", value: "In progress" },
+      { label: "Voice", value: "Telnyx WebRTC" },
+      { label: "Type", value: "MV3 Extension" },
     ],
     logo: "/logos/nimra.png",
-    links: {
-      live: "https://nimra.app",
-    },
+    links: {},
     palette: {
       glow: "from-white/8 via-white/0 to-transparent",
       accent: "#dbdbd5",
+      surface: "rgba(16, 16, 18, 0.92)",
+    },
+  },
+  {
+    slug: "the-bed-store",
+    name: "The Bed Store",
+    url: "thebedstore.shop",
+    status: "live",
+    year: "2026",
+    category: "Client project",
+    headline: "E-commerce storefront with custom CMS for product management.",
+    summary:
+      "Client project. Full e-commerce build — storefront, CMS for product management, cleaner layout, mobile-first. Live at thebedstore.shop.",
+    intro:
+      "Competing CTAs, crowded pages, no visual breathing room. Layout rebuilt: cleaner product browsing, tighter spacing, mobile done right before desktop. One clear path to checkout.",
+    stack: ["Next.js", "CMS", "E-commerce UX", "Responsive UI"],
+    responsibilities: [
+      "Full layout rebuild — product listing, detail pages, mobile",
+      "Visual hierarchy — cut competing CTAs, one action per page",
+      "Mobile-first — smaller screens built first, desktop scaled from there",
+    ],
+    highlights: [
+      "Full frontend rebuild",
+      "Mobile-first layout",
+      "One CTA per screen",
+    ],
+    challenge:
+      "Every page was crowded — too many products pushed at once, competing buttons, no clear path to checkout.",
+    solution:
+      "Stripped it back. Each product gets room. One primary action per page. Navigation that stays out of the way. Mobile done before desktop.",
+    outcome:
+      "Cleaner storefront. The buying flow is obvious. Looks designed, not assembled.",
+    metrics: [
+      { label: "Status", value: "Live" },
+      { label: "Stack", value: "Next.js" },
+      { label: "Layout", value: "Mobile-first" },
+    ],
+    logo: "/logos/the-bed-store.png",
+    links: {
+      live: "https://thebedstore.shop",
+    },
+    palette: {
+      glow: "from-white/8 via-white/0 to-transparent",
+      accent: "#d8d8d2",
       surface: "rgba(16, 16, 18, 0.92)",
     },
   },
@@ -163,50 +205,6 @@ export const projects: Project[] = [
       glow: "from-white/8 via-white/0 to-transparent",
       accent: "#c8c8c2",
       surface: "rgba(20, 18, 14, 0.92)",
-    },
-  },
-  {
-    slug: "the-bed-store",
-    name: "The Bed Store",
-    url: "thebedstore.shop",
-    status: "live",
-    year: "2026",
-    category: "E-commerce",
-    headline: "Frontend rebuild of a live furniture and mattress ecommerce store.",
-    summary:
-      "Full frontend rebuild of an active ecommerce store selling furniture and mattresses. Redesigned product layout, mobile experience, and checkout flow — delivered on a live site.",
-    intro:
-      "The store needed a layout overhaul without disrupting the live purchase flow. Product pages, listing layout, mobile responsiveness, and the visual system were all rebuilt with a focus on clarity and reducing friction to checkout.",
-    stack: ["Next.js", "Ecommerce UX", "Responsive UI", "Design systems"],
-    responsibilities: [
-      "Rebuilt product listing and detail pages — layout, hierarchy, and spacing from the ground up",
-      "Redesigned the mobile layout to improve readability and reduce scroll friction",
-      "Established a consistent visual system across all storefront pages — type, spacing, and components",
-    ],
-    highlights: [
-      "Full storefront layout rebuilt",
-      "Mobile experience redesigned",
-      "Visual system standardised",
-    ],
-    challenge:
-      "The store had inconsistent layout, crowded product pages, and a mobile experience that made browsing feel slow. All changes had to ship on a live, active store.",
-    solution:
-      "Rebuilt page by page — listing pages first to establish the grid and hierarchy, then detail pages, then checkout. A spacing and type system was locked in early so all pages stayed consistent.",
-    outcome:
-      "A live rebuilt storefront with cleaner product presentation, faster mobile browsing, and a more premium feel across all pages.",
-    metrics: [
-      { label: "Type", value: "E-commerce" },
-      { label: "Stack", value: "Next.js" },
-      { label: "Status", value: "Live" },
-    ],
-    logo: "/logos/the-bed-store.png",
-    links: {
-      live: "https://thebedstore.shop",
-    },
-    palette: {
-      glow: "from-white/8 via-white/0 to-transparent",
-      accent: "#d8d8d2",
-      surface: "rgba(16, 16, 18, 0.92)",
     },
   },
 ];

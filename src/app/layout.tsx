@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import { IBM_Plex_Mono, Sora } from "next/font/google";
+import { WhatsAppWidget } from "@/components/whatsapp-widget";
 import "./globals.css";
 
 const sora = Sora({
@@ -16,24 +17,24 @@ const ibmPlexMono = IBM_Plex_Mono({
 export const metadata: Metadata = {
   metadataBase: new URL("https://diguz.com"),
   title: {
-    default: "diguz",
+    default: "diguz — Web developer for hire",
     template: "%s | diguz",
   },
   description:
-    "A project-first portfolio for diguz featuring technical products, case studies, and evolving experiments.",
+    "Web developer available for hire. Websites, web apps, and browser extensions — built and shipped. Recent work: hackr.gg, nimra.app, thebedstore.shop. Available now.",
   openGraph: {
-    title: "diguz",
+    title: "diguz — Web developer for hire",
     description:
-      "Dark, technical, project-led portfolio featuring hackr.gg, nimra.app, and thebedstore.shop.",
+      "Web developer available for hire. Shipped hackr.gg, nimra.app, and thebedstore.shop in 2026. Next.js, TypeScript, Supabase, Chrome extensions.",
     url: "https://diguz.com",
     siteName: "diguz",
     type: "website",
   },
   twitter: {
     card: "summary_large_image",
-    title: "diguz",
+    title: "diguz — Web developer for hire",
     description:
-      "Dark, technical, project-led portfolio featuring hackr.gg, nimra.app, and thebedstore.shop.",
+      "Web developer available for hire. Shipped hackr.gg, nimra.app, and thebedstore.shop in 2026.",
   },
 };
 
@@ -49,6 +50,7 @@ export default function RootLayout({
     >
       <body className="min-h-full flex flex-col bg-[var(--color-bg)] text-[var(--color-text)]">
         {children}
+        <WhatsAppWidget />
       </body>
     </html>
   );

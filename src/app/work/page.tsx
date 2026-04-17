@@ -1,5 +1,5 @@
-import Image from "next/image";
 import Link from "next/link";
+
 import { SiteHeader } from "@/components/site-header";
 import { getProjects } from "@/data/projects";
 
@@ -12,23 +12,23 @@ export default function WorkPage() {
 
       <section className="dot-grid border-b-2 border-[rgba(44,35,28,0.85)] px-5 py-16 sm:px-8 lg:px-10">
         <div className="mx-auto max-w-7xl">
-          <div className="mb-8">
+          <div className="mb-6 flex flex-wrap gap-3">
             <Link
               href="/"
-              className="brutal-border brutal-shadow inline-flex items-center gap-2 bg-white px-4 py-2 text-xs font-bold uppercase tracking-[0.18em] text-[var(--color-text)] transition hover:translate-x-[2px] hover:translate-y-[2px] hover:shadow-none"
+              className="brutal-border brutal-shadow bg-white px-4 py-2 text-sm font-bold uppercase tracking-[0.18em] text-[var(--color-text)] transition hover:translate-x-[2px] hover:translate-y-[2px] hover:shadow-none"
             >
-              ← Back
+              Back
             </Link>
-          </div>
-          <div className="mb-4 inline-flex brutal-border bg-[var(--color-accent)] px-4 py-2 font-mono text-xs font-bold uppercase tracking-[0.24em] text-black brutal-shadow">
-            All work
+            <span className="brutal-border bg-[var(--color-accent)] px-4 py-2 font-mono text-xs font-bold uppercase tracking-[0.24em] text-black brutal-shadow">
+              All work
+            </span>
           </div>
           <div className="grid gap-6 lg:grid-cols-[1.05fr_0.95fr] lg:items-end">
             <h1 className="text-4xl font-black uppercase tracking-[-0.05em] text-[var(--color-text)] sm:text-5xl">
               Builds and case studies.
             </h1>
             <p className="max-w-xl text-sm leading-7 text-[var(--color-muted)]">
-              Real projects. Full breakdowns. Live links where available.
+              Full breakdown on each — stack, decisions, outcome. Live links where deployed.
             </p>
           </div>
         </div>
@@ -39,17 +39,10 @@ export default function WorkPage() {
           {projects.map((project, index) => (
             <article
               key={project.slug}
-              className="shell brutal-shadow grid gap-8 p-6 lg:grid-cols-[80px_1fr_0.85fr] lg:p-8"
+              className="shell brutal-shadow grid gap-8 p-6 lg:grid-cols-[0.12fr_0.95fr_0.93fr] lg:p-8"
             >
-              <div className="flex flex-col gap-4">
-                <span className="font-mono text-xs uppercase tracking-[0.24em] text-[var(--color-muted)]">
-                  {String(index + 1).padStart(2, "0")}
-                </span>
-                {project.logo && (
-                  <div className="flex items-center justify-center">
-                    <Image src={project.logo} alt={project.name} width={80} height={80} className="h-[68px] w-auto object-contain" />
-                  </div>
-                )}
+              <div className="font-mono text-xs uppercase tracking-[0.24em] text-[var(--color-muted)]">
+                {String(index + 1).padStart(2, "0")}
               </div>
 
               <div className="space-y-5">

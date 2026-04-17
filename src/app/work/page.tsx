@@ -39,10 +39,15 @@ export default function WorkPage() {
           {projects.map((project, index) => (
             <article
               key={project.slug}
-              className="shell brutal-shadow grid gap-8 p-6 lg:grid-cols-[0.12fr_0.95fr_0.93fr] lg:p-8"
+              className="shell brutal-shadow grid gap-8 p-6 lg:grid-cols-[80px_1fr_0.85fr] lg:p-8"
             >
-              <div className="font-mono text-xs uppercase tracking-[0.24em] text-[var(--color-muted)]">
-                {String(index + 1).padStart(2, "0")}
+              <div className="flex flex-col items-start gap-3">
+                <span className="font-mono text-xs uppercase tracking-[0.24em] text-[var(--color-muted)]">
+                  {String(index + 1).padStart(2, "0")}
+                </span>
+                {project.logo && (
+                  <Image src={project.logo} alt={project.name} width={60} height={60} className="h-12 w-auto object-contain" />
+                )}
               </div>
 
               <div className="space-y-5">
@@ -56,11 +61,6 @@ export default function WorkPage() {
                 </div>
 
                 <div>
-                  {project.logo && (
-                    <div className="mb-3">
-                      <Image src={project.logo} alt={project.name} width={48} height={48} className="h-10 w-auto object-contain" />
-                    </div>
-                  )}
                   <h2 className="text-2xl font-black text-[var(--color-text)] sm:text-3xl">{project.name}</h2>
                   <p className="pt-3 text-base leading-7 text-[var(--color-muted)]">
                     {project.headline}

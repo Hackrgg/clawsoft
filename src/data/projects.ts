@@ -119,6 +119,49 @@ export const projects: Project[] = [
     },
   },
   {
+    slug: "onyx-gym",
+    name: "Onyx Gym",
+    url: "onyxgym.net",
+    status: "live",
+    year: "2026",
+    category: "Gym + coach marketplace",
+    headline: "Frontend for a gym brand and coach marketplace — built and shipped.",
+    summary:
+      "A gym platform with a full coach marketplace. Members browse and book coaches, coaches manage their profiles and services. Built on Next.js and Supabase.",
+    intro:
+      "The platform needed two distinct surfaces — a public-facing gym site and a functional coach marketplace where users can discover, filter, and book coaches. Both had to feel like one cohesive product.",
+    stack: ["Next.js", "TypeScript", "Supabase", "Tailwind CSS"],
+    responsibilities: [
+      "Built the full frontend — gym landing, coach listings, and individual coach profile pages",
+      "Implemented coach marketplace with filtering, service listings, and booking flow",
+      "Connected Supabase for coach profiles, availability, and user data",
+    ],
+    highlights: [
+      "Gym site and marketplace in one",
+      "Coach profiles and booking flow",
+      "Supabase-powered backend",
+    ],
+    challenge:
+      "Combining a brand-forward gym site with a functional marketplace without one undermining the other — the gym needed to feel premium, the marketplace needed to feel practical.",
+    solution:
+      "Kept the two surfaces visually consistent but structurally separate. The gym site focuses on brand and conversion, the marketplace on clarity and ease of booking.",
+    outcome:
+      "A live platform at onyxgym.net — gym branding and a working coach marketplace running together in production.",
+    metrics: [
+      { label: "Type", value: "Gym + Marketplace" },
+      { label: "Stack", value: "Next.js + Supabase" },
+      { label: "Status", value: "Live" },
+    ],
+    links: {
+      live: "https://onyxgym.net",
+    },
+    palette: {
+      glow: "from-white/8 via-white/0 to-transparent",
+      accent: "#c8c8c2",
+      surface: "rgba(20, 18, 14, 0.92)",
+    },
+  },
+  {
     slug: "the-bed-store",
     name: "The Bed Store",
     url: "thebedstore.shop",

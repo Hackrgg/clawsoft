@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import Image from "next/image";
 import Link from "next/link";
 import { notFound } from "next/navigation";
 import { SiteHeader } from "@/components/site-header";
@@ -65,6 +66,11 @@ export default async function ProjectPage({ params }: ProjectPageProps) {
                   {project.category}
                 </span>
               </div>
+              {project.logo && (
+                <div className="mb-4">
+                  <Image src={project.logo} alt={project.name} width={64} height={64} className="h-12 w-auto object-contain" />
+                </div>
+              )}
               <h1 className="text-4xl font-black uppercase tracking-[-0.05em] text-[var(--color-text)] sm:text-5xl">
                 {project.name}
               </h1>

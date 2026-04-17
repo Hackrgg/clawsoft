@@ -1,3 +1,4 @@
+import Image from "next/image";
 import Link from "next/link";
 import { SiteHeader } from "@/components/site-header";
 import { getProjects } from "@/data/projects";
@@ -55,6 +56,11 @@ export default function WorkPage() {
                 </div>
 
                 <div>
+                  {project.logo && (
+                    <div className="mb-3">
+                      <Image src={project.logo} alt={project.name} width={48} height={48} className="h-10 w-auto object-contain" />
+                    </div>
+                  )}
                   <h2 className="text-2xl font-black text-[var(--color-text)] sm:text-3xl">{project.name}</h2>
                   <p className="pt-3 text-base leading-7 text-[var(--color-muted)]">
                     {project.headline}

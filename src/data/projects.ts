@@ -20,6 +20,7 @@ export type Project = {
     label: string;
     value: string;
   }[];
+  logo?: string;
   links: {
     live?: string;
     caseStudy?: string;
@@ -66,6 +67,7 @@ export const projects: Project[] = [
       { label: "Stack", value: "Next.js + Supabase" },
       { label: "Status", value: "Live" },
     ],
+    logo: "/logos/hackr-gg.png",
     links: {
       live: "https://hackr.gg",
     },
@@ -109,6 +111,7 @@ export const projects: Project[] = [
       { label: "Stack", value: "WebRTC + Supabase" },
       { label: "Status", value: "In progress" },
     ],
+    logo: "/logos/nimra.png",
     links: {
       live: "https://nimra.app",
     },
@@ -152,6 +155,7 @@ export const projects: Project[] = [
       { label: "Stack", value: "Next.js + Supabase" },
       { label: "Status", value: "Live" },
     ],
+    logo: "/logos/onyx-gym.png",
     links: {
       live: "https://onyxgym.net",
     },

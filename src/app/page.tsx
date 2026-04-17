@@ -1,6 +1,7 @@
 "use client";
 
 import { motion } from "framer-motion";
+import Image from "next/image";
 import Link from "next/link";
 import {
   SiClaude,
@@ -313,6 +314,11 @@ export default function Home() {
                   </div>
 
                   <div>
+                    {project.logo && (
+                      <div className="mb-3">
+                        <Image src={project.logo} alt={project.name} width={48} height={48} className="h-10 w-auto object-contain" />
+                      </div>
+                    )}
                     <h3 className="text-2xl font-black text-[var(--color-text)] sm:text-3xl">{project.name}</h3>
                     <p className="pt-3 text-base leading-7 text-[var(--color-muted)]">
                       {project.headline}

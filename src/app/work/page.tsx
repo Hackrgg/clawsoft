@@ -1,5 +1,6 @@
 import Link from "next/link";
 
+import { SiteFooter } from "@/components/site-footer";
 import { SiteHeader } from "@/components/site-header";
 import { getProjects } from "@/data/projects";
 
@@ -39,10 +40,22 @@ export default function WorkPage() {
           {projects.map((project, index) => (
             <article
               key={project.slug}
-              className="shell brutal-shadow grid gap-8 p-6 lg:grid-cols-[0.12fr_0.95fr_0.93fr] lg:p-8"
+              className="shell brutal-shadow grid gap-8 p-6 lg:grid-cols-[80px_0.95fr_0.93fr] lg:p-8"
             >
-              <div className="font-mono text-xs uppercase tracking-[0.24em] text-[var(--color-muted)]">
-                {String(index + 1).padStart(2, "0")}
+              <div className="relative h-full min-h-[100px]">
+                <span className="absolute top-0 left-0 font-mono text-xs uppercase tracking-[0.24em] text-[var(--color-muted)]">
+                  {String(index + 1).padStart(2, "0")}
+                </span>
+                {project.logo && (
+                  <div className="absolute inset-0 flex items-center justify-center">
+                    {/* eslint-disable-next-line @next/next/no-img-element */}
+                    <img
+                      src={project.logo}
+                      alt={project.name}
+                      style={{ width: 68, height: 68, objectFit: "contain" }}
+                    />
+                  </div>
+                )}
               </div>
 
               <div className="space-y-5">
@@ -98,6 +111,7 @@ export default function WorkPage() {
           ))}
         </div>
       </section>
+      <SiteFooter />
     </main>
   );
 }

@@ -1,7 +1,9 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import { notFound } from "next/navigation";
+import { SiteFooter } from "@/components/site-footer";
 import { SiteHeader } from "@/components/site-header";
+import { ProjectGallery } from "@/components/project-gallery";
 import { getProject, getProjects } from "@/data/projects";
 
 type ProjectPageProps = {
@@ -16,16 +18,10 @@ export async function generateStaticParams() {
   }));
 }
 
-export async function generateMetadata({
-  params,
-}: ProjectPageProps): Promise<Metadata> {
+export async function generateMetadata({ params }: ProjectPageProps): Promise<Metadata> {
   const { slug } = await params;
   const project = getProject(slug);
-
-  if (!project) {
-    return { title: "Project not found" };
-  }
-
+  if (!project) return { title: "Project not found" };
   return {
     title: `${project.name} Case Study`,
     description: project.summary,
@@ -36,16 +32,16 @@ export default async function ProjectPage({ params }: ProjectPageProps) {
   const { slug } = await params;
   const project = getProject(slug);
 
-  if (!project) {
-    notFound();
-  }
+  if (!project) notFound();
 
   return (
     <main className="min-h-screen bg-[var(--color-bg)]">
       <SiteHeader />
 
       <section className="dot-grid border-b-2 border-[rgba(44,35,28,0.85)] px-5 py-16 sm:px-8 lg:px-10">
-        <div className="mx-auto max-w-7xl">
+        <div className="mx-auto max-w-7xl space-y-10">
+
+          {/* Top row: title left, summary right */}
           <div className="grid gap-8 lg:grid-cols-[1.05fr_0.95fr] lg:items-start">
             <div className="space-y-6">
               <div className="flex flex-wrap gap-3">
@@ -67,9 +63,15 @@ export default async function ProjectPage({ params }: ProjectPageProps) {
                 <p className="mb-4 font-mono text-xs uppercase tracking-[0.24em] text-[var(--color-muted)]">
                   {project.category}
                 </p>
-                <h1 className="text-4xl font-black uppercase tracking-[-0.05em] text-[var(--color-text)] sm:text-5xl">
-                  {project.name}
-                </h1>
+                <div className="flex items-center gap-5">
+                  {project.logo && (
+                    // eslint-disable-next-line @next/next/no-img-element
+                    <img src={project.logo} alt={project.name} style={{ width: 68, height: 68, objectFit: "contain", flexShrink: 0 }} />
+                  )}
+                  <h1 className="text-4xl font-black uppercase tracking-[-0.05em] text-[var(--color-text)] sm:text-5xl">
+                    {project.name}
+                  </h1>
+                </div>
                 <p className="max-w-3xl pt-4 text-base leading-7 text-[var(--color-muted)]">
                   {project.headline}
                 </p>
@@ -95,6 +97,10 @@ export default async function ProjectPage({ params }: ProjectPageProps) {
               </div>
             </div>
           </div>
+
+          {/* Gallery — full width under the title */}
+          <ProjectGallery screenshots={project.screenshots} name={project.name} />
+
         </div>
       </section>
 
@@ -119,7 +125,7 @@ export default async function ProjectPage({ params }: ProjectPageProps) {
 
             <div className="shell p-6">
               <p className="mb-4 font-mono text-xs uppercase tracking-[0.24em] text-[var(--color-muted)]">
-                Role
+                What Was Built
               </p>
               <div className="space-y-3">
                 {project.responsibilities.map((item) => (
@@ -193,6 +199,7 @@ export default async function ProjectPage({ params }: ProjectPageProps) {
           </div>
         </div>
       </section>
+      <SiteFooter />
     </main>
   );
 }

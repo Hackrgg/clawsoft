@@ -21,6 +21,7 @@ export type Project = {
     value: string;
   }[];
   logo?: string;
+  screenshots?: string[];
   links: {
     live?: string;
     caseStudy?: string;
@@ -35,26 +36,26 @@ export type Project = {
 export const projects: Project[] = [
   {
     slug: "hackr-gg",
-    name: "hackr.gg",
+    name: "Hackr.gg",
     url: "hackr.gg",
     status: "live",
     year: "2026",
     category: "Full-stack build",
-    headline: "Docker containers for live vulnerable machines — Next.js, Supabase, Stripe wired on top.",
+    headline: "A live security training platform — browser-based hacking labs, real targets, billing, and a leaderboard. Built from scratch and running in production.",
     summary:
-      "Next.js, Supabase, Docker, Railway, Stripe — frontend to infra. Architecture, UI, lab orchestration, billing. Every layer designed and built. Live.",
+      "A full web platform where users spin up real vulnerable environments in one click, solve challenges, and track progress on a leaderboard. Subscription billing, user auth, 60+ labs. Everything designed and built — frontend to infrastructure.",
     intro:
       "Docker containers spin on demand. Next.js frontend, Supabase backend, Railway for orchestration, Stripe for billing, XP leaderboard. Every part of the stack covered — no handoffs, no gaps.",
     stack: ["Next.js", "TypeScript", "Supabase", "Railway", "Docker", "Stripe", "Tailwind CSS"],
     responsibilities: [
-      "Full frontend — architecture, UI, design system",
-      "Lab orchestration — real-time Docker deployment flows",
-      "Backend + billing — Supabase, Stripe, auth, leaderboard",
+      "Frontend — full architecture, UI, and design system from scratch",
+      "Lab infrastructure — real-time Docker container deployment on demand",
+      "Backend, auth, billing, and XP leaderboard — end to end",
     ],
     highlights: [
-      "Full-stack, solo build",
-      "Docker + Railway infra",
-      "Stripe + Supabase",
+      "60+ live hacking labs",
+      "One-click container spin-up",
+      "Billing + auth + leaderboard",
     ],
     challenge:
       "Security training tools are either too passive or require a painful local setup. People drop off before starting.",
@@ -64,10 +65,17 @@ export const projects: Project[] = [
       "Live and running. 60+ labs across SQL injection, XSS, IDOR, JWT attacks, SSRF, and more.",
     metrics: [
       { label: "Status", value: "Live" },
-      { label: "Scope", value: "Full-stack" },
-      { label: "Role", value: "Solo" },
+      { label: "Type", value: "Web Platform" },
+      { label: "Labs", value: "60+" },
     ],
     logo: "/logos/hackr-gg.png",
+    screenshots: [
+      "/screenshots/hackr-1.png",
+      "/screenshots/hackr-2.png",
+      "/screenshots/hackr-3.png",
+      "/screenshots/hackr-4.png",
+      "/screenshots/hackr-5.png",
+    ],
     links: {
       live: "https://hackr.gg",
     },
@@ -79,26 +87,26 @@ export const projects: Project[] = [
   },
   {
     slug: "nimra",
-    name: "Nimra",
+    name: "Nimra - Click to Call",
     url: "nimra.app",
     status: "in-progress",
     year: "2026",
     category: "Chrome extension",
-    headline: "Chrome MV3 — WebRTC calling, SMS, persistent background architecture.",
+    headline: "A phone line that lives in your browser — call and text from any webpage, without switching apps or picking up your phone.",
     summary:
-      "MV3 Chrome extension. Full architecture: popup, service worker, offscreen document, dedicated call window. Telnyx WebRTC for voice, Supabase Realtime for SMS, Stripe for billing.",
+      "A Chrome extension that turns your browser into a full phone line. Click any number on any page to call. Inbound calls ring directly in the browser. SMS with full threading, real-time updates. Billing built in. Works while you browse.",
     intro:
       "Click any number on any page to call. Inbound calls ring in the extension. SMS with full threading. The architecture keeps WebRTC alive in the background — call state survives popup close, no dropped connections.",
     stack: ["Chrome Extension MV3", "JavaScript", "Telnyx WebRTC", "Supabase", "Stripe"],
     responsibilities: [
-      "Full MV3 extension architecture — popup, service worker, offscreen document, call window",
-      "WebRTC call handling with a persistent listener that survives popup close",
-      "SMS inbox with threading via Supabase Realtime — no polling",
+      "Full Chrome extension — click any number on any webpage to call instantly",
+      "Persistent call handling — calls stay live even when the extension popup is closed",
+      "SMS inbox with full threading — no page refresh, updates in real time",
     ],
     highlights: [
-      "WebRTC survives popup close",
-      "Full SMS threading",
-      "MV3 service worker architecture",
+      "Calls + SMS in the browser",
+      "Works on any webpage",
+      "Real-time — no polling",
     ],
     challenge:
       "WebRTC state dies when a Chrome popup closes. Inbound calls silently fail the moment the user navigates away.",
@@ -107,9 +115,51 @@ export const projects: Project[] = [
     outcome:
       "Calls stay alive with the popup closed. Full phone line — calls, SMS, contacts, history — inside an extension.",
     metrics: [
-      { label: "Status", value: "In progress" },
-      { label: "Voice", value: "Telnyx WebRTC" },
-      { label: "Type", value: "MV3 Extension" },
+      { label: "Status", value: "In Development" },
+      { label: "Type", value: "Browser Extension" },
+      { label: "Platform", value: "Chrome" },
+    ],
+    logo: "/logos/nimra.png",
+    links: {},
+    palette: {
+      glow: "from-white/8 via-white/0 to-transparent",
+      accent: "#dbdbd5",
+      surface: "rgba(16, 16, 18, 0.92)",
+    },
+  },
+  {
+    slug: "nimra-mobile",
+    name: "Nimra Mobile",
+    url: "nimra.app",
+    status: "in-progress",
+    year: "2026",
+    category: "Mobile application",
+    headline: "A full phone line in your pocket — calls, SMS, and an eSIM built into a native mobile app. No physical SIM required.",
+    summary:
+      "Where the browser extension puts a phone line in Chrome, the mobile app puts one in your pocket. Native Flutter build: calls, SMS, eSIM provisioning, and contacts — all without a physical SIM. One number, any device.",
+    intro:
+      "The mobile app is a different product entirely. eSIM provisioning means users get a real number without a carrier or a SIM card. Calls and SMS run natively on device. Built in Flutter — one codebase, iOS and Android.",
+    stack: ["Flutter", "Dart", "Supabase", "Stripe"],
+    responsibilities: [
+      "Native mobile app — calls, SMS, and contacts built for iOS and Android",
+      "eSIM provisioning — users get a real number without a physical SIM card",
+      "Shared backend — same Supabase infrastructure powering both the app and the browser extension",
+    ],
+    highlights: [
+      "eSIM — no physical SIM",
+      "iOS + Android from one codebase",
+      "Calls, SMS, contacts native",
+    ],
+    challenge:
+      "eSIM provisioning on mobile is a different beast from WebRTC in a browser — carrier-level integrations, device profiles, and platform-specific APIs across iOS and Android.",
+    solution:
+      "Flutter handles the cross-platform layer. The eSIM flow abstracts the provisioning complexity behind a clean activation screen. Supabase ties the mobile app and the browser extension to one account and one number.",
+    outcome:
+      "In active development. Both surfaces — browser and mobile — share the same backend and phone number, making Nimra a genuinely cross-platform communication tool.",
+    metrics: [
+      { label: "Status", value: "In Development" },
+      { label: "Type", value: "Mobile App" },
+      { label: "Platform", value: "iOS + Android" },
     ],
     logo: "/logos/nimra.png",
     links: {},
@@ -126,21 +176,21 @@ export const projects: Project[] = [
     status: "live",
     year: "2026",
     category: "Client project",
-    headline: "E-commerce storefront with custom CMS for product management.",
+    headline: "An e-commerce rebuild that cleared the clutter — cleaner product pages, one path to checkout, and a mobile experience that actually works.",
     summary:
-      "Client project. Full e-commerce build — storefront, CMS for product management, cleaner layout, mobile-first. Live at thebedstore.shop.",
+      "The original store was crowded and hard to navigate on mobile. Full rebuild: product listings, detail pages, and checkout flow redesigned around one goal — making it easy to buy. Mobile-first throughout. Live and running.",
     intro:
       "Competing CTAs, crowded pages, no visual breathing room. Layout rebuilt: cleaner product browsing, tighter spacing, mobile done right before desktop. One clear path to checkout.",
     stack: ["Next.js", "CMS", "E-commerce UX", "Responsive UI"],
     responsibilities: [
-      "Full layout rebuild — product listing, detail pages, mobile",
-      "Visual hierarchy — cut competing CTAs, one action per page",
-      "Mobile-first — smaller screens built first, desktop scaled from there",
+      "Full storefront rebuild — product listings, detail pages, checkout flow",
+      "Simplified buying journey — one clear action per page, no competing buttons",
+      "Mobile-first — built for phones first, desktop scaled up from there",
     ],
     highlights: [
-      "Full frontend rebuild",
+      "Cleaner product browsing",
       "Mobile-first layout",
-      "One CTA per screen",
+      "Clear path to checkout",
     ],
     challenge:
       "Every page was crowded — too many products pushed at once, competing buttons, no clear path to checkout.",
@@ -150,8 +200,8 @@ export const projects: Project[] = [
       "Cleaner storefront. The buying flow is obvious. Looks designed, not assembled.",
     metrics: [
       { label: "Status", value: "Live" },
-      { label: "Stack", value: "Next.js" },
-      { label: "Layout", value: "Mobile-first" },
+      { label: "Type", value: "E-commerce" },
+      { label: "Focus", value: "Conversion" },
     ],
     logo: "/logos/the-bed-store.png",
     links: {
@@ -170,21 +220,21 @@ export const projects: Project[] = [
     status: "live",
     year: "2026",
     category: "Gym + coach marketplace",
-    headline: "Frontend for a gym brand and coach marketplace — built and shipped.",
+    headline: "A gym brand site and coach marketplace in one — browse coaches, check availability, and book sessions without leaving the page.",
     summary:
-      "A gym platform with a full coach marketplace. Members browse and book coaches, coaches manage their profiles and services. Built on Next.js and Supabase.",
+      "Two products in one: a premium brand site for the gym, and a fully functional marketplace where members discover and book coaches. Coach profiles, service listings, availability, and bookings — all live and connected to a real backend.",
     intro:
       "The platform needed two distinct surfaces — a public-facing gym site and a functional coach marketplace where users can discover, filter, and book coaches. Both had to feel like one cohesive product.",
     stack: ["Next.js", "TypeScript", "Supabase", "Tailwind CSS"],
     responsibilities: [
-      "Built the full frontend — gym landing, coach listings, and individual coach profile pages",
-      "Implemented coach marketplace with filtering, service listings, and booking flow",
-      "Connected Supabase for coach profiles, availability, and user data",
+      "Brand site — gym landing page built for conversion and premium feel",
+      "Coach marketplace — browse, filter, and book coaches in one flow",
+      "Live data — coach profiles, availability, and bookings connected to a real backend",
     ],
     highlights: [
-      "Gym site and marketplace in one",
-      "Coach profiles and booking flow",
-      "Supabase-powered backend",
+      "Gym brand + marketplace",
+      "Coach booking flow",
+      "Live and in production",
     ],
     challenge:
       "Combining a brand-forward gym site with a functional marketplace without one undermining the other — the gym needed to feel premium, the marketplace needed to feel practical.",
@@ -193,9 +243,9 @@ export const projects: Project[] = [
     outcome:
       "A live platform at onyxgym.net — gym branding and a working coach marketplace running together in production.",
     metrics: [
-      { label: "Type", value: "Gym + Marketplace" },
-      { label: "Stack", value: "Next.js + Supabase" },
       { label: "Status", value: "Live" },
+      { label: "Type", value: "Web Platform" },
+      { label: "Surfaces", value: "Brand + Marketplace" },
     ],
     logo: "/logos/onyx-gym.png",
     links: {

@@ -3,7 +3,6 @@
 import { motion } from "framer-motion";
 import Link from "next/link";
 import {
-  SiClaude,
   SiDocker,
   SiFlutter,
   SiGithub,
@@ -11,12 +10,14 @@ import {
   SiNextdotjs,
   SiPostgresql,
   SiReact,
+  SiFirebase,
   SiSupabase,
   SiTailwindcss,
   SiTypescript,
   SiVercel,
 } from "react-icons/si";
 import { BookingWidget } from "@/components/booking-widget";
+import { SiteFooter } from "@/components/site-footer";
 import { SiteHeader } from "@/components/site-header";
 import { getProjects } from "@/data/projects";
 
@@ -32,7 +33,7 @@ const marqueeItems = [
   "VERCEL",
   "DOCKER",
   "POSTGRES",
-  "CLAUDE CODE",
+  "FIREBASE",
   "GITHUB",
   "CYBERSECURITY",
 ];
@@ -65,7 +66,7 @@ const stackGroups = [
       { label: "Flutter", icon: SiFlutter },
       { label: "GitHub", icon: SiGithub },
       { label: "Postgres", icon: SiPostgresql },
-      { label: "Claude Code", icon: SiClaude },
+      { label: "Firebase", icon: SiFirebase },
     ],
   },
 ];
@@ -113,10 +114,10 @@ export default function Home() {
                 <br />
                 Mobile.
                 <br />
-                Security.
+                Shipped.
               </h1>
               <p className="max-w-2xl text-base leading-7 text-[var(--color-muted)]">
-                Websites, web apps, browser extensions — built and shipped. Available for new work now.
+                A web studio that builds and delivers — websites, web apps, mobile apps, browser extensions. Whatever the project needs, scoped and shipped.
               </p>
             </div>
 
@@ -131,7 +132,7 @@ export default function Home() {
                 href="https://wa.me/962797205018"
                 className="brutal-border brutal-shadow bg-[var(--color-accent-strong)] px-7 py-3 text-sm font-black uppercase tracking-[0.18em] text-[var(--color-text)] transition hover:translate-x-[2px] hover:translate-y-[2px] hover:shadow-none"
               >
-                WhatsApp
+                Let's Build
               </a>
             </div>
           </div>
@@ -184,10 +185,9 @@ export default function Home() {
       </section>
 
       <section className="overflow-hidden border-b-2 border-[rgba(44,35,28,0.85)] bg-[var(--color-text)] py-4">
-        <motion.div
-          className="whitespace-nowrap text-sm font-black uppercase tracking-[0.26em] sm:text-base"
-          animate={{ x: ["0%", "-50%"] }}
-          transition={{ duration: 22, ease: "linear", repeat: Infinity }}
+        <div
+          className="flex whitespace-nowrap text-sm font-black uppercase tracking-[0.26em] sm:text-base"
+          style={{ animation: "marquee 22s linear infinite", width: "max-content" }}
         >
           {[...marqueeItems, ...marqueeItems].map((item, index) => (
             <span key={`${item}-${index}`} className="mx-4">
@@ -205,7 +205,40 @@ export default function Home() {
               <span className="ml-4 text-white/40">-</span>
             </span>
           ))}
-        </motion.div>
+        </div>
+      </section>
+
+      <section id="about" className="border-b-2 border-[rgba(44,35,28,0.85)] px-5 py-16 sm:px-8 lg:px-10">
+        <div className="mx-auto max-w-7xl">
+          <div className="grid gap-12 lg:grid-cols-[1fr_1fr] lg:items-start">
+            <div className="space-y-6">
+              <p className="font-mono text-xs uppercase tracking-[0.28em] text-[var(--color-muted)]">About</p>
+              <h2 className="text-3xl font-black uppercase tracking-[-0.04em] text-[var(--color-text)] sm:text-4xl">
+                A studio that builds,<br />not just designs.
+              </h2>
+              <p className="text-base leading-8 text-[var(--color-muted)]">
+                DIGUZ is a web studio. The work covers the full build — from brief to a live, working product. Websites, web apps, browser extensions, mobile apps. No fixed industry, no minimum budget tier — the scope depends on what the project actually needs.
+              </p>
+              <p className="text-base leading-8 text-[var(--color-muted)]">
+                Projects are handled using modern tools and a direct process: scope it, build it, ship it. No handoff chains, no account managers. Direct communication from start to delivery.
+              </p>
+            </div>
+
+            <div className="grid gap-4 sm:grid-cols-2">
+              {[
+                { label: "Websites", desc: "Marketing sites, landing pages, e-commerce. Built to convert and easy to maintain." },
+                { label: "Web Apps", desc: "Full-stack products with auth, databases, payments — whatever the feature set requires." },
+                { label: "Mobile Apps", desc: "Cross-platform mobile builds with Flutter. One codebase, iOS and Android." },
+                { label: "Extensions", desc: "Browser extensions — Chrome MV3, background workers, real-time integrations." },
+              ].map(({ label, desc }) => (
+                <div key={label} className="brutal-border bg-[rgba(255,250,241,0.82)] p-5 space-y-2">
+                  <p className="font-mono text-[11px] font-bold uppercase tracking-[0.2em] text-[var(--color-text)]">{label}</p>
+                  <p className="text-sm leading-6 text-[var(--color-muted)]">{desc}</p>
+                </div>
+              ))}
+            </div>
+          </div>
+        </div>
       </section>
 
       <section
@@ -262,10 +295,18 @@ export default function Home() {
             {projects.map((project, index) => (
               <article
                 key={project.slug}
-                className="shell brutal-shadow grid gap-8 p-6 lg:grid-cols-[0.12fr_1fr_0.8fr] lg:p-8"
+                className="shell brutal-shadow grid gap-8 p-6 lg:grid-cols-[80px_1fr_0.8fr] lg:p-8"
               >
-                <div className="font-mono text-xs uppercase tracking-[0.24em] text-[var(--color-muted)]">
-                  {String(index + 1).padStart(2, "0")}
+                <div className="relative h-full min-h-[100px]">
+                  <span className="absolute top-0 left-0 font-mono text-xs uppercase tracking-[0.24em] text-[var(--color-muted)]">
+                    {String(index + 1).padStart(2, "0")}
+                  </span>
+                  {project.logo && (
+                    <div className="absolute inset-0 flex items-center justify-center">
+                      {/* eslint-disable-next-line @next/next/no-img-element */}
+                      <img src={project.logo} alt={project.name} style={{ width: 68, height: 68, objectFit: "contain" }} />
+                    </div>
+                  )}
                 </div>
 
                 <div className="space-y-5">
@@ -322,6 +363,56 @@ export default function Home() {
           </div>
         </div>
       </section>
+      <section className="border-t-2 border-[rgba(44,35,28,0.85)] py-16 overflow-hidden">
+        <p className="mb-10 px-5 font-mono text-[11px] uppercase tracking-[0.28em] text-[var(--color-muted)] sm:px-8 lg:px-10">What clients say</p>
+        <div className="relative">
+          <div
+            className="flex gap-6"
+            style={{ animation: "marquee 28s linear infinite", width: "max-content" }}
+          >
+            {[...Array(2)].map((_, setIndex) =>
+              [
+                {
+                  quote: "Fast turnaround, quality work, and actually followed up throughout. Clear on what was being built and when — delivered exactly on time.",
+                  name: "The Bed Store",
+                  url: "thebedstore.shop",
+                  logo: "/logos/the-bed-store.png",
+                },
+                {
+                  quote: "Prices are fair and the quality is top notch. Knew what we needed, built it right, and didn't disappear after delivery.",
+                  name: "Onyx Gym",
+                  url: "onyxgym.net",
+                  logo: "/logos/onyx-gym.png",
+                },
+                {
+                  quote: "Brought a complex idea and it got built properly. The technical side was handled without back and forth — communication was clear the whole way through and it was delivered as agreed.",
+                  name: "Nimra",
+                  url: "nimra.app",
+                  logo: "/logos/nimra.png",
+                },
+              ].map((t) => (
+                <div
+                  key={`${setIndex}-${t.name}`}
+                  className="shell brutal-shadow flex w-[340px] shrink-0 flex-col justify-between gap-6 p-6"
+                >
+                  <p className="text-base leading-8 text-[var(--color-text)]">
+                    &ldquo;{t.quote}&rdquo;
+                  </p>
+                  <div className="flex items-center gap-4">
+                    {/* eslint-disable-next-line @next/next/no-img-element */}
+                    <img src={t.logo} alt={t.name} style={{ width: 36, height: 36, objectFit: "contain" }} />
+                    <div>
+                      <p className="text-sm font-black uppercase tracking-[0.1em] text-[var(--color-text)]">{t.name}</p>
+                      <p className="font-mono text-[11px] text-[var(--color-muted)]">{t.url}</p>
+                    </div>
+                  </div>
+                </div>
+              ))
+            )}
+          </div>
+        </div>
+      </section>
+
       <section className="dot-grid border-t-2 border-[rgba(44,35,28,0.85)] px-5 py-20 sm:px-8 lg:px-10">
         <div className="mx-auto max-w-7xl">
           <div className="mb-10">
@@ -335,6 +426,7 @@ export default function Home() {
           <BookingWidget />
         </div>
       </section>
+      <SiteFooter />
     </main>
   );
 }

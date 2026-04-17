@@ -199,6 +199,7 @@ export const projects: Project[] = [
       { label: "Stack", value: "Next.js" },
       { label: "Status", value: "Live" },
     ],
+    logo: "/logos/the-bed-store.png",
     links: {
       live: "https://thebedstore.shop",
     },

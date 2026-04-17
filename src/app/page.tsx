@@ -299,12 +299,12 @@ export default function Home() {
                 key={project.slug}
                 className="shell brutal-shadow grid gap-8 p-6 lg:grid-cols-[80px_1fr_0.8fr] lg:p-8"
               >
-                <div className="flex flex-col items-start gap-3">
+                <div className="flex flex-col items-center justify-center gap-3">
                   <span className="font-mono text-xs uppercase tracking-[0.24em] text-[var(--color-muted)]">
                     {String(index + 1).padStart(2, "0")}
                   </span>
                   {project.logo && (
-                    <Image src={project.logo} alt={project.name} width={60} height={60} className="h-12 w-auto object-contain" />
+                    <Image src={project.logo} alt={project.name} width={80} height={80} className="h-[68px] w-auto object-contain" />
                   )}
                 </div>
 

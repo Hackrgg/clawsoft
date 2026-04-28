@@ -2,9 +2,9 @@
 
 import { motion } from "framer-motion";
 import { useState } from "react";
+import { WA_NUMBER } from "@/lib/config";
 
 const TIME_SLOTS = ["09:00", "11:00", "13:00", "15:00", "17:00", "19:00"];
-const WA_NUMBER = "962797205018";
 const MONTHS = [
   "January","February","March","April","May","June",
   "July","August","September","October","November","December",

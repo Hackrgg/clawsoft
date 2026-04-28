@@ -1,0 +1,8 @@
+{
+  "permissions": {
+    "allow": [
+      "PowerShell(taskkill /F /IM node.exe)",
+      "PowerShell($env:NODE_OPTIONS)"
+    ]
+  }
+}

@@ -19,23 +19,21 @@ import {
 import { BookingWidget } from "@/components/booking-widget";
 import { SiteFooter } from "@/components/site-footer";
 import { SiteHeader } from "@/components/site-header";
-import { getProjects } from "@/data/projects";
-
-const projects = getProjects();
+import { WA_URL } from "@/lib/config";
 
 const marqueeItems = [
-  "NEXT.JS",
-  "TYPESCRIPT",
-  "REACT",
-  "FLUTTER",
-  "SUPABASE",
-  "GRAPHQL",
-  "VERCEL",
-  "DOCKER",
-  "POSTGRES",
-  "FIREBASE",
-  "GITHUB",
-  "CYBERSECURITY",
+  "FOOD DELIVERY",
+  "TAXI & RIDE HAILING",
+  "E-COMMERCE",
+  "HOTEL & TRAVEL",
+  "GROCERY DELIVERY",
+  "REAL ESTATE",
+  "BEAUTY & SALON",
+  "HEALTHCARE",
+  "EVENTS & TICKETING",
+  "GYM & FITNESS",
+  "MARKETPLACE",
+  "ON-DEMAND SERVICES",
 ];
 
 const stackGroups = [
@@ -78,27 +76,37 @@ export default function Home() {
 
       <section className="dot-grid relative overflow-hidden border-b-2 border-[rgba(44,35,28,0.85)] px-5 py-14 sm:px-8 lg:px-10 lg:py-18">
         <div className="absolute inset-0 overflow-hidden">
+          {/* Large circle */}
           <motion.div
-            animate={{ y: [0, 40, 0], rotate: [0, 6, 0] }}
-            transition={{ duration: 10, repeat: Infinity, ease: "easeInOut" }}
-            className="absolute right-[8%] top-16 h-44 w-44 bg-[var(--color-accent)] opacity-85"
+            animate={{ y: [0, 36, 0], x: [0, 10, 0] }}
+            transition={{ duration: 11, repeat: Infinity, ease: "easeInOut" }}
+            className="absolute right-[7%] top-10 h-48 w-48 rounded-full bg-[var(--color-accent)] opacity-80"
           />
+          {/* Diamond */}
           <motion.div
-            animate={{ y: [0, -30, 0], x: [0, -16, 0] }}
-            transition={{ duration: 8, repeat: Infinity, ease: "easeInOut" }}
-            className="absolute bottom-16 left-[8%] h-28 w-28 bg-[var(--color-teal)] opacity-80"
-          />
-          <motion.div
-            animate={{ rotate: [45, 90, 45], y: [0, 18, 0] }}
+            animate={{ rotate: [45, 75, 45], y: [0, -24, 0] }}
             transition={{ duration: 9, repeat: Infinity, ease: "easeInOut" }}
-            className="absolute right-[22%] top-[38%] h-16 w-16 bg-[var(--color-accent-strong)] opacity-80"
+            className="absolute bottom-14 left-[7%] h-32 w-32 bg-[var(--color-teal)] opacity-75"
+            style={{ transform: "rotate(45deg)" }}
+          />
+          {/* Small circle outline */}
+          <motion.div
+            animate={{ y: [0, 20, 0], scale: [1, 1.15, 1] }}
+            transition={{ duration: 7, repeat: Infinity, ease: "easeInOut" }}
+            className="absolute right-[24%] top-[30%] h-14 w-14 rounded-full border-[3px] border-[var(--color-accent-strong)] opacity-70"
+          />
+          {/* Tiny filled circle */}
+          <motion.div
+            animate={{ y: [0, -18, 0], x: [0, 12, 0] }}
+            transition={{ duration: 6, repeat: Infinity, ease: "easeInOut" }}
+            className="absolute left-[22%] top-[18%] h-7 w-7 rounded-full bg-[var(--color-accent-strong)] opacity-60"
           />
           <div className="pointer-events-none absolute right-4 top-6 text-[7rem] font-black leading-none text-[rgba(44,35,28,0.06)] sm:text-[11rem] lg:text-[16rem]">
             WEB
           </div>
         </div>
 
-        <div className="relative mx-auto grid max-w-7xl gap-10 lg:grid-cols-[1.1fr_0.9fr] lg:items-end">
+        <div className="relative mx-auto max-w-7xl">
           <div className="space-y-8">
             <div className="inline-flex items-center gap-2 brutal-border bg-[var(--color-accent)] px-4 py-2 font-mono text-xs font-bold uppercase tracking-[0.24em] text-black brutal-shadow">
               <span className="relative flex h-2 w-2">
@@ -123,62 +131,17 @@ export default function Home() {
 
             <div className="flex flex-wrap gap-4">
               <Link
-                href="/work"
+                href="/packages"
                 className="brutal-border brutal-shadow bg-white px-7 py-3 text-sm font-black uppercase tracking-[0.18em] text-[var(--color-text)] transition hover:translate-x-[2px] hover:translate-y-[2px] hover:shadow-none"
               >
-                View Work
+                See Packages
               </Link>
               <a
-                href="https://wa.me/962797205018"
+                href={WA_URL}
                 className="brutal-border brutal-shadow bg-[var(--color-accent-strong)] px-7 py-3 text-sm font-black uppercase tracking-[0.18em] text-[var(--color-text)] transition hover:translate-x-[2px] hover:translate-y-[2px] hover:shadow-none"
               >
-                Let's Build
+                Start a Project
               </a>
-            </div>
-          </div>
-
-          <div className="space-y-4">
-            <div className="shell brutal-shadow p-6">
-              <div className="mb-5">
-                <span className="font-mono text-xs uppercase tracking-[0.24em] text-[var(--color-muted)]">
-                  Recent projects
-                </span>
-              </div>
-
-              <div className="space-y-3">
-                {[
-                  {
-                    name: "hackr.gg",
-                    status: "live",
-                    statusColor: "bg-[var(--color-teal)]",
-                    desc: "Security training platform. 60+ Docker-based hacking labs, in-browser Kali toolkit, Stripe billing, XP leaderboard. Built and shipped solo.",
-                  },
-                  {
-                    name: "nimra.app",
-                    status: "in dev",
-                    statusColor: "bg-[var(--color-accent-strong)]",
-                    desc: "Chrome extension. A full working phone line — real calls and SMS — inside your browser. WebRTC + Supabase Realtime, persistent background listener.",
-                  },
-                  {
-                    name: "thebedstore.shop",
-                    status: "live",
-                    statusColor: "bg-[var(--color-teal)]",
-                    desc: "E-commerce rebuild. Cleaned up the product layout, fixed mobile, cut the template feel.",
-                  },
-                ].map((project) => (
-                  <div key={project.name} className="brutal-border bg-[rgba(255,250,241,0.84)] p-4">
-                    <div className="mb-2 flex items-center justify-between">
-                      <span className="text-sm font-black uppercase tracking-[0.06em] text-[var(--color-text)]">
-                        {project.name}
-                      </span>
-                      <span className={`brutal-border px-2 py-0.5 font-mono text-[10px] uppercase tracking-[0.14em] text-black ${project.statusColor}`}>
-                        {project.status}
-                      </span>
-                    </div>
-                    <p className="text-xs leading-5 text-[var(--color-muted)]">{project.desc}</p>
-                  </div>
-                ))}
-              </div>
             </div>
           </div>
         </div>
@@ -187,10 +150,14 @@ export default function Home() {
       <section className="overflow-hidden border-b-2 border-[rgba(44,35,28,0.85)] bg-[var(--color-text)] py-4">
         <div
           className="flex whitespace-nowrap text-sm font-black uppercase tracking-[0.26em] sm:text-base"
-          style={{ animation: "marquee 22s linear infinite", width: "max-content" }}
+          style={{ animation: "marquee 35s linear infinite", width: "max-content" }}
         >
           {[...marqueeItems, ...marqueeItems].map((item, index) => (
-            <span key={`${item}-${index}`} className="mx-4">
+            <span
+              key={`${item}-${index}`}
+              style={{ marginRight: 32 }}
+              className="inline-flex items-center gap-4"
+            >
               <span
                 className={
                   index % 3 === 0
@@ -202,45 +169,70 @@ export default function Home() {
               >
                 {item}
               </span>
-              <span className="ml-4 text-white/40">-</span>
+              <span className="text-white/30">—</span>
             </span>
           ))}
         </div>
       </section>
 
-      <section id="about" className="border-b-2 border-[rgba(44,35,28,0.85)] px-5 py-16 sm:px-8 lg:px-10">
+      <section id="apps" className="px-5 py-14 sm:px-8 lg:px-10 border-b-2 border-[rgba(44,35,28,0.85)]">
         <div className="mx-auto max-w-7xl">
-          <div className="grid gap-12 lg:grid-cols-[1fr_1fr] lg:items-start">
-            <div className="space-y-6">
-              <p className="font-mono text-xs uppercase tracking-[0.28em] text-[var(--color-muted)]">About</p>
+          <div className="mb-10 flex flex-col gap-4 lg:flex-row lg:items-end lg:justify-between">
+            <div>
+              <p className="font-mono text-xs uppercase tracking-[0.28em] text-[var(--color-muted)] mb-3">Ready to launch</p>
               <h2 className="text-3xl font-black uppercase tracking-[-0.04em] text-[var(--color-text)] sm:text-4xl">
-                A studio that builds,<br />not just designs.
+                Apps we build.
               </h2>
-              <p className="text-base leading-8 text-[var(--color-muted)]">
-                DIGUZ is a web studio. The work covers the full build — from brief to a live, working product. Websites, web apps, browser extensions, mobile apps. No fixed industry, no minimum budget tier — the scope depends on what the project actually needs.
-              </p>
-              <p className="text-base leading-8 text-[var(--color-muted)]">
-                Projects are handled using modern tools and a direct process: scope it, build it, ship it. No handoff chains, no account managers. Direct communication from start to delivery.
-              </p>
             </div>
+            <p className="max-w-xl text-sm leading-7 text-[var(--color-muted)]">
+              Production-ready mobile apps, customized for your brand and delivered fast.
+            </p>
+          </div>
 
-            <div className="grid gap-4 sm:grid-cols-2">
-              {[
-                { label: "Websites", desc: "Marketing sites, landing pages, e-commerce. Built to convert and easy to maintain." },
-                { label: "Web Apps", desc: "Full-stack products with auth, databases, payments — whatever the feature set requires." },
-                { label: "Mobile Apps", desc: "Cross-platform mobile builds with Flutter. One codebase, iOS and Android." },
-                { label: "Extensions", desc: "Browser extensions — Chrome MV3, background workers, real-time integrations." },
-              ].map(({ label, desc }) => (
-                <div key={label} className="brutal-border bg-[rgba(255,250,241,0.82)] p-5 space-y-2">
-                  <p className="font-mono text-[11px] font-bold uppercase tracking-[0.2em] text-[var(--color-text)]">{label}</p>
-                  <p className="text-sm leading-6 text-[var(--color-muted)]">{desc}</p>
+          <div className="divide-y-2 divide-[rgba(44,35,28,0.12)] border-y-2 border-[rgba(44,35,28,0.85)]">
+            {[
+              { n: "01", title: "Food Delivery App", tags: ["Multi-Vendor", "Live Tracking", "Payments"], accent: "var(--color-accent)" },
+              { n: "02", title: "Taxi / Ride Hailing App", tags: ["GPS Tracking", "Live Dispatch", "In-App Payments"], accent: "var(--color-teal)" },
+              { n: "03", title: "E-commerce App", tags: ["Product Catalog", "Cart & Checkout", "Orders"], accent: "var(--color-accent-strong)" },
+              { n: "04", title: "Hotel Booking App", tags: ["Availability Calendar", "Reservations", "Guest Mgmt"], accent: "var(--color-accent)" },
+              { n: "05", title: "Grocery Delivery App", tags: ["Multi-Vendor", "Scheduled Orders", "Tracking"], accent: "var(--color-teal)" },
+              { n: "06", title: "Real Estate App", tags: ["Map View", "Property Listings", "Agent Contact"], accent: "var(--color-accent-strong)" },
+              { n: "07", title: "Beauty & Salon App", tags: ["Appointment Booking", "Staff Selection", "Reminders"], accent: "var(--color-accent)" },
+              { n: "08", title: "Doctor & Clinic App", tags: ["Patient Booking", "Teleconsultation", "Records"], accent: "var(--color-teal)" },
+              { n: "09", title: "Events & Ticketing App", tags: ["QR Entry", "Ticket Sales", "Dashboard"], accent: "var(--color-accent-strong)" },
+              { n: "10", title: "Gym & Fitness App", tags: ["Memberships", "Class Booking", "Tracking"], accent: "var(--color-accent)" },
+              { n: "11", title: "Education & Courses App", tags: ["Online Learning", "Video Lessons", "Certificates"], accent: "var(--color-teal)" },
+            ].map((app) => (
+              <div key={app.n} className="flex items-center gap-4 py-4 group">
+                <span className="font-mono text-[11px] uppercase tracking-[0.24em] text-[var(--color-muted)] w-7 shrink-0">{app.n}</span>
+                <p className="font-black uppercase tracking-[-0.02em] text-[var(--color-text)] text-sm sm:text-base flex-1">{app.title}</p>
+                <div className="hidden sm:flex flex-nowrap gap-1.5">
+                  {app.tags.map((tag) => (
+                    <span key={tag} className="brutal-border whitespace-nowrap px-2 py-[3px] font-mono text-[9px] uppercase tracking-[0.08em] text-[var(--color-text)]" style={{ backgroundColor: "rgba(255,250,241,0.82)" }}>
+                      {tag}
+                    </span>
+                  ))}
                 </div>
-              ))}
-            </div>
+                <Link
+                  href="/packages"
+                  className="brutal-border brutal-shadow shrink-0 bg-white px-3 py-1.5 font-mono text-[10px] uppercase tracking-[0.16em] text-[var(--color-text)] transition hover:translate-x-[2px] hover:translate-y-[2px] hover:shadow-none"
+                >
+                  View →
+                </Link>
+              </div>
+            ))}
+          </div>
+
+          <div className="mt-6 flex justify-end">
+            <Link
+              href="/packages"
+              className="brutal-border brutal-shadow bg-[var(--color-accent)] px-6 py-3 text-xs font-black uppercase tracking-[0.18em] text-black transition hover:translate-x-[2px] hover:translate-y-[2px] hover:shadow-none"
+            >
+              See All Packages →
+            </Link>
           </div>
         </div>
       </section>
-
       <section
         id="stack"
         className="cross-hatch border-b-2 border-[rgba(44,35,28,0.85)] px-5 py-14 sm:px-8 lg:px-10"
@@ -251,7 +243,6 @@ export default function Home() {
               Tech stack.
             </h2>
           </div>
-
           <div className="grid gap-8 lg:grid-cols-3">
             {stackGroups.map((group) => (
               <div key={group.title} className="shell brutal-shadow p-6">
@@ -259,7 +250,7 @@ export default function Home() {
                   {group.title}
                 </div>
                 <div className="grid grid-cols-2 gap-4">
-                {group.items.map((item) => {
+                  {group.items.map((item) => {
                     const Icon = item.icon;
                     return (
                       <div
@@ -278,99 +269,48 @@ export default function Home() {
         </div>
       </section>
 
-      <section id="cases" className="px-5 py-14 sm:px-8 lg:px-10">
+      <section id="about" className="border-b-2 border-[rgba(44,35,28,0.85)] px-5 py-16 sm:px-8 lg:px-10">
         <div className="mx-auto max-w-7xl">
-          <div className="mb-12 flex flex-col gap-4 lg:flex-row lg:items-end lg:justify-between">
-            <div>
+          <div className="grid gap-12 lg:grid-cols-[1fr_1fr] lg:items-start">
+            <div className="space-y-6">
+              <p className="font-mono text-xs uppercase tracking-[0.28em] text-[var(--color-muted)]">About</p>
               <h2 className="text-3xl font-black uppercase tracking-[-0.04em] text-[var(--color-text)] sm:text-4xl">
-                Projects.
+                A studio that builds,<br />not just designs.
               </h2>
+              <p className="text-base leading-8 text-[var(--color-muted)]">
+                DIGUZ is a web studio. The work covers the full build — from brief to a live, working product. Websites, SaaS products, custom solutions, MVPs, and mobile apps. No fixed industry, no minimum budget tier — the scope depends on what the project actually needs.
+              </p>
+              <p className="text-base leading-8 text-[var(--color-muted)]">
+                Projects are handled using modern tools and a direct process: scope it, build it, ship it. No handoff chains, no account managers. Direct communication from start to delivery.
+              </p>
             </div>
-            <p className="max-w-xl text-sm leading-7 text-[var(--color-muted)]">
-              All projects shown with permission. Live links available where applicable.
-            </p>
-          </div>
-
-          <div className="space-y-8">
-            {projects.map((project, index) => (
-              <article
-                key={project.slug}
-                className="shell brutal-shadow grid gap-8 p-6 lg:grid-cols-[80px_1fr_0.8fr] lg:p-8"
-              >
-                <div className="relative h-full min-h-[100px]">
-                  <span className="absolute top-0 left-0 font-mono text-xs uppercase tracking-[0.24em] text-[var(--color-muted)]">
-                    {String(index + 1).padStart(2, "0")}
-                  </span>
-                  {project.logo && (
-                    <div className="absolute inset-0 flex items-center justify-center">
-                      {/* eslint-disable-next-line @next/next/no-img-element */}
-                      <img src={project.logo} alt={project.name} style={{ width: 68, height: 68, objectFit: "contain" }} />
-                    </div>
-                  )}
+            <div className="grid gap-4 sm:grid-cols-2">
+              {[
+                { label: "Websites", desc: "Marketing sites, landing pages, e-commerce. Built to convert and easy to maintain." },
+                { label: "Web Apps", desc: "Full-stack products with auth, databases, payments — whatever the feature set requires." },
+                { label: "Mobile Apps", desc: "Cross-platform mobile builds with Flutter. One codebase, iOS and Android." },
+                { label: "SaaS Products", desc: "Multi-tenant platforms with subscriptions, user dashboards, billing, and admin panels." },
+                { label: "Custom Solutions", desc: "Bespoke software built around your exact workflow — if it doesn't exist off the shelf, we build it." },
+                { label: "MVPs", desc: "Fastest path from idea to something real users can test. Scoped tight, shipped fast." },
+              ].map(({ label, desc }) => (
+                <div key={label} className="brutal-border bg-[rgba(255,250,241,0.82)] p-5 space-y-2">
+                  <p className="font-mono text-[11px] font-bold uppercase tracking-[0.2em] text-[var(--color-text)]">{label}</p>
+                  <p className="text-sm leading-6 text-[var(--color-muted)]">{desc}</p>
                 </div>
-
-                <div className="space-y-5">
-                  <div className="flex flex-wrap gap-3">
-                    <span className="brutal-border bg-black px-3 py-1 font-mono text-[11px] uppercase tracking-[0.18em] text-white">
-                      {project.status}
-                    </span>
-                    <span className="brutal-border px-3 py-1 font-mono text-[11px] uppercase tracking-[0.18em] text-black" style={{ backgroundColor: index % 3 === 0 ? "var(--color-accent)" : index % 3 === 1 ? "var(--color-teal)" : "var(--color-accent-strong)" }}>
-                      {project.category}
-                    </span>
-                  </div>
-
-                  <div>
-                    <h3 className="text-2xl font-black text-[var(--color-text)] sm:text-3xl">{project.name}</h3>
-                    <p className="pt-3 text-base leading-7 text-[var(--color-muted)]">
-                      {project.headline}
-                    </p>
-                  </div>
-                </div>
-
-                <div className="space-y-5">
-                  <div className="flex flex-wrap gap-2">
-                    {project.stack.map((item) => (
-                      <span
-                        key={item}
-                        className="brutal-border bg-[rgba(255,250,241,0.82)] px-3 py-1 font-mono text-[11px] uppercase tracking-[0.18em] text-[var(--color-text)]"
-                      >
-                        {item}
-                      </span>
-                    ))}
-                  </div>
-
-                  <div className="flex flex-wrap gap-4">
-                    <Link
-                      href={`/work/${project.slug}`}
-                      className="brutal-border brutal-shadow bg-white px-5 py-3 text-sm font-black uppercase tracking-[0.18em] text-[var(--color-text)] transition hover:translate-x-[2px] hover:translate-y-[2px] hover:shadow-none"
-                    >
-                      Full Breakdown
-                    </Link>
-                    {project.links.live ? (
-                      <a
-                        href={project.links.live}
-                        target="_blank"
-                        rel="noreferrer"
-                        className="brutal-border brutal-shadow bg-[var(--color-accent)] px-5 py-3 text-sm font-black uppercase tracking-[0.18em] text-black transition hover:translate-x-[2px] hover:translate-y-[2px] hover:shadow-none"
-                      >
-                        Visit Live
-                      </a>
-                    ) : null}
-                  </div>
-                </div>
-              </article>
-            ))}
+              ))}
+            </div>
           </div>
         </div>
       </section>
+
       <section className="border-t-2 border-[rgba(44,35,28,0.85)] py-16 overflow-hidden">
         <p className="mb-10 px-5 font-mono text-[11px] uppercase tracking-[0.28em] text-[var(--color-muted)] sm:px-8 lg:px-10">What clients say</p>
         <div className="relative">
           <div
-            className="flex gap-6"
-            style={{ animation: "marquee 28s linear infinite", width: "max-content" }}
+            className="flex"
+            style={{ animation: "marquee-quad 28s linear infinite", width: "max-content" }}
           >
-            {[...Array(2)].map((_, setIndex) =>
+            {[...Array(4)].map((_, setIndex) =>
               [
                 {
                   quote: "Fast turnaround, quality work, and actually followed up throughout. Clear on what was being built and when — delivered exactly on time.",
@@ -389,21 +329,30 @@ export default function Home() {
                   name: "Nimra",
                   url: "nimra.app",
                   logo: "/logos/nimra.png",
+                  dark: false,
+                },
+                {
+                  quote: "Straightforward to work with. Knew what they were doing, didn't need hand-holding, and the site shipped without the usual back and forth.",
+                  name: "Zevra Creative",
+                  url: "zevracreative.com",
+                  logo: "/logos/zevra-creative.png",
+                  dark: false,
                 },
               ].map((t) => (
                 <div
                   key={`${setIndex}-${t.name}`}
-                  className="shell brutal-shadow flex w-[340px] shrink-0 flex-col justify-between gap-6 p-6"
+                  className={`brutal-shadow flex shrink-0 flex-col justify-between gap-6 p-6 brutal-border ${t.dark ? "bg-[var(--color-text)]" : "shell"}`}
+                  style={{ width: 340, marginRight: 24 }}
                 >
-                  <p className="text-base leading-8 text-[var(--color-text)]">
+                  <p className={`text-base leading-8 ${t.dark ? "text-white/80" : "text-[var(--color-text)]"}`}>
                     &ldquo;{t.quote}&rdquo;
                   </p>
                   <div className="flex items-center gap-4">
                     {/* eslint-disable-next-line @next/next/no-img-element */}
-                    <img src={t.logo} alt={t.name} style={{ width: 36, height: 36, objectFit: "contain" }} />
+                    <img src={t.logo} alt={t.name} style={{ width: 36, height: 36, objectFit: "contain", filter: t.dark ? "brightness(0) invert(1)" : "none" }} />
                     <div>
-                      <p className="text-sm font-black uppercase tracking-[0.1em] text-[var(--color-text)]">{t.name}</p>
-                      <p className="font-mono text-[11px] text-[var(--color-muted)]">{t.url}</p>
+                      <p className={`text-sm font-black uppercase tracking-[0.1em] ${t.dark ? "text-white" : "text-[var(--color-text)]"}`}>{t.name}</p>
+                      <p className={`font-mono text-[11px] ${t.dark ? "text-white/40" : "text-[var(--color-muted)]"}`}>{t.url}</p>
                     </div>
                   </div>
                 </div>

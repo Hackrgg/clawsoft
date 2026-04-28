@@ -1,8 +1,7 @@
 "use client";
 
 import { useState } from "react";
-
-const WA_NUMBER = "962797205018";
+import { WA_NUMBER, WA_URL } from "@/lib/config";
 
 export function ContactForm() {
   const [name, setName] = useState("");
@@ -65,7 +64,7 @@ export function ContactForm() {
           </p>
           <div className="space-y-4">
             <a
-              href="https://wa.me/962797205018"
+              href={WA_URL}
               target="_blank"
               rel="noreferrer"
               className="brutal-border brutal-shadow flex items-center gap-4 bg-[#25D366] px-5 py-4 transition hover:translate-x-[2px] hover:translate-y-[2px] hover:shadow-none"

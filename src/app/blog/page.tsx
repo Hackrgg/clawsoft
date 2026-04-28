@@ -2,6 +2,7 @@ import Link from "next/link";
 import { SiteFooter } from "@/components/site-footer";
 import { SiteHeader } from "@/components/site-header";
 import { getBlogs } from "@/data/blogs";
+import { BlogListing } from "@/components/blog-listing";
 
 const blogs = getBlogs();
 
@@ -34,42 +35,8 @@ export default function BlogPage() {
         </div>
       </section>
 
-      <section className="px-5 py-16 sm:px-8 lg:px-10">
-        <div className="mx-auto max-w-7xl space-y-6">
-          {blogs.map((blog, index) => (
-            <article key={blog.slug} className="shell brutal-shadow p-6 lg:p-8">
-              <div className="grid gap-6 lg:grid-cols-[1fr_auto]">
-                <div className="space-y-4">
-                  <div className="flex flex-wrap gap-3">
-                    <span className="brutal-border bg-[var(--color-teal)] px-3 py-1 font-mono text-[11px] uppercase tracking-[0.18em] text-black">
-                      {blog.category}
-                    </span>
-                    <span className="font-mono text-[11px] uppercase tracking-[0.18em] text-[var(--color-muted)]">
-                      {blog.date} · {blog.readTime}
-                    </span>
-                  </div>
-                  <div>
-                    <h2 className="text-2xl font-black text-[var(--color-text)] sm:text-3xl">
-                      {blog.title}
-                    </h2>
-                    <p className="pt-3 text-base leading-7 text-[var(--color-muted)]">
-                      {blog.excerpt}
-                    </p>
-                  </div>
-                </div>
-                <div className="flex items-end">
-                  <Link
-                    href={`/blog/${blog.slug}`}
-                    className="brutal-border brutal-shadow bg-white px-5 py-3 text-sm font-black uppercase tracking-[0.18em] text-[var(--color-text)] transition hover:translate-x-[2px] hover:translate-y-[2px] hover:shadow-none whitespace-nowrap"
-                  >
-                    Read Post →
-                  </Link>
-                </div>
-              </div>
-            </article>
-          ))}
-        </div>
-      </section>
+      <BlogListing blogs={blogs} />
+
       <SiteFooter />
     </main>
   );

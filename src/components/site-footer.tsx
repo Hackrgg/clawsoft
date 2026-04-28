@@ -1,69 +1,61 @@
 import Link from "next/link";
+import { WA_URL } from "@/lib/config";
 
 export function SiteFooter() {
   return (
-    <footer className="border-t-2 border-[rgba(44,35,28,0.85)] bg-[var(--color-text)] px-5 py-12 sm:px-8 lg:px-10">
+    <footer className="border-t-2 border-[rgba(44,35,28,0.85)] bg-[var(--color-text)] px-5 pt-16 pb-8 sm:px-8 lg:px-10">
       <div className="mx-auto max-w-7xl">
-        <div className="grid gap-10 lg:grid-cols-[1fr_1fr_1fr]">
 
-          {/* Brand */}
-          <div className="space-y-4">
-            <Link href="/" className="inline-block text-2xl font-extrabold tracking-tight text-[var(--color-accent)]">
-              DIGUZ
-              <span className="ml-0.5 text-3xl leading-none text-white">.</span>
+        {/* Top — logo + mission */}
+        <div className="mb-14 border-b border-white/10 pb-14 grid gap-10 lg:grid-cols-[1.2fr_0.8fr] lg:items-end">
+          <div className="space-y-5">
+            <Link href="/" className="inline-block">
+              <span className="text-4xl font-black tracking-tight text-white">DIGUZ</span>
+              <span className="text-4xl font-black text-[var(--color-accent)]">.</span>
             </Link>
-            <p className="max-w-xs text-sm leading-7 text-white/50">
-              Websites, web apps, browser extensions — built and shipped. Available for new work.
+            <p className="max-w-md text-base leading-8 text-white/50">
+              We design and build digital products — websites, web apps, and browser extensions. Clean work, shipped fast, built to last.
             </p>
           </div>
 
-          {/* Nav */}
-          <div className="space-y-4">
-            <p className="font-mono text-[11px] uppercase tracking-[0.24em] text-white/40">Pages</p>
-            <nav className="flex flex-col gap-3">
-              {[
-                { href: "/", label: "Home" },
-                { href: "/work", label: "Work" },
-                { href: "/blog", label: "Blog" },
-                { href: "/#stack", label: "Stack" },
-              ].map((item) => (
-                <Link
-                  key={item.href}
-                  href={item.href}
-                  className="text-sm font-semibold text-white/70 transition hover:text-[var(--color-accent)]"
-                >
-                  {item.label}
-                </Link>
-              ))}
-            </nav>
+          <div className="lg:text-right">
+            <p className="font-mono text-[11px] uppercase tracking-[0.24em] text-white/30 mb-3">Currently accepting work</p>
+            <a
+              href={WA_URL}
+              target="_blank"
+              rel="noreferrer"
+              className="brutal-border inline-block bg-[var(--color-accent)] px-6 py-3 text-sm font-black uppercase tracking-[0.18em] text-black transition hover:opacity-90"
+            >
+              Let&apos;s Build
+            </a>
           </div>
+        </div>
 
-          {/* Contact */}
-          <div className="space-y-4">
-            <p className="font-mono text-[11px] uppercase tracking-[0.24em] text-white/40">Contact</p>
-            <div className="space-y-3">
-              <a
-                href="https://wa.me/962797205018"
-                target="_blank"
-                rel="noreferrer"
-                className="brutal-border flex w-fit items-center gap-3 bg-[#25D366] px-4 py-2.5 text-sm font-black uppercase tracking-[0.14em] text-white transition hover:opacity-90"
+        {/* Bottom — nav + copy */}
+        <div className="flex flex-col gap-8 sm:flex-row sm:items-center sm:justify-between">
+          <nav className="flex flex-wrap gap-x-8 gap-y-3">
+            {[
+              { href: "/", label: "Home" },
+              { href: "/work", label: "Work" },
+              { href: "/blog", label: "Blog" },
+              { href: "/#about", label: "About" },
+              { href: "/#stack", label: "Stack" },
+            ].map((item) => (
+              <Link
+                key={item.href}
+                href={item.href}
+                className="font-mono text-[11px] uppercase tracking-[0.18em] text-white/40 transition hover:text-white"
               >
-                💬 WhatsApp
-              </a>
-              <p className="font-mono text-[11px] text-white/40">+962 797 205 018</p>
-            </div>
-          </div>
+                {item.label}
+              </Link>
+            ))}
+          </nav>
 
-        </div>
-
-        <div className="mt-12 border-t border-white/10 pt-6 flex flex-col sm:flex-row sm:items-center sm:justify-between gap-3">
-          <p className="font-mono text-[11px] uppercase tracking-[0.18em] text-white/30">
-            © {new Date().getFullYear()} Diguz. All rights reserved.
-          </p>
-          <p className="font-mono text-[11px] uppercase tracking-[0.18em] text-white/30">
-            Available for projects
+          <p className="font-mono text-[11px] uppercase tracking-[0.18em] text-white/25">
+            © {new Date().getFullYear()} Diguz
           </p>
         </div>
+
       </div>
     </footer>
   );

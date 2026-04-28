@@ -2,9 +2,7 @@
 
 import { AnimatePresence, motion } from "framer-motion";
 import { useState } from "react";
-
-const WA_NUMBER = "962797205018";
-const WA_URL = `https://wa.me/${WA_NUMBER}`;
+import { WA_URL } from "@/lib/config";
 
 export function WhatsAppWidget() {
   const [open, setOpen] = useState(false);

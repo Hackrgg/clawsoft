@@ -6,6 +6,18 @@ import { SiteHeader } from "@/components/site-header";
 import { getBlog, getBlogs } from "@/data/blogs";
 import { ClaudeCodePost } from "@/components/blog/claude-code-post";
 import { FiveSignsPost } from "@/components/blog/five-signs-post";
+import { WebsiteCostPost } from "@/components/blog/website-cost-post";
+import { WordpressVsCustomPost } from "@/components/blog/wordpress-vs-custom-post";
+import { MoreCustomersPost } from "@/components/blog/more-customers-post";
+import { WhatIsWebAppPost } from "@/components/blog/what-is-web-app-post";
+import { SaasSeoPost } from "@/components/blog/saas-seo-post";
+import { HireWebDeveloperPost } from "@/components/blog/hire-web-developer-post";
+import { HowLongDoesAWebsiteTakePost } from "@/components/blog/how-long-does-a-website-take-post";
+import { FreelanceVsAgencyPost } from "@/components/blog/freelance-vs-agency-post";
+import { HowMuchDoesAMobileAppCostPost } from "@/components/blog/how-much-does-a-mobile-app-cost-post";
+import { WhenDoesYourBusinessNeedAMobileAppPost } from "@/components/blog/when-does-your-business-need-a-mobile-app-post";
+import { FlutterVsReactNativePost } from "@/components/blog/flutter-vs-react-native-post";
+import { MultiVendorFoodAppPost } from "@/components/blog/multi-vendor-food-app-post";
 
 type BlogPageProps = {
   params: Promise<{ slug: string }>;
@@ -25,6 +37,18 @@ export async function generateMetadata({ params }: BlogPageProps): Promise<Metad
 const postComponents: Record<string, React.ComponentType> = {
   "claude-code-how-to-use-it": ClaudeCodePost,
   "5-signs-your-website-is-losing-customers": FiveSignsPost,
+  "how-much-does-a-website-cost": WebsiteCostPost,
+  "wordpress-vs-custom-website": WordpressVsCustomPost,
+  "get-more-customers-from-your-website": MoreCustomersPost,
+  "what-is-a-web-app": WhatIsWebAppPost,
+  "saas-seo-how-to-get-found": SaasSeoPost,
+  "hire-web-developer": HireWebDeveloperPost,
+  "how-long-does-a-website-take": HowLongDoesAWebsiteTakePost,
+  "freelance-developer-vs-agency": FreelanceVsAgencyPost,
+  "how-much-does-a-mobile-app-cost": HowMuchDoesAMobileAppCostPost,
+  "when-does-your-business-need-a-mobile-app": WhenDoesYourBusinessNeedAMobileAppPost,
+  "flutter-vs-react-native": FlutterVsReactNativePost,
+  "multi-vendor-food-ordering-app": MultiVendorFoodAppPost,
 };
 
 export default async function BlogPostPage({ params }: BlogPageProps) {

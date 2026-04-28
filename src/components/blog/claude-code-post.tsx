@@ -1,4 +1,5 @@
 "use client";
+import { WA_URL } from "@/lib/config";
 
 import {
   SiClaude,
@@ -257,7 +258,7 @@ Don't change the response format, just return 429 if the limit is hit.`}
           </p>
         </div>
         <a
-          href="https://wa.me/962797205018"
+          href={WA_URL}
           target="_blank"
           rel="noreferrer"
           className="brutal-border brutal-shadow flex shrink-0 items-center gap-3 bg-[#25D366] px-6 py-4 text-sm font-black uppercase tracking-[0.18em] text-white transition hover:translate-x-[2px] hover:translate-y-[2px] hover:shadow-none"

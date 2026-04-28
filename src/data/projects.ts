@@ -20,6 +20,7 @@ export type Project = {
     label: string;
     value: string;
   }[];
+  tag?: string;
   logo?: string;
   screenshots?: string[];
   links: {
@@ -89,7 +90,7 @@ export const projects: Project[] = [
     slug: "nimra",
     name: "Nimra - Click to Call",
     url: "nimra.app",
-    status: "in-progress",
+    status: "live",
     year: "2026",
     category: "Chrome extension",
     headline: "A phone line that lives in your browser — call and text from any webpage, without switching apps or picking up your phone.",
@@ -115,12 +116,24 @@ export const projects: Project[] = [
     outcome:
       "Calls stay alive with the popup closed. Full phone line — calls, SMS, contacts, history — inside an extension.",
     metrics: [
-      { label: "Status", value: "In Development" },
+      { label: "Status", value: "Live" },
       { label: "Type", value: "Browser Extension" },
       { label: "Platform", value: "Chrome" },
     ],
+    tag: "MVP",
     logo: "/logos/nimra.png",
-    links: {},
+    screenshots: [
+      "/screenshots/nimra-1.png",
+      "/screenshots/nimra-2.png",
+      "/screenshots/nimra-3.png",
+      "/screenshots/nimra-4.png",
+      "/screenshots/nimra-5.png",
+      "/screenshots/nimra-6.png",
+      "/screenshots/nimra-7.png",
+    ],
+    links: {
+      live: "https://nimra.app",
+    },
     palette: {
       glow: "from-white/8 via-white/0 to-transparent",
       accent: "#dbdbd5",
@@ -157,10 +170,11 @@ export const projects: Project[] = [
     outcome:
       "In active development. Both surfaces — browser and mobile — share the same backend and phone number, making Nimra a genuinely cross-platform communication tool.",
     metrics: [
-      { label: "Status", value: "In Development" },
+      { label: "Status", value: "Live" },
       { label: "Type", value: "Mobile App" },
       { label: "Platform", value: "iOS + Android" },
     ],
+    tag: "MVP",
     logo: "/logos/nimra.png",
     links: {},
     palette: {
@@ -170,13 +184,57 @@ export const projects: Project[] = [
     },
   },
   {
+    slug: "zevra-creative",
+    name: "Zevra Creative",
+    url: "zevracreative.com",
+    status: "live",
+    year: "2026",
+    category: "Agency website",
+    headline: "A portfolio site for a marketing agency — clean, conversion-focused, and built to showcase their client work and attract new business.",
+    summary:
+      "Zevra Creative needed a site that matched the standard they hold their own clients to. Full frontend build: portfolio showcase, service pages, and a design that positions them as a serious agency — not just another freelancer site.",
+    intro:
+      "Marketing agencies are judged instantly by how their own site looks. The build prioritised visual quality, fast load times, and a clear path from landing page to inquiry — frontend only, no CMS overhead.",
+    stack: ["React", "Vite", "Tailwind CSS", "Responsive UI"],
+    responsibilities: [
+      "Full frontend build — landing page, portfolio, and service pages",
+      "Agency-grade design — built to reflect the quality of their own client work",
+      "Performance-first — fast, clean, no unnecessary weight",
+    ],
+    highlights: [
+      "Agency portfolio showcase",
+      "Conversion-focused layout",
+      "Live and in production",
+    ],
+    challenge:
+      "A marketing agency's website is their strongest sales tool — it needs to look better than the work they pitch to clients, without feeling overdesigned.",
+    solution:
+      "Kept the layout clean and purposeful. Let the portfolio work do the talking. Every section moves the visitor toward one action.",
+    outcome:
+      "Live at zevracreative.com. A frontend that positions the agency credibly and converts visitors into inquiries.",
+    metrics: [
+      { label: "Status", value: "Live" },
+      { label: "Type", value: "Agency Website" },
+      { label: "Focus", value: "Portfolio" },
+    ],
+    logo: "/logos/zevra-creative.png",
+    links: {
+      live: "https://zevracreative.com",
+    },
+    palette: {
+      glow: "from-white/8 via-white/0 to-transparent",
+      accent: "#d8d8d2",
+      surface: "rgba(16, 16, 18, 0.92)",
+    },
+  },
+  {
     slug: "the-bed-store",
     name: "The Bed Store",
     url: "thebedstore.shop",
     status: "live",
     year: "2026",
-    category: "Client project",
-    headline: "An e-commerce rebuild that cleared the clutter — cleaner product pages, one path to checkout, and a mobile experience that actually works.",
+    category: "E-commerce store",
+    headline: "An e-commerce rebuild that cleared the clutter — cleaner product pages, one path to checkout, and a CMS-powered mobile-first storefront.",
     summary:
       "The original store was crowded and hard to navigate on mobile. Full rebuild: product listings, detail pages, and checkout flow redesigned around one goal — making it easy to buy. Mobile-first throughout. Live and running.",
     intro:
@@ -220,7 +278,7 @@ export const projects: Project[] = [
     status: "live",
     year: "2026",
     category: "Gym + coach marketplace",
-    headline: "A gym brand site and coach marketplace in one — browse coaches, check availability, and book sessions without leaving the page.",
+    headline: "A gym brand site and coach marketplace — premium brand presence paired with a platform to discover and book coaches.",
     summary:
       "Two products in one: a premium brand site for the gym, and a fully functional marketplace where members discover and book coaches. Coach profiles, service listings, availability, and bookings — all live and connected to a real backend.",
     intro:

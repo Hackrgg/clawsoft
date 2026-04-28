@@ -1,7 +1,5 @@
 import OpenAI from "openai";
 
-const client = new OpenAI({ apiKey: process.env.OPENAI_API_KEY });
-
 // Simple in-memory daily limit — resets on server restart or redeploy
 // Good enough to prevent runaway costs during testing
 const DAILY_LIMIT = 20;
@@ -22,6 +20,7 @@ export async function POST(req: Request) {
     );
   }
 
+  const client = new OpenAI({ apiKey: process.env.OPENAI_API_KEY });
   const { prompt, currentCode } = await req.json();
   if (!prompt?.trim()) {
     return Response.json({ error: "Prompt is required." }, { status: 400 });

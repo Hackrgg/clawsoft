@@ -11,48 +11,6 @@ type Message = {
   tokens?: number;
 };
 
-const FAQ = [
-  {
-    q: "What can I build with this?",
-    a: "Anything that fits in a single HTML file — landing pages, dashboards, pricing pages, portfolios, forms, interactive demos, animations. It's great for quick mockups and prototypes.",
-  },
-  {
-    q: "Is my code saved?",
-    a: "No. Everything lives in your browser tab. If you refresh or close, it's gone. Copy your code from the Code panel before leaving.",
-  },
-  {
-    q: "Can I use the generated code in a real project?",
-    a: "Yes. It's plain HTML/CSS/JS — copy it, drop it in any project, or save it as an .html file and open it directly in your browser.",
-  },
-  {
-    q: "Can I edit the code manually?",
-    a: "Yes. Click anywhere in the Code panel on the right and type. The preview updates live as you edit.",
-  },
-  {
-    q: "Can I ask it to update what's already there?",
-    a: "Yes. Just say things like 'change the background to dark blue', 'add a contact form', or 'make the button bigger'. It reads the current code and updates it.",
-  },
-  {
-    q: "Why does the code sometimes get cut off?",
-    a: "There's a token limit per generation. Very complex requests can hit the ceiling and produce incomplete code. Break big requests into smaller steps — generate the layout first, then add sections.",
-  },
-  {
-    q: "Can it build React or multi-page apps?",
-    a: "Not here. This tool generates single-file HTML only. For full React apps, component structures, or multi-page projects — that's a custom build. Talk to us.",
-  },
-  {
-    q: "Can I import libraries like Tailwind or Chart.js?",
-    a: "Yes via CDN — just ask for it. Say 'use Tailwind CSS' or 'add a bar chart with Chart.js' and it'll pull them in from a CDN automatically.",
-  },
-  {
-    q: "Is it free?",
-    a: "Yes, free to use here. There's a daily generation limit to keep costs manageable.",
-  },
-  {
-    q: "How is this different from v0 or Bolt?",
-    a: "It's simpler — single file, no framework, no deployment pipeline. Think of it as a fast scratchpad for frontend ideas, not a full app builder. What it lacks in power it makes up for in speed.",
-  },
-];
 
 const STARTERS = [
   "A landing page for a food delivery app",
@@ -70,8 +28,6 @@ export default function VibePage() {
   const [error, setError] = useState("");
   const [remaining, setRemaining] = useState<number | null>(null);
   const [rightTab, setRightTab] = useState<"code" | "files">("code");
-  const [faqOpen, setFaqOpen] = useState(false);
-  const [openFaq, setOpenFaq] = useState<number | null>(null);
   const messagesEndRef = useRef<HTMLDivElement>(null);
   const textareaRef = useRef<HTMLTextAreaElement>(null);
 

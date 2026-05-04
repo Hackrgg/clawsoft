@@ -34,7 +34,7 @@ export function SiteHeader() {
             <span className="animate-bounce inline-block text-[var(--color-accent-strong)]" style={{ animationDelay: "100ms" }}>
               →
             </span>
-            <span className="text-[var(--color-accent)] font-black tracking-[0.18em]">GET A FREE LIVE DEMO</span>
+            <span className="text-[var(--color-accent)] font-black tracking-[0.18em]">BOOK YOUR DEMO</span>
             <span className="animate-bounce inline-block text-[var(--color-accent-strong)]" style={{ animationDelay: "100ms" }}>
               ←
             </span>

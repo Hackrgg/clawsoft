@@ -2,6 +2,7 @@
 
 import { motion } from "framer-motion";
 import Link from "next/link";
+import Image from "next/image";
 import {
   SiDocker,
   SiFlutter,
@@ -69,6 +70,14 @@ const stackGroups = [
   },
 ];
 
+const proofLogos = [
+  { src: "/logos/the-bed-store.png", alt: "The Bed Store" },
+  { src: "/logos/onyx-gym.png", alt: "Onyx Gym" },
+  { src: "/logos/nimra.png", alt: "Nimra" },
+  { src: "/logos/zevra-creative.png", alt: "Zevra Creative" },
+  { src: "/logos/hackr-gg.png", alt: "hackr.gg" },
+];
+
 export default function Home() {
   return (
     <main className="min-h-screen bg-[var(--color-bg)] text-[var(--color-text)]">
@@ -125,7 +134,7 @@ export default function Home() {
                 Shipped.
               </h1>
               <p className="max-w-2xl text-base leading-7 text-[var(--color-muted)]">
-                A web studio that builds and delivers — websites, web apps, mobile apps, browser extensions. Whatever the project needs, scoped and shipped.
+                A web studio for founders and businesses. We design, build, and ship conversion-first websites and MVPs — fast, clean, and production-ready.
               </p>
             </div>
 
@@ -142,6 +151,25 @@ export default function Home() {
               >
                 Book Your Demo
               </a>
+            </div>
+
+            <div className="flex flex-wrap items-center gap-4 pt-2">
+              <p className="font-mono text-[11px] uppercase tracking-[0.18em] text-[var(--color-muted)]">
+                Recent work
+              </p>
+              <div className="flex flex-wrap items-center gap-3">
+                {proofLogos.map((logo) => (
+                  <div key={logo.src} className="brutal-border bg-[rgba(255,250,241,0.82)] px-3 py-2">
+                    <Image
+                      src={logo.src}
+                      alt={logo.alt}
+                      width={90}
+                      height={22}
+                      className="h-[18px] w-auto object-contain opacity-90"
+                    />
+                  </div>
+                ))}
+              </div>
             </div>
           </div>
         </div>

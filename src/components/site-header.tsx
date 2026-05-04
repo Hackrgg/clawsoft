@@ -44,7 +44,7 @@ export function SiteHeader() {
           </span>
         ) : (
           <span className="text-black font-black tracking-[0.12em]">
-            I&apos;ll prototype it first (on the house) — <span className="underline underline-offset-2">then you decide</span>
+            We&apos;ll prototype it first (on the house) — <span className="underline underline-offset-2">then you decide</span>
           </span>
         )}
       </a>

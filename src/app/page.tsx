@@ -140,7 +140,7 @@ export default function Home() {
                 href={WA_URL}
                 className="brutal-border brutal-shadow bg-[var(--color-accent-strong)] px-7 py-3 text-sm font-black uppercase tracking-[0.18em] text-[var(--color-text)] transition hover:translate-x-[2px] hover:translate-y-[2px] hover:shadow-none"
               >
-                Start a Project
+                Book Your Demo
               </a>
             </div>
           </div>

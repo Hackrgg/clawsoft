@@ -10,7 +10,7 @@ export function SiteFooter() {
         <div className="mb-14 border-b border-white/10 pb-14 grid gap-10 lg:grid-cols-[1.2fr_0.8fr] lg:items-end">
           <div className="space-y-5">
             <Link href="/" className="inline-block">
-              <span className="text-4xl font-black tracking-tight text-white">DIGUZ</span>
+              <span className="text-4xl font-black tracking-tight text-white">CLAWSOFT</span>
               <span className="text-4xl font-black text-[var(--color-accent)]">.</span>
             </Link>
             <p className="max-w-md text-base leading-8 text-white/50">
@@ -52,7 +52,7 @@ export function SiteFooter() {
           </nav>
 
           <p className="font-mono text-[11px] uppercase tracking-[0.18em] text-white/25">
-            © {new Date().getFullYear()} Diguz
+            © {new Date().getFullYear()} Clawsoft
           </p>
         </div>
 

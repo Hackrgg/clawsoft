@@ -38,7 +38,7 @@ export function PageTransition() {
             className="mb-8 select-none"
           >
             <span className="text-2xl font-extrabold tracking-tight" style={{ color: "var(--color-text)" }}>
-              DIGUZ
+              CLAWSOFT
             </span>
             <span className="text-3xl font-extrabold leading-none" style={{ color: "var(--color-accent)" }}>.</span>
           </motion.div>

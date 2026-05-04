@@ -92,7 +92,7 @@ export default function BillingPlansDemo() {
   const [couponApplied, setCouponApplied] = useState<string | null>(null);
 
   const currentPlan = useMemo(() => plans.find((p) => p.id === planId)!, [planId]);
-  const couponIsValid = coupon.trim().toLowerCase() === "diguz";
+  const couponIsValid = coupon.trim().toLowerCase() === "clawsoft";
 
   return (
     <>
@@ -126,12 +126,12 @@ export default function BillingPlansDemo() {
                     <input
                       value={coupon}
                       onChange={(e) => setCoupon(e.target.value)}
-                      placeholder="Try: DIGUZ"
+                      placeholder="Try: CLAWSOFT"
                       className="w-full border-2 border-[#2c231c] px-3 py-2 font-mono text-[11px] uppercase tracking-[0.14em] outline-none"
                     />
                     <button
                       type="button"
-                      onClick={() => setCouponApplied(couponIsValid ? "DIGUZ" : null)}
+                      onClick={() => setCouponApplied(couponIsValid ? "CLAWSOFT" : null)}
                       className="brutal-border brutal-shadow bg-[var(--color-accent)] px-3 py-2 font-mono text-[10px] font-bold uppercase tracking-[0.16em] text-black transition hover:translate-x-[2px] hover:translate-y-[2px] hover:shadow-none whitespace-nowrap"
                     >
                       Apply
@@ -247,4 +247,3 @@ export default function BillingPlansDemo() {
     </>
   );
 }
-

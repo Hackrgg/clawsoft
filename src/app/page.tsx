@@ -278,7 +278,7 @@ export default function Home() {
                 A studio that builds,<br />not just designs.
               </h2>
               <p className="text-base leading-8 text-[var(--color-muted)]">
-                DIGUZ is a web studio. The work covers the full build — from brief to a live, working product. Websites, SaaS products, custom solutions, MVPs, and mobile apps. No fixed industry, no minimum budget tier — the scope depends on what the project actually needs.
+                CLAWSOFT is a web studio. The work covers the full build — from brief to a live, working product. Websites, SaaS products, custom solutions, MVPs, and mobile apps. No fixed industry, no minimum budget tier — the scope depends on what the project actually needs.
               </p>
               <p className="text-base leading-8 text-[var(--color-muted)]">
                 Projects are handled using modern tools and a direct process: scope it, build it, ship it. No handoff chains, no account managers. Direct communication from start to delivery.

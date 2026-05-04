@@ -1,13 +1,14 @@
 "use client";
+
 import { useState } from "react";
 import Link from "next/link";
 import { WA_URL } from "@/lib/config";
 
 const navItems = [
   { href: "/#about", label: "About" },
+  { href: "/demos", label: "Demos" },
   { href: "/packages", label: "Packages" },
   { href: "/blog", label: "Blog" },
-  { href: "/demos", label: "Demos" },
   { href: WA_URL, label: "Contact" },
 ];
 
@@ -27,15 +28,23 @@ export function SiteHeader() {
       >
         {!hovered ? (
           <span className="flex items-center justify-center gap-3">
-            <span className="animate-bounce inline-block text-[var(--color-teal)]" style={{ animationDelay: "0ms" }}>→</span>
-            <span className="animate-bounce inline-block text-[var(--color-accent-strong)]" style={{ animationDelay: "100ms" }}>→</span>
-            <span className="text-[var(--color-accent)] font-black tracking-[0.18em]">CLAIM YOUR SPOT</span>
-            <span className="animate-bounce inline-block text-[var(--color-accent-strong)]" style={{ animationDelay: "100ms" }}>←</span>
-            <span className="animate-bounce inline-block text-[var(--color-teal)]" style={{ animationDelay: "0ms" }}>←</span>
+            <span className="animate-bounce inline-block text-[var(--color-teal)]" style={{ animationDelay: "0ms" }}>
+              →
+            </span>
+            <span className="animate-bounce inline-block text-[var(--color-accent-strong)]" style={{ animationDelay: "100ms" }}>
+              →
+            </span>
+            <span className="text-[var(--color-accent)] font-black tracking-[0.18em]">GET A FREE LIVE DEMO</span>
+            <span className="animate-bounce inline-block text-[var(--color-accent-strong)]" style={{ animationDelay: "100ms" }}>
+              ←
+            </span>
+            <span className="animate-bounce inline-block text-[var(--color-teal)]" style={{ animationDelay: "0ms" }}>
+              ←
+            </span>
           </span>
         ) : (
           <span className="text-black font-black tracking-[0.12em]">
-            3/8 spots left for May 2026 — <span className="underline underline-offset-2">let&apos;s talk</span>
+            I&apos;ll prototype it first (on the house) — <span className="underline underline-offset-2">then you decide</span>
           </span>
         )}
       </a>

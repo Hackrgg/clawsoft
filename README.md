@@ -20,6 +20,16 @@ You can start editing the page by modifying `app/page.tsx`. The page auto-update
 
 This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
 
+## Demos (mobile + web)
+
+- Web demo links live in `src/data/demos.ts`.
+- Mobile demos use Appetize embed/share URLs via env vars. Copy `.env.example` to `.env.local` and fill in:
+  - `NEXT_PUBLIC_APPETIZE_FOODIE_URL`
+  - `NEXT_PUBLIC_APPETIZE_EBASKET_URL`
+  - `NEXT_PUBLIC_APPETIZE_SMARTGYM_URL`
+  - `NEXT_PUBLIC_APPETIZE_NUTRISCAN_URL`
+  - `NEXT_PUBLIC_APPETIZE_SOCIETIFY_URL`
+
 ## Learn More
 
 To learn more about Next.js, take a look at the following resources:

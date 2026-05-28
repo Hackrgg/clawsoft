@@ -200,9 +200,19 @@ function WorkSection() {
               </div>
               <div className="p-5 flex flex-col gap-3 flex-1">
                 <div className="flex items-start justify-between gap-2">
-                  <div>
-                    <p className="font-black uppercase tracking-[-0.02em] text-[var(--color-text)] text-base leading-tight">{project.title}</p>
-                    <p className="mt-0.5 text-[12px] text-[var(--color-muted)]">{project.tagline}</p>
+                  <div className="flex items-center gap-3">
+                    <div className="w-9 h-9 shrink-0 brutal-border bg-white overflow-hidden flex items-center justify-center">
+                      <img
+                        src={project.logo}
+                        alt={project.title}
+                        className="w-full h-full object-contain p-1"
+                        onError={(e) => { (e.target as HTMLImageElement).parentElement!.style.display = "none"; }}
+                      />
+                    </div>
+                    <div>
+                      <p className="font-black uppercase tracking-[-0.02em] text-[var(--color-text)] text-base leading-tight">{project.title}</p>
+                      <p className="mt-0.5 text-[12px] text-[var(--color-muted)]">{project.tagline}</p>
+                    </div>
                   </div>
                   <span className="font-mono text-[13px] text-[var(--color-muted)] group-hover:text-[var(--color-text)] transition mt-0.5">→</span>
                 </div>

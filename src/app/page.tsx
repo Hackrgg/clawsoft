@@ -151,24 +151,6 @@ export default function Home() {
               </a>
             </div>
 
-            <div className="flex flex-wrap items-center gap-4 pt-2">
-              <p className="font-mono text-[11px] uppercase tracking-[0.18em] text-[var(--color-muted)]">
-                Recent work
-              </p>
-              <div className="flex flex-wrap items-center gap-3">
-                {proofLogos.map((logo) => (
-                  <div key={logo.src} className="brutal-border bg-[rgba(255,250,241,0.82)] px-3 py-2">
-                    <Image
-                      src={logo.src}
-                      alt={logo.alt}
-                      width={90}
-                      height={22}
-                      className="h-[18px] w-auto object-contain opacity-90"
-                    />
-                  </div>
-                ))}
-              </div>
-            </div>
           </div>
         </div>
       </section>

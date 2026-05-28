@@ -1,6 +1,7 @@
 "use client";
 
-import { motion } from "framer-motion";
+import { motion, AnimatePresence } from "framer-motion";
+import { useState } from "react";
 import Link from "next/link";
 import Image from "next/image";
 import {
@@ -70,6 +71,221 @@ const stackGroups = [
   },
 ];
 
+
+const projects = [
+  {
+    id: "hackrgg",
+    title: "hackr.gg",
+    tagline: "Cybersecurity training platform",
+    desc: "Full web platform for cybersecurity learning. Users get access to simulated live labs — real attack/defense environments running in the browser. Includes auth, user dashboards, lab progress tracking, and a custom backend.",
+    features: ["Simulated live hacking labs", "User auth & dashboards", "Progress tracking", "Custom backend & admin panel"],
+    tags: ["Web App", "Platform", "SaaS"],
+    url: "https://hackr.gg",
+    accent: "var(--color-accent)",
+  },
+  {
+    id: "nimra",
+    title: "Nimra",
+    tagline: "Virtual phone & eSIM platform",
+    desc: "Mobile app that lets users get virtual phone numbers and eSIMs — buy, manage, and use them directly from the app. Flutter build for iOS & Android with a clean onboarding and account management flow.",
+    features: ["Virtual phone numbers", "eSIM purchasing & activation", "Multi-number management", "Flutter — iOS & Android"],
+    tags: ["Mobile App", "Flutter", "In Progress"],
+    url: null,
+    accent: "var(--color-teal)",
+  },
+  {
+    id: "onyx-gym",
+    title: "Onyx Gym",
+    tagline: "Gym & fitness website",
+    desc: "Website for a premium gym brand. Members can browse class schedules, book sessions, and sign up for memberships online. Clean, conversion-focused design with a full booking system wired in.",
+    features: ["Class schedule & booking", "Membership sign-up", "Mobile-first design", "Admin content management"],
+    tags: ["Website", "Bookings"],
+    url: "https://onyxgym.net",
+    accent: "var(--color-accent-strong)",
+  },
+  {
+    id: "ok-permanent",
+    title: "OK Permanent",
+    tagline: "Course platform & personal brand",
+    desc: "Personal brand site combined with a full course-selling platform. Visitors can browse the creator's portfolio, enroll in courses, pay, and watch lessons — all without leaving the site. Built with Stripe payments and a custom video player.",
+    features: ["Course enrollment & payments", "In-site video lessons", "Personal portfolio", "Stripe & PayPal checkout"],
+    tags: ["SaaS", "Courses", "Payments"],
+    url: "https://ok-permanent.com",
+    accent: "var(--color-accent)",
+  },
+  {
+    id: "the-bed-store",
+    title: "The Bed Store",
+    tagline: "Furniture e-commerce store",
+    desc: "Full e-commerce storefront for a furniture brand. Product listings, filtering, cart, and checkout — all custom built. Includes a backend CMS so the client can manage inventory, categories, and orders without touching code.",
+    features: ["Product catalog & filtering", "Cart & checkout", "Backend CMS for inventory", "Order management"],
+    tags: ["E-commerce", "Web", "CMS"],
+    url: "https://thebedstore.shop",
+    accent: "var(--color-teal)",
+  },
+  {
+    id: "zevra-creative",
+    title: "Zevra Creative",
+    tagline: "Creative agency website",
+    desc: "Website for a creative agency — built to showcase their portfolio, communicate services, and convert visitors into leads. Clean branding, fast load times, and a contact flow that goes straight to the team.",
+    features: ["Portfolio showcase", "Services pages", "Lead capture form", "Brand identity"],
+    tags: ["Website", "Agency"],
+    url: "https://zevracreative.com",
+    accent: "var(--color-accent-strong)",
+  },
+];
+
+type Project = typeof projects[number];
+
+function WorkSection() {
+  const [selected, setSelected] = useState<Project | null>(null);
+
+  return (
+    <section id="work" className="px-5 py-14 sm:px-8 lg:px-10 border-b-2 border-[rgba(44,35,28,0.85)]">
+      <div className="mx-auto max-w-7xl">
+        <div className="mb-10 flex flex-col gap-4 lg:flex-row lg:items-end lg:justify-between">
+          <div>
+            <p className="font-mono text-xs uppercase tracking-[0.28em] text-[var(--color-muted)] mb-3">Our work</p>
+            <h2 className="text-3xl font-black uppercase tracking-[-0.04em] text-[var(--color-text)] sm:text-4xl">
+              Built & shipped.
+            </h2>
+          </div>
+          <p className="max-w-xl text-sm leading-7 text-[var(--color-muted)]">
+            Real projects. Real clients. Delivered and live.
+          </p>
+        </div>
+
+        <div className="grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
+          {projects.map((project) => (
+            <button
+              key={project.id}
+              onClick={() => setSelected(project)}
+              className="brutal-border brutal-shadow bg-white flex flex-col overflow-hidden group text-left transition hover:translate-x-[2px] hover:translate-y-[2px] hover:shadow-none cursor-pointer"
+            >
+              <div className="relative bg-[#0f0f0f] overflow-hidden" style={{ height: "180px" }}>
+                <Image
+                  src={`/work/${project.id}.png`}
+                  alt={project.title}
+                  fill
+                  className="object-cover object-top transition group-hover:scale-[1.02]"
+                  onError={(e) => { (e.target as HTMLImageElement).style.display = "none"; }}
+                />
+                <div className="absolute inset-0 flex items-center justify-center">
+                  <p className="font-black uppercase tracking-[-0.01em] text-[rgba(255,255,255,0.12)] text-2xl select-none">{project.title}</p>
+                </div>
+              </div>
+              <div className="p-5 flex flex-col gap-3 flex-1">
+                <div className="flex items-start justify-between gap-2">
+                  <div>
+                    <p className="font-black uppercase tracking-[-0.02em] text-[var(--color-text)] text-base leading-tight">{project.title}</p>
+                    <p className="mt-0.5 text-[12px] text-[var(--color-muted)]">{project.tagline}</p>
+                  </div>
+                  <span className="font-mono text-[13px] text-[var(--color-muted)] group-hover:text-[var(--color-text)] transition mt-0.5">→</span>
+                </div>
+                <div className="flex gap-2 flex-wrap">
+                  {project.tags.map((tag) => (
+                    <span key={tag} className="brutal-border px-2 py-[3px] font-mono text-[9px] uppercase tracking-[0.1em]" style={{ backgroundColor: project.accent, color: "#000" }}>
+                      {tag}
+                    </span>
+                  ))}
+                </div>
+              </div>
+            </button>
+          ))}
+        </div>
+      </div>
+
+      {/* Modal */}
+      <AnimatePresence>
+        {selected && (
+          <>
+            <motion.div
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              exit={{ opacity: 0 }}
+              className="fixed inset-0 bg-black/60 z-50 backdrop-blur-sm"
+              onClick={() => setSelected(null)}
+            />
+            <motion.div
+              initial={{ opacity: 0, y: 40 }}
+              animate={{ opacity: 1, y: 0 }}
+              exit={{ opacity: 0, y: 40 }}
+              transition={{ type: "spring", damping: 28, stiffness: 300 }}
+              className="fixed inset-x-4 top-[50%] -translate-y-1/2 z-50 mx-auto max-w-xl brutal-border brutal-shadow bg-[var(--color-bg)] overflow-hidden"
+            >
+              {/* Screenshot */}
+              <div className="relative bg-[#0f0f0f] overflow-hidden" style={{ height: "200px" }}>
+                <Image
+                  src={`/work/${selected.id}.png`}
+                  alt={selected.title}
+                  fill
+                  className="object-cover object-top"
+                  onError={(e) => { (e.target as HTMLImageElement).style.display = "none"; }}
+                />
+                <div className="absolute inset-0 flex items-center justify-center">
+                  <p className="font-black uppercase text-[rgba(255,255,255,0.1)] text-3xl select-none">{selected.title}</p>
+                </div>
+                {/* Logo */}
+                <div className="absolute bottom-0 left-5 translate-y-1/2 w-14 h-14 brutal-border bg-white overflow-hidden flex items-center justify-center">
+                  <Image
+                    src={`/logos/${selected.id}.png`}
+                    alt={selected.title}
+                    width={56}
+                    height={56}
+                    className="object-contain p-1"
+                    onError={(e) => { (e.target as HTMLImageElement).style.display = "none"; }}
+                  />
+                </div>
+                <button
+                  onClick={() => setSelected(null)}
+                  className="absolute top-3 right-3 brutal-border bg-white w-8 h-8 flex items-center justify-center font-black text-sm hover:bg-[var(--color-accent)] transition"
+                >
+                  ✕
+                </button>
+              </div>
+
+              {/* Content */}
+              <div className="pt-10 px-6 pb-6 flex flex-col gap-4">
+                <div>
+                  <p className="font-black uppercase tracking-[-0.02em] text-[var(--color-text)] text-xl">{selected.title}</p>
+                  <p className="mt-1 font-mono text-[11px] uppercase tracking-[0.18em] text-[var(--color-muted)]">{selected.tagline}</p>
+                </div>
+                <p className="text-sm leading-7 text-[var(--color-muted)]">{selected.desc}</p>
+                <div className="grid grid-cols-2 gap-2">
+                  {selected.features.map((f) => (
+                    <div key={f} className="flex items-start gap-2">
+                      <span className="text-[var(--color-accent)] font-black text-sm mt-0.5">✓</span>
+                      <p className="text-[13px] text-[var(--color-text)]">{f}</p>
+                    </div>
+                  ))}
+                </div>
+                <div className="flex items-center justify-between pt-2 border-t-2 border-[rgba(44,35,28,0.1)]">
+                  <div className="flex gap-2 flex-wrap">
+                    {selected.tags.map((tag) => (
+                      <span key={tag} className="brutal-border px-2 py-[3px] font-mono text-[9px] uppercase tracking-[0.1em]" style={{ backgroundColor: selected.accent, color: "#000" }}>
+                        {tag}
+                      </span>
+                    ))}
+                  </div>
+                  {selected.url && (
+                    <a
+                      href={selected.url}
+                      target="_blank"
+                      rel="noreferrer"
+                      className="brutal-border brutal-shadow bg-[var(--color-accent)] px-4 py-2 font-mono text-[10px] font-bold uppercase tracking-[0.16em] text-black transition hover:translate-x-[2px] hover:translate-y-[2px] hover:shadow-none shrink-0"
+                    >
+                      Visit site ↗
+                    </a>
+                  )}
+                </div>
+              </div>
+            </motion.div>
+          </>
+        )}
+      </AnimatePresence>
+    </section>
+  );
+}
 
 export default function Home() {
   return (
@@ -176,114 +392,7 @@ export default function Home() {
         </div>
       </section>
 
-      <section id="work" className="px-5 py-14 sm:px-8 lg:px-10 border-b-2 border-[rgba(44,35,28,0.85)]">
-        <div className="mx-auto max-w-7xl">
-          <div className="mb-10 flex flex-col gap-4 lg:flex-row lg:items-end lg:justify-between">
-            <div>
-              <p className="font-mono text-xs uppercase tracking-[0.28em] text-[var(--color-muted)] mb-3">Our work</p>
-              <h2 className="text-3xl font-black uppercase tracking-[-0.04em] text-[var(--color-text)] sm:text-4xl">
-                Built & shipped.
-              </h2>
-            </div>
-            <p className="max-w-xl text-sm leading-7 text-[var(--color-muted)]">
-              Real projects. Real clients. Delivered and live.
-            </p>
-          </div>
-
-          <div className="grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
-            {[
-              {
-                id: "hackrgg",
-                title: "hackr.gg",
-                desc: "Gaming platform — full web build with auth, dashboards, and custom backend.",
-                tags: ["Web App", "Platform"],
-                url: "https://hackr.gg",
-                accent: "var(--color-accent)",
-              },
-              {
-                id: "nimra",
-                title: "Nimra App",
-                desc: "Mobile app for on-demand services. Flutter build, iOS & Android.",
-                tags: ["Mobile App", "Flutter", "In Progress"],
-                url: null,
-                accent: "var(--color-teal)",
-              },
-              {
-                id: "onyx-gym",
-                title: "Onyx Gym",
-                desc: "Gym website with memberships, class schedules, and booking system.",
-                tags: ["Website", "Bookings"],
-                url: "https://onyxgym.net",
-                accent: "var(--color-accent-strong)",
-              },
-              {
-                id: "ok-permanent",
-                title: "OK Permanent",
-                desc: "Personal portfolio + course platform — enroll, pay, and watch lessons directly on the site.",
-                tags: ["SaaS", "Courses", "Payments"],
-                url: "https://ok-permanent.com",
-                accent: "var(--color-accent)",
-              },
-              {
-                id: "the-bed-store",
-                title: "The Bed Store",
-                desc: "E-commerce store for furniture — product listings, cart, and checkout.",
-                tags: ["E-commerce", "Web"],
-                url: "https://thebedstore.shop",
-                accent: "var(--color-teal)",
-              },
-              {
-                id: "zevra-creative",
-                title: "Zevra Creative",
-                desc: "Creative agency website — portfolio, services, and brand identity.",
-                tags: ["Website", "Agency"],
-                url: "https://zevracreative.com",
-                accent: "var(--color-accent-strong)",
-              },
-            ].map((project) => (
-              <a
-                key={project.title}
-                href={project.url ?? undefined}
-                target={project.url ? "_blank" : undefined}
-                rel="noreferrer"
-                className={`brutal-border bg-white flex flex-col overflow-hidden group ${project.url ? "brutal-shadow transition hover:translate-x-[2px] hover:translate-y-[2px] hover:shadow-none cursor-pointer" : "opacity-60 cursor-default"}`}
-              >
-                {/* Screenshot or placeholder */}
-                <div className="relative bg-[#0f0f0f] overflow-hidden" style={{ height: "180px" }}>
-                  <Image
-                    src={`/work/${project.id}.png`}
-                    alt={project.title}
-                    fill
-                    className="object-cover object-top transition group-hover:scale-[1.02]"
-                    onError={(e) => { (e.target as HTMLImageElement).style.display = "none"; }}
-                  />
-                  <div className="absolute inset-0 flex items-center justify-center">
-                    <p className="font-black uppercase tracking-[-0.01em] text-[rgba(255,255,255,0.15)] text-2xl select-none">{project.title}</p>
-                  </div>
-                </div>
-                <div className="p-5 flex flex-col gap-3 flex-1">
-                  <div className="flex items-start justify-between gap-2">
-                    <p className="font-black uppercase tracking-[-0.02em] text-[var(--color-text)] text-base leading-tight">{project.title}</p>
-                    <span className="font-mono text-[11px] text-[var(--color-muted)] group-hover:text-[var(--color-text)] transition">{project.url ? "↗" : ""}</span>
-                  </div>
-                  <p className="text-sm leading-6 text-[var(--color-muted)] flex-1">{project.desc}</p>
-                  <div className="flex gap-2 flex-wrap">
-                    {project.tags.map((tag) => (
-                      <span
-                        key={tag}
-                        className="brutal-border px-2 py-[3px] font-mono text-[9px] uppercase tracking-[0.1em]"
-                        style={{ backgroundColor: project.accent, color: "#000" }}
-                      >
-                        {tag}
-                      </span>
-                    ))}
-                  </div>
-                </div>
-              </a>
-            ))}
-          </div>
-        </div>
-      </section>
+      <WorkSection />
       <section
         id="stack"
         className="cross-hatch border-b-2 border-[rgba(44,35,28,0.85)] px-5 py-14 sm:px-8 lg:px-10"

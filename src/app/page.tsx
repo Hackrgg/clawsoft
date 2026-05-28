@@ -414,16 +414,16 @@ export default function Home() {
 
             <div className="flex flex-wrap gap-4">
               <Link
-                href="/packages"
+                href="/#work"
                 className="brutal-border brutal-shadow bg-white px-7 py-3 text-sm font-black uppercase tracking-[0.18em] text-[var(--color-text)] transition hover:translate-x-[2px] hover:translate-y-[2px] hover:shadow-none"
               >
-                See Packages
+                View Our Work
               </Link>
               <a
                 href={WA_URL}
                 className="brutal-border brutal-shadow bg-[var(--color-accent-strong)] px-7 py-3 text-sm font-black uppercase tracking-[0.18em] text-[var(--color-text)] transition hover:translate-x-[2px] hover:translate-y-[2px] hover:shadow-none"
               >
-                Book Your Demo
+                Start Your Project →
               </a>
             </div>
 

@@ -20,7 +20,7 @@ export function WhatsAppWidget() {
           >
             <div className="mb-1 flex items-center justify-between">
               <span className="font-mono text-[11px] uppercase tracking-[0.2em] text-[var(--color-muted)]">
-                clawsoft
+                diguz
               </span>
               <button
                 onClick={() => setOpen(false)}

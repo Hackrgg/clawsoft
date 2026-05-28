@@ -52,7 +52,7 @@ export function SiteHeader() {
           href="/"
           className="absolute left-5 sm:left-8 lg:left-10 text-xl font-extrabold tracking-tight text-[var(--color-text)]"
         >
-          CLAWSOFT
+          DIGUZ
           <span className="ml-0.5 text-2xl leading-none text-[var(--color-accent)]">.</span>
         </Link>
 

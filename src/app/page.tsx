@@ -127,11 +127,9 @@ export default function Home() {
 
             <div className="space-y-5">
               <h1 className="text-balance text-5xl font-black uppercase leading-[0.92] tracking-[-0.06em] text-[var(--color-text)] sm:text-6xl lg:text-[6rem]">
-                Web.
+                We Build.
                 <br />
-                Mobile.
-                <br />
-                Shipped.
+                You Grow<span className="text-[var(--color-accent)]">.</span>
               </h1>
               <p className="max-w-2xl text-base leading-7 text-[var(--color-muted)]">
                 A web studio for founders and businesses. We design, build, and ship conversion-first websites and MVPs — fast, clean, and production-ready.
@@ -306,7 +304,7 @@ export default function Home() {
                 A studio that builds,<br />not just designs.
               </h2>
               <p className="text-base leading-8 text-[var(--color-muted)]">
-                CLAWSOFT is a web studio. The work covers the full build — from brief to a live, working product. Websites, SaaS products, custom solutions, MVPs, and mobile apps. No fixed industry, no minimum budget tier — the scope depends on what the project actually needs.
+                DIGUZ is a web studio. The work covers the full build — from brief to a live, working product. Websites, SaaS products, custom solutions, MVPs, and mobile apps. No fixed industry, no minimum budget tier — the scope depends on what the project actually needs.
               </p>
               <p className="text-base leading-8 text-[var(--color-muted)]">
                 Projects are handled using modern tools and a direct process: scope it, build it, ship it. No handoff chains, no account managers. Direct communication from start to delivery.

@@ -17,24 +17,24 @@ const ibmPlexMono = IBM_Plex_Mono({
 });
 
 export const metadata: Metadata = {
-  metadataBase: new URL("https://clawsoft.io"),
+  metadataBase: new URL("https://diguz.io"),
   title: {
-    default: "Clawsoft — We Build. We Ship.",
-    template: "%s | Clawsoft",
+    default: "Diguz — We Build. We Ship.",
+    template: "%s | Diguz",
   },
   description:
     "A web studio that builds and ships — websites, web apps, mobile apps, and browser extensions. Recent work: hackr.gg, nimra.app, thebedstore.shop.",
   openGraph: {
-    title: "Clawsoft — We Build. We Ship.",
+    title: "Diguz — We Build. We Ship.",
     description:
       "A web studio that builds and ships. Websites, web apps, mobile apps, browser extensions. Next.js, TypeScript, Supabase, Flutter.",
-    url: "https://clawsoft.io",
-    siteName: "clawsoft",
+    url: "https://diguz.io",
+    siteName: "diguz",
     type: "website",
   },
   twitter: {
     card: "summary_large_image",
-    title: "Clawsoft — We Build. We Ship.",
+    title: "Diguz — We Build. We Ship.",
     description:
       "A web studio that builds and ships. Websites, web apps, mobile apps, browser extensions.",
   },

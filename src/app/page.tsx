@@ -530,6 +530,37 @@ export default function Home() {
         </div>
       </section>
 
+      {/* CTA Banner */}
+      <section className="relative border-t-2 border-b-2 border-[rgba(44,35,28,0.85)] overflow-hidden bg-[var(--color-text)]" style={{ minHeight: "340px" }}>
+        <div className="absolute inset-0 opacity-[0.06] pointer-events-none" style={{ backgroundImage: "repeating-linear-gradient(45deg, #fff 0, #fff 1px, transparent 0, transparent 50%)", backgroundSize: "12px 12px" }} />
+        <motion.div
+          animate={{ y: [0, -18, 0], x: [0, 10, 0] }}
+          transition={{ duration: 9, repeat: Infinity, ease: "easeInOut" }}
+          className="absolute right-[-60px] top-[-60px] w-72 h-72 rounded-full bg-[var(--color-accent)] opacity-20 pointer-events-none"
+        />
+        <motion.div
+          animate={{ y: [0, 20, 0], x: [0, -12, 0] }}
+          transition={{ duration: 12, repeat: Infinity, ease: "easeInOut" }}
+          className="absolute left-[-40px] bottom-[-40px] w-48 h-48 rounded-full bg-[var(--color-teal)] opacity-15 pointer-events-none"
+        />
+        <div className="relative flex flex-col items-center justify-center text-center px-5 py-20 sm:px-8 lg:px-10">
+          <p className="font-mono text-[11px] uppercase tracking-[0.28em] text-[rgba(255,255,255,0.5)] mb-4">Ready when you are</p>
+          <h2 className="text-4xl font-black uppercase tracking-[-0.04em] text-white sm:text-5xl lg:text-6xl max-w-3xl leading-[0.92]">
+            Got an idea?<br />
+            <span className="text-[var(--color-accent)]">Let&apos;s build it.</span>
+          </h2>
+          <p className="mt-6 max-w-lg text-sm leading-7 text-[rgba(255,255,255,0.55)]">
+            Drop us a message and we&apos;ll scope it out for free. No commitment, no agency fluff — just a straight conversation about what you need.
+          </p>
+          <a
+            href={WA_URL}
+            className="mt-8 brutal-border brutal-shadow bg-[var(--color-accent)] px-8 py-4 text-sm font-black uppercase tracking-[0.18em] text-black transition hover:translate-x-[2px] hover:translate-y-[2px] hover:shadow-none"
+          >
+            Start Your Project →
+          </a>
+        </div>
+      </section>
+
       <section className="border-t-2 border-[rgba(44,35,28,0.85)] py-16 overflow-hidden">
         <p className="mb-10 px-5 font-mono text-[11px] uppercase tracking-[0.28em] text-[var(--color-muted)] sm:px-8 lg:px-10">What clients say</p>
         <div className="relative">

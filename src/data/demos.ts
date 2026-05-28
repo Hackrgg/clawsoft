@@ -7,6 +7,7 @@ export type Demo = {
   subtitle: string;
   tags: string[];
   logo?: string;
+  screenshot?: string;
   preview: {
     type: "appetize" | "link";
     embedUrl?: string | null;
@@ -22,6 +23,7 @@ export const demos: Demo[] = [
     subtitle: "Multi-restaurant food delivery (Flutter)",
     tags: ["Mobile", "Consumer", "Delivery"],
     logo: "/demos/logos/foodie.png",
+    screenshot: "/demos/screenshots/foodie.png",
     preview: { type: "appetize", embedUrl: process.env.NEXT_PUBLIC_APPETIZE_FOODIE_URL ?? null },
   },
   {
@@ -31,6 +33,7 @@ export const demos: Demo[] = [
     subtitle: "Single-vendor grocery delivery (Flutter)",
     tags: ["Mobile", "Commerce", "Delivery"],
     logo: "/demos/logos/ebasket.png",
+    screenshot: "/demos/screenshots/ebasket.png",
     preview: { type: "appetize", embedUrl: process.env.NEXT_PUBLIC_APPETIZE_EBASKET_URL ?? null },
   },
   {
@@ -40,6 +43,7 @@ export const demos: Demo[] = [
     subtitle: "Fitness + AI coaching (Mobile app)",
     tags: ["Mobile", "Fitness", "AI"],
     logo: "/demos/logos/smartgym.png",
+    screenshot: "/demos/screenshots/smartgym.png",
     preview: { type: "appetize", embedUrl: process.env.NEXT_PUBLIC_APPETIZE_SMARTGYM_URL ?? null },
   },
   {
@@ -49,6 +53,7 @@ export const demos: Demo[] = [
     subtitle: "Nutrition scan template (Flutter)",
     tags: ["Mobile", "Health", "AI"],
     logo: "/demos/logos/nutriscan.png",
+    screenshot: "/demos/screenshots/nutriscan.png",
     preview: { type: "appetize", embedUrl: process.env.NEXT_PUBLIC_APPETIZE_NUTRISCAN_URL ?? null },
   },
   {
@@ -58,15 +63,16 @@ export const demos: Demo[] = [
     subtitle: "Smart communities SaaS companion (Mobile app)",
     tags: ["Mobile", "SaaS", "Communities"],
     logo: "/demos/logos/societify.png",
+    screenshot: "/demos/screenshots/societify.png",
     preview: { type: "appetize", embedUrl: process.env.NEXT_PUBLIC_APPETIZE_SOCIETIFY_URL ?? null },
   },
-
   {
     id: "stocky-saas",
     kind: "web",
     title: "Stocky POS + Inventory",
     subtitle: "SaaS preview (live demo)",
     tags: ["Web", "SaaS", "POS"],
+    screenshot: "/demos/screenshots/stocky-saas.png",
     preview: { type: "link", url: "https://stockysaas.xyz/" },
   },
   {
@@ -75,6 +81,7 @@ export const demos: Demo[] = [
     title: "The Bed Store",
     subtitle: "E-commerce storefront (live)",
     tags: ["Web", "E-commerce", "Storefront"],
+    screenshot: "/demos/screenshots/the-bed-store.png",
     preview: { type: "link", url: "https://thebedstore.shop/" },
   },
   {
@@ -83,6 +90,7 @@ export const demos: Demo[] = [
     title: "Webby (AI No-Code Builder)",
     subtitle: "SaaS preview (live demo)",
     tags: ["Web", "SaaS", "AI"],
+    screenshot: "/demos/screenshots/webby-vibecode.png",
     preview: { type: "link", url: "https://webby.titansys.dev/" },
   },
 ];

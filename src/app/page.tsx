@@ -200,6 +200,7 @@ export default function Home() {
           <div className="grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
             {[
               {
+                id: "hackrgg",
                 title: "hackr.gg",
                 desc: "Gaming platform — full web build with auth, dashboards, and custom backend.",
                 tags: ["Web App", "Platform"],
@@ -207,6 +208,7 @@ export default function Home() {
                 accent: "var(--color-accent)",
               },
               {
+                id: "nimra",
                 title: "Nimra App",
                 desc: "Mobile app for on-demand services. Flutter build, iOS & Android.",
                 tags: ["Mobile App", "Flutter", "In Progress"],
@@ -214,6 +216,7 @@ export default function Home() {
                 accent: "var(--color-teal)",
               },
               {
+                id: "onyx-gym",
                 title: "Onyx Gym",
                 desc: "Gym website with memberships, class schedules, and booking system.",
                 tags: ["Website", "Bookings"],
@@ -221,6 +224,7 @@ export default function Home() {
                 accent: "var(--color-accent-strong)",
               },
               {
+                id: "ok-permanent",
                 title: "OK Permanent",
                 desc: "Personal portfolio + course platform — enroll, pay, and watch lessons directly on the site.",
                 tags: ["SaaS", "Courses", "Payments"],
@@ -228,6 +232,7 @@ export default function Home() {
                 accent: "var(--color-accent)",
               },
               {
+                id: "the-bed-store",
                 title: "The Bed Store",
                 desc: "E-commerce store for furniture — product listings, cart, and checkout.",
                 tags: ["E-commerce", "Web"],
@@ -235,6 +240,7 @@ export default function Home() {
                 accent: "var(--color-teal)",
               },
               {
+                id: "zevra-creative",
                 title: "Zevra Creative",
                 desc: "Creative agency website — portfolio, services, and brand identity.",
                 tags: ["Website", "Agency"],
@@ -247,23 +253,38 @@ export default function Home() {
                 href={project.url ?? undefined}
                 target={project.url ? "_blank" : undefined}
                 rel="noreferrer"
-                className={`brutal-border bg-white flex flex-col p-6 gap-4 group ${project.url ? "brutal-shadow transition hover:translate-x-[2px] hover:translate-y-[2px] hover:shadow-none cursor-pointer" : "opacity-60 cursor-default"}`}
+                className={`brutal-border bg-white flex flex-col overflow-hidden group ${project.url ? "brutal-shadow transition hover:translate-x-[2px] hover:translate-y-[2px] hover:shadow-none cursor-pointer" : "opacity-60 cursor-default"}`}
               >
-                <div className="flex items-start justify-between gap-2">
-                  <p className="font-black uppercase tracking-[-0.02em] text-[var(--color-text)] text-base leading-tight">{project.title}</p>
-                  <span className="font-mono text-[11px] text-[var(--color-muted)] group-hover:text-[var(--color-text)] transition">{project.url ? "↗" : ""}</span>
+                {/* Screenshot or placeholder */}
+                <div className="relative bg-[#0f0f0f] overflow-hidden" style={{ height: "180px" }}>
+                  <Image
+                    src={`/work/${project.id}.png`}
+                    alt={project.title}
+                    fill
+                    className="object-cover object-top transition group-hover:scale-[1.02]"
+                    onError={(e) => { (e.target as HTMLImageElement).style.display = "none"; }}
+                  />
+                  <div className="absolute inset-0 flex items-center justify-center">
+                    <p className="font-black uppercase tracking-[-0.01em] text-[rgba(255,255,255,0.15)] text-2xl select-none">{project.title}</p>
+                  </div>
                 </div>
-                <p className="text-sm leading-6 text-[var(--color-muted)] flex-1">{project.desc}</p>
-                <div className="flex gap-2 flex-wrap">
-                  {project.tags.map((tag) => (
-                    <span
-                      key={tag}
-                      className="brutal-border px-2 py-[3px] font-mono text-[9px] uppercase tracking-[0.1em]"
-                      style={{ backgroundColor: project.accent, color: "#000" }}
-                    >
-                      {tag}
-                    </span>
-                  ))}
+                <div className="p-5 flex flex-col gap-3 flex-1">
+                  <div className="flex items-start justify-between gap-2">
+                    <p className="font-black uppercase tracking-[-0.02em] text-[var(--color-text)] text-base leading-tight">{project.title}</p>
+                    <span className="font-mono text-[11px] text-[var(--color-muted)] group-hover:text-[var(--color-text)] transition">{project.url ? "↗" : ""}</span>
+                  </div>
+                  <p className="text-sm leading-6 text-[var(--color-muted)] flex-1">{project.desc}</p>
+                  <div className="flex gap-2 flex-wrap">
+                    {project.tags.map((tag) => (
+                      <span
+                        key={tag}
+                        className="brutal-border px-2 py-[3px] font-mono text-[9px] uppercase tracking-[0.1em]"
+                        style={{ backgroundColor: project.accent, color: "#000" }}
+                      >
+                        {tag}
+                      </span>
+                    ))}
+                  </div>
                 </div>
               </a>
             ))}

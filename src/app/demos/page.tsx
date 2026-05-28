@@ -25,7 +25,7 @@ function DemoCard({
 
   return (
     <Wrapper
-      {...(wrapperProps as any)}
+      {...(wrapperProps as Record<string, string>)}
       className={`brutal-border bg-white flex flex-col overflow-hidden group ${url ? "brutal-shadow transition hover:translate-x-[2px] hover:translate-y-[2px] hover:shadow-none cursor-pointer" : ""}`}
     >
       {/* Preview area */}

@@ -70,13 +70,6 @@ const stackGroups = [
   },
 ];
 
-const proofLogos = [
-  { src: "/logos/the-bed-store.png", alt: "The Bed Store" },
-  { src: "/logos/onyx-gym.png", alt: "Onyx Gym" },
-  { src: "/logos/nimra.png", alt: "Nimra" },
-  { src: "/logos/zevra-creative.png", alt: "Zevra Creative" },
-  { src: "/logos/hackr-gg.png", alt: "hackr.gg" },
-];
 
 export default function Home() {
   return (

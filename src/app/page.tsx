@@ -235,7 +235,7 @@ function WorkSection() {
               className="fixed inset-x-4 top-[50%] -translate-y-1/2 z-50 mx-auto max-w-xl brutal-border brutal-shadow bg-[var(--color-bg)] overflow-hidden max-h-[90vh] overflow-y-auto"
             >
               {/* Carousel */}
-              <div className="relative bg-[#0f0f0f] overflow-hidden" style={{ height: "220px" }}>
+              <div className="relative bg-[#0f0f0f] overflow-hidden" style={{ height: "320px" }}>
                 <AnimatePresence mode="wait">
                   <motion.div
                     key={imgIndex}
@@ -258,44 +258,44 @@ function WorkSection() {
                   </motion.div>
                 </AnimatePresence>
 
+                {/* Logo — top left inside image */}
+                <div className="absolute top-4 left-4 w-14 h-14 brutal-border bg-white overflow-hidden flex items-center justify-center z-10 shadow-lg">
+                  <Image
+                    src={selected.logo}
+                    alt={selected.title}
+                    width={56}
+                    height={56}
+                    className="object-contain p-1.5"
+                    onError={(e) => { (e.target as HTMLImageElement).parentElement!.style.display = "none"; }}
+                  />
+                </div>
+
                 {/* Carousel arrows */}
                 {validImages.length > 1 && (
                   <>
                     <button
                       onClick={(e) => { e.stopPropagation(); setImgIndex((i) => (i - 1 + validImages.length) % validImages.length); }}
-                      className="absolute left-2 top-1/2 -translate-y-1/2 brutal-border bg-white/90 w-7 h-7 flex items-center justify-center font-black text-xs hover:bg-[var(--color-accent)] transition z-10"
+                      className="absolute left-2 top-1/2 -translate-y-1/2 brutal-border bg-white/90 w-8 h-8 flex items-center justify-center font-black text-sm hover:bg-[var(--color-accent)] transition z-10"
                     >←</button>
                     <button
                       onClick={(e) => { e.stopPropagation(); setImgIndex((i) => (i + 1) % validImages.length); }}
-                      className="absolute right-2 top-1/2 -translate-y-1/2 brutal-border bg-white/90 w-7 h-7 flex items-center justify-center font-black text-xs hover:bg-[var(--color-accent)] transition z-10"
+                      className="absolute right-2 top-1/2 -translate-y-1/2 brutal-border bg-white/90 w-8 h-8 flex items-center justify-center font-black text-sm hover:bg-[var(--color-accent)] transition z-10"
                     >→</button>
                   </>
                 )}
 
                 {/* Dots */}
                 {validImages.length > 1 && (
-                  <div className="absolute bottom-2 left-1/2 -translate-x-1/2 flex gap-1.5 z-10">
+                  <div className="absolute bottom-3 left-1/2 -translate-x-1/2 flex gap-2 z-10">
                     {validImages.map((_, i) => (
                       <button
                         key={i}
                         onClick={(e) => { e.stopPropagation(); setImgIndex(i); }}
-                        className={`w-1.5 h-1.5 rounded-full transition ${i === imgIndex ? "bg-[var(--color-accent)]" : "bg-white/40"}`}
+                        className={`w-2 h-2 rounded-full transition ${i === imgIndex ? "bg-[var(--color-accent)]" : "bg-white/40"}`}
                       />
                     ))}
                   </div>
                 )}
-
-                {/* Logo */}
-                <div className="absolute bottom-0 left-5 translate-y-1/2 w-12 h-12 brutal-border bg-white overflow-hidden flex items-center justify-center z-10">
-                  <Image
-                    src={selected.logo}
-                    alt={selected.title}
-                    width={48}
-                    height={48}
-                    className="object-contain p-1.5"
-                    onError={(e) => { (e.target as HTMLImageElement).style.display = "none"; }}
-                  />
-                </div>
 
                 <button
                   onClick={close}
@@ -304,7 +304,7 @@ function WorkSection() {
               </div>
 
               {/* Content */}
-              <div className="pt-10 px-6 pb-6 flex flex-col gap-4">
+              <div className="px-6 pt-5 pb-6 flex flex-col gap-4">
                 <div>
                   <p className="font-black uppercase tracking-[-0.02em] text-[var(--color-text)] text-xl">{selected.title}</p>
                   <p className="mt-1 font-mono text-[11px] uppercase tracking-[0.18em] text-[var(--color-muted)]">{selected.tagline}</p>

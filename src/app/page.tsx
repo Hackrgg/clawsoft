@@ -393,9 +393,9 @@ export default function Home() {
 
             <div className="space-y-5">
               <h1 className="text-balance text-5xl font-black uppercase leading-[0.92] tracking-[-0.06em] text-[var(--color-text)] sm:text-6xl lg:text-[6rem]">
-                We Build<span className="text-[var(--color-accent)]">.</span>
+                We Build<span className="inline-block w-[0.18em] h-[0.18em] rounded-full bg-[var(--color-accent)] mb-[0.15em] ml-[0.05em] align-middle" />
                 <br />
-                You Grow<span className="text-[var(--color-accent)]">.</span>
+                You Grow<span className="inline-block w-[0.18em] h-[0.18em] rounded-full bg-[var(--color-accent)] mb-[0.15em] ml-[0.05em] align-middle" />
               </h1>
               <p className="max-w-2xl text-base leading-7 text-[var(--color-muted)]">
                 A web studio for founders and businesses. We design, build, and ship conversion-first websites and MVPs — fast, clean, and production-ready.

@@ -24,18 +24,18 @@ import { SiteHeader } from "@/components/site-header";
 import { WA_URL } from "@/lib/config";
 
 const marqueeItems = [
-  "FOOD DELIVERY",
-  "TAXI & RIDE HAILING",
+  "MOBILE APPS",
+  "IOS & ANDROID",
+  "WEB APPS",
+  "MVP BUILDS",
+  "SAAS PRODUCTS",
+  "COPYWRITING",
+  "LANDING PAGES",
   "E-COMMERCE",
-  "HOTEL & TRAVEL",
-  "GROCERY DELIVERY",
-  "REAL ESTATE",
-  "BEAUTY & SALON",
-  "HEALTHCARE",
-  "EVENTS & TICKETING",
-  "GYM & FITNESS",
-  "MARKETPLACE",
-  "ON-DEMAND SERVICES",
+  "BRANDING",
+  "API & BACKEND",
+  "FLUTTER",
+  "NEXT.JS",
 ];
 
 const stackGroups = [

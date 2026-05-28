@@ -394,6 +394,10 @@ export default function Home() {
             </div>
 
             <div className="space-y-5">
+              <div className="flex items-center gap-3">
+                <span className="w-4 h-4 rounded-full bg-[var(--color-accent)] inline-block" />
+                <span className="w-6 h-6 rounded-full bg-[var(--color-accent)] inline-block" />
+              </div>
               <h1 className="text-balance text-5xl font-black uppercase leading-[0.92] tracking-[-0.06em] text-[var(--color-text)] sm:text-6xl lg:text-[6rem]">
                 We Build.
                 <br />

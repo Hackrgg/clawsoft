@@ -234,6 +234,13 @@ export default function Home() {
                 url: "https://thebedstore.shop",
                 accent: "var(--color-teal)",
               },
+              {
+                title: "Zevra Creative",
+                desc: "Creative agency website — portfolio, services, and brand identity.",
+                tags: ["Website", "Agency"],
+                url: "https://zevracreative.com",
+                accent: "var(--color-accent-strong)",
+              },
             ].map((project) => (
               <a
                 key={project.title}

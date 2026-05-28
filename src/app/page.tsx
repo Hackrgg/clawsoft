@@ -183,61 +183,83 @@ export default function Home() {
         </div>
       </section>
 
-      <section id="apps" className="px-5 py-14 sm:px-8 lg:px-10 border-b-2 border-[rgba(44,35,28,0.85)]">
+      <section id="work" className="px-5 py-14 sm:px-8 lg:px-10 border-b-2 border-[rgba(44,35,28,0.85)]">
         <div className="mx-auto max-w-7xl">
           <div className="mb-10 flex flex-col gap-4 lg:flex-row lg:items-end lg:justify-between">
             <div>
-              <p className="font-mono text-xs uppercase tracking-[0.28em] text-[var(--color-muted)] mb-3">Ready to launch</p>
+              <p className="font-mono text-xs uppercase tracking-[0.28em] text-[var(--color-muted)] mb-3">Our work</p>
               <h2 className="text-3xl font-black uppercase tracking-[-0.04em] text-[var(--color-text)] sm:text-4xl">
-                Apps we build.
+                Built & shipped.
               </h2>
             </div>
             <p className="max-w-xl text-sm leading-7 text-[var(--color-muted)]">
-              Production-ready mobile apps, customized for your brand and delivered fast.
+              Real projects. Real clients. Delivered and live.
             </p>
           </div>
 
-          <div className="divide-y-2 divide-[rgba(44,35,28,0.12)] border-y-2 border-[rgba(44,35,28,0.85)]">
+          <div className="grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
             {[
-              { n: "01", title: "Food Delivery App", tags: ["Multi-Vendor", "Live Tracking", "Payments"], accent: "var(--color-accent)" },
-              { n: "02", title: "Taxi / Ride Hailing App", tags: ["GPS Tracking", "Live Dispatch", "In-App Payments"], accent: "var(--color-teal)" },
-              { n: "03", title: "E-commerce App", tags: ["Product Catalog", "Cart & Checkout", "Orders"], accent: "var(--color-accent-strong)" },
-              { n: "04", title: "Hotel Booking App", tags: ["Availability Calendar", "Reservations", "Guest Mgmt"], accent: "var(--color-accent)" },
-              { n: "05", title: "Grocery Delivery App", tags: ["Multi-Vendor", "Scheduled Orders", "Tracking"], accent: "var(--color-teal)" },
-              { n: "06", title: "Real Estate App", tags: ["Map View", "Property Listings", "Agent Contact"], accent: "var(--color-accent-strong)" },
-              { n: "07", title: "Beauty & Salon App", tags: ["Appointment Booking", "Staff Selection", "Reminders"], accent: "var(--color-accent)" },
-              { n: "08", title: "Doctor & Clinic App", tags: ["Patient Booking", "Teleconsultation", "Records"], accent: "var(--color-teal)" },
-              { n: "09", title: "Events & Ticketing App", tags: ["QR Entry", "Ticket Sales", "Dashboard"], accent: "var(--color-accent-strong)" },
-              { n: "10", title: "Gym & Fitness App", tags: ["Memberships", "Class Booking", "Tracking"], accent: "var(--color-accent)" },
-              { n: "11", title: "Education & Courses App", tags: ["Online Learning", "Video Lessons", "Certificates"], accent: "var(--color-teal)" },
-            ].map((app) => (
-              <div key={app.n} className="flex items-center gap-4 py-4 group">
-                <span className="font-mono text-[11px] uppercase tracking-[0.24em] text-[var(--color-muted)] w-7 shrink-0">{app.n}</span>
-                <p className="font-black uppercase tracking-[-0.02em] text-[var(--color-text)] text-sm sm:text-base flex-1">{app.title}</p>
-                <div className="hidden sm:flex flex-nowrap gap-1.5">
-                  {app.tags.map((tag) => (
-                    <span key={tag} className="brutal-border whitespace-nowrap px-2 py-[3px] font-mono text-[9px] uppercase tracking-[0.08em] text-[var(--color-text)]" style={{ backgroundColor: "rgba(255,250,241,0.82)" }}>
+              {
+                title: "hackr.gg",
+                desc: "Gaming platform — full web build with auth, dashboards, and custom backend.",
+                tags: ["Web App", "Platform"],
+                url: "https://hackr.gg",
+                accent: "var(--color-accent)",
+              },
+              {
+                title: "Nimra App",
+                desc: "Mobile app for on-demand services. Flutter build, iOS & Android.",
+                tags: ["Mobile App", "Flutter"],
+                url: "https://nimra.app",
+                accent: "var(--color-teal)",
+              },
+              {
+                title: "Onyx Gym",
+                desc: "Gym website with memberships, class schedules, and booking system.",
+                tags: ["Website", "Bookings"],
+                url: "https://onyxgym.net",
+                accent: "var(--color-accent-strong)",
+              },
+              {
+                title: "OK Permanent",
+                desc: "Personal portfolio + course platform — enroll, pay, and watch lessons directly on the site.",
+                tags: ["SaaS", "Courses", "Payments"],
+                url: "https://ok-permanent.com",
+                accent: "var(--color-accent)",
+              },
+              {
+                title: "The Bed Store",
+                desc: "E-commerce store for furniture — product listings, cart, and checkout.",
+                tags: ["E-commerce", "Web"],
+                url: "#",
+                accent: "var(--color-teal)",
+              },
+            ].map((project) => (
+              <a
+                key={project.title}
+                href={project.url}
+                target={project.url !== "#" ? "_blank" : undefined}
+                rel="noreferrer"
+                className="brutal-border brutal-shadow bg-white flex flex-col p-6 gap-4 transition hover:translate-x-[2px] hover:translate-y-[2px] hover:shadow-none group"
+              >
+                <div className="flex items-start justify-between gap-2">
+                  <p className="font-black uppercase tracking-[-0.02em] text-[var(--color-text)] text-base leading-tight">{project.title}</p>
+                  <span className="font-mono text-[11px] text-[var(--color-muted)] group-hover:text-[var(--color-text)] transition">↗</span>
+                </div>
+                <p className="text-sm leading-6 text-[var(--color-muted)] flex-1">{project.desc}</p>
+                <div className="flex gap-2 flex-wrap">
+                  {project.tags.map((tag) => (
+                    <span
+                      key={tag}
+                      className="brutal-border px-2 py-[3px] font-mono text-[9px] uppercase tracking-[0.1em]"
+                      style={{ backgroundColor: project.accent, color: "#000" }}
+                    >
                       {tag}
                     </span>
                   ))}
                 </div>
-                <Link
-                  href="/packages"
-                  className="brutal-border brutal-shadow shrink-0 bg-white px-3 py-1.5 font-mono text-[10px] uppercase tracking-[0.16em] text-[var(--color-text)] transition hover:translate-x-[2px] hover:translate-y-[2px] hover:shadow-none"
-                >
-                  View →
-                </Link>
-              </div>
+              </a>
             ))}
-          </div>
-
-          <div className="mt-6 flex justify-end">
-            <Link
-              href="/packages"
-              className="brutal-border brutal-shadow bg-[var(--color-accent)] px-6 py-3 text-xs font-black uppercase tracking-[0.18em] text-black transition hover:translate-x-[2px] hover:translate-y-[2px] hover:shadow-none"
-            >
-              See All Packages →
-            </Link>
           </div>
         </div>
       </section>

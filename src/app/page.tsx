@@ -188,11 +188,10 @@ function WorkSection() {
               className="brutal-border brutal-shadow bg-white flex flex-col overflow-hidden group text-left transition hover:translate-x-[2px] hover:translate-y-[2px] hover:shadow-none cursor-pointer"
             >
               <div className="relative bg-[#0f0f0f] overflow-hidden" style={{ height: "180px" }}>
-                <Image
+                <img
                   src={project.images[0]}
                   alt={project.title}
-                  fill
-                  className="object-cover object-top transition group-hover:scale-[1.02]"
+                  className="absolute inset-0 w-full h-full object-cover object-top transition group-hover:scale-[1.02]"
                   onError={(e) => { (e.target as HTMLImageElement).style.display = "none"; }}
                 />
                 <div className="absolute inset-0 flex items-center justify-center">
@@ -245,11 +244,10 @@ function WorkSection() {
                     transition={{ duration: 0.2 }}
                     className="absolute inset-0"
                   >
-                    <Image
+                    <img
                       src={validImages[imgIndex] ?? selected.images[0]}
                       alt={selected.title}
-                      fill
-                      className="object-cover object-top"
+                      className="absolute inset-0 w-full h-full object-cover object-top"
                       onError={(e) => { (e.target as HTMLImageElement).style.display = "none"; }}
                     />
                     <div className="absolute inset-0 flex items-center justify-center pointer-events-none">
@@ -394,14 +392,16 @@ export default function Home() {
             </div>
 
             <div className="space-y-5">
-              <div className="flex items-center gap-3">
-                <span className="w-4 h-4 rounded-full bg-[var(--color-accent)] inline-block" />
-                <span className="w-6 h-6 rounded-full bg-[var(--color-accent)] inline-block" />
-              </div>
               <h1 className="text-balance text-5xl font-black uppercase leading-[0.92] tracking-[-0.06em] text-[var(--color-text)] sm:text-6xl lg:text-[6rem]">
                 We Build.
                 <br />
-                You Grow<span className="text-[var(--color-accent)]">.</span>
+                <span className="inline-flex items-center gap-4">
+                  You Grow<span className="text-[var(--color-accent)]">.</span>
+                  <span className="inline-flex items-center gap-2 translate-y-1">
+                    <span className="w-5 h-5 rounded-full bg-[var(--color-accent)] inline-block sm:w-7 sm:h-7" />
+                    <span className="w-8 h-8 rounded-full bg-[var(--color-accent)] inline-block sm:w-10 sm:h-10" />
+                  </span>
+                </span>
               </h1>
               <p className="max-w-2xl text-base leading-7 text-[var(--color-muted)]">
                 A web studio for founders and businesses. We design, build, and ship conversion-first websites and MVPs — fast, clean, and production-ready.

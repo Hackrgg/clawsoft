@@ -82,6 +82,8 @@ const projects = [
     tags: ["Web App", "Platform", "SaaS"],
     url: "https://hackr.gg",
     accent: "var(--color-accent)",
+    logo: "/logos/hackr-gg.png",
+    images: ["/work/hackrgg.png", "/work/hackrgg-2.png", "/work/hackrgg-3.png"],
   },
   {
     id: "nimra",
@@ -92,6 +94,8 @@ const projects = [
     tags: ["Mobile App", "Flutter", "In Progress"],
     url: null,
     accent: "var(--color-teal)",
+    logo: "/logos/nimra.png",
+    images: ["/work/nimra.png", "/work/nimra-2.png"],
   },
   {
     id: "onyx-gym",
@@ -102,6 +106,8 @@ const projects = [
     tags: ["Website", "Bookings"],
     url: "https://onyxgym.net",
     accent: "var(--color-accent-strong)",
+    logo: "/logos/onyx-gym.png",
+    images: ["/work/onyx-gym.png", "/work/onyx-gym-2.png", "/work/onyx-gym-3.png"],
   },
   {
     id: "ok-permanent",
@@ -112,6 +118,8 @@ const projects = [
     tags: ["SaaS", "Courses", "Payments"],
     url: "https://ok-permanent.com",
     accent: "var(--color-accent)",
+    logo: "/logos/ok-permanent.png",
+    images: ["/work/ok-permanent.png", "/work/ok-permanent-2.png", "/work/ok-permanent-3.png"],
   },
   {
     id: "the-bed-store",
@@ -122,6 +130,8 @@ const projects = [
     tags: ["E-commerce", "Web", "CMS"],
     url: "https://thebedstore.shop",
     accent: "var(--color-teal)",
+    logo: "/logos/the-bed-store.png",
+    images: ["/work/the-bed-store.png", "/work/the-bed-store-2.png", "/work/the-bed-store-3.png"],
   },
   {
     id: "zevra-creative",
@@ -132,6 +142,8 @@ const projects = [
     tags: ["Website", "Agency"],
     url: "https://zevracreative.com",
     accent: "var(--color-accent-strong)",
+    logo: "/logos/zevra-creative.png",
+    images: ["/work/zevra-creative.png", "/work/zevra-creative-2.png"],
   },
 ];
 
@@ -139,6 +151,19 @@ type Project = typeof projects[number];
 
 function WorkSection() {
   const [selected, setSelected] = useState<Project | null>(null);
+  const [imgIndex, setImgIndex] = useState(0);
+
+  function open(project: Project) {
+    setSelected(project);
+    setImgIndex(0);
+  }
+
+  function close() {
+    setSelected(null);
+    setImgIndex(0);
+  }
+
+  const validImages = selected?.images.filter(Boolean) ?? [];
 
   return (
     <section id="work" className="px-5 py-14 sm:px-8 lg:px-10 border-b-2 border-[rgba(44,35,28,0.85)]">
@@ -159,12 +184,12 @@ function WorkSection() {
           {projects.map((project) => (
             <button
               key={project.id}
-              onClick={() => setSelected(project)}
+              onClick={() => open(project)}
               className="brutal-border brutal-shadow bg-white flex flex-col overflow-hidden group text-left transition hover:translate-x-[2px] hover:translate-y-[2px] hover:shadow-none cursor-pointer"
             >
               <div className="relative bg-[#0f0f0f] overflow-hidden" style={{ height: "180px" }}>
                 <Image
-                  src={`/work/${project.id}.png`}
+                  src={project.images[0]}
                   alt={project.title}
                   fill
                   className="object-cover object-top transition group-hover:scale-[1.02]"
@@ -200,48 +225,82 @@ function WorkSection() {
         {selected && (
           <>
             <motion.div
-              initial={{ opacity: 0 }}
-              animate={{ opacity: 1 }}
-              exit={{ opacity: 0 }}
+              initial={{ opacity: 0 }} animate={{ opacity: 1 }} exit={{ opacity: 0 }}
               className="fixed inset-0 bg-black/60 z-50 backdrop-blur-sm"
-              onClick={() => setSelected(null)}
+              onClick={close}
             />
             <motion.div
-              initial={{ opacity: 0, y: 40 }}
-              animate={{ opacity: 1, y: 0 }}
-              exit={{ opacity: 0, y: 40 }}
+              initial={{ opacity: 0, y: 40 }} animate={{ opacity: 1, y: 0 }} exit={{ opacity: 0, y: 40 }}
               transition={{ type: "spring", damping: 28, stiffness: 300 }}
-              className="fixed inset-x-4 top-[50%] -translate-y-1/2 z-50 mx-auto max-w-xl brutal-border brutal-shadow bg-[var(--color-bg)] overflow-hidden"
+              className="fixed inset-x-4 top-[50%] -translate-y-1/2 z-50 mx-auto max-w-xl brutal-border brutal-shadow bg-[var(--color-bg)] overflow-hidden max-h-[90vh] overflow-y-auto"
             >
-              {/* Screenshot */}
-              <div className="relative bg-[#0f0f0f] overflow-hidden" style={{ height: "200px" }}>
-                <Image
-                  src={`/work/${selected.id}.png`}
-                  alt={selected.title}
-                  fill
-                  className="object-cover object-top"
-                  onError={(e) => { (e.target as HTMLImageElement).style.display = "none"; }}
-                />
-                <div className="absolute inset-0 flex items-center justify-center">
-                  <p className="font-black uppercase text-[rgba(255,255,255,0.1)] text-3xl select-none">{selected.title}</p>
-                </div>
+              {/* Carousel */}
+              <div className="relative bg-[#0f0f0f] overflow-hidden" style={{ height: "220px" }}>
+                <AnimatePresence mode="wait">
+                  <motion.div
+                    key={imgIndex}
+                    initial={{ opacity: 0, x: 30 }}
+                    animate={{ opacity: 1, x: 0 }}
+                    exit={{ opacity: 0, x: -30 }}
+                    transition={{ duration: 0.2 }}
+                    className="absolute inset-0"
+                  >
+                    <Image
+                      src={validImages[imgIndex] ?? selected.images[0]}
+                      alt={selected.title}
+                      fill
+                      className="object-cover object-top"
+                      onError={(e) => { (e.target as HTMLImageElement).style.display = "none"; }}
+                    />
+                    <div className="absolute inset-0 flex items-center justify-center pointer-events-none">
+                      <p className="font-black uppercase text-[rgba(255,255,255,0.08)] text-3xl select-none">{selected.title}</p>
+                    </div>
+                  </motion.div>
+                </AnimatePresence>
+
+                {/* Carousel arrows */}
+                {validImages.length > 1 && (
+                  <>
+                    <button
+                      onClick={(e) => { e.stopPropagation(); setImgIndex((i) => (i - 1 + validImages.length) % validImages.length); }}
+                      className="absolute left-2 top-1/2 -translate-y-1/2 brutal-border bg-white/90 w-7 h-7 flex items-center justify-center font-black text-xs hover:bg-[var(--color-accent)] transition z-10"
+                    >←</button>
+                    <button
+                      onClick={(e) => { e.stopPropagation(); setImgIndex((i) => (i + 1) % validImages.length); }}
+                      className="absolute right-2 top-1/2 -translate-y-1/2 brutal-border bg-white/90 w-7 h-7 flex items-center justify-center font-black text-xs hover:bg-[var(--color-accent)] transition z-10"
+                    >→</button>
+                  </>
+                )}
+
+                {/* Dots */}
+                {validImages.length > 1 && (
+                  <div className="absolute bottom-2 left-1/2 -translate-x-1/2 flex gap-1.5 z-10">
+                    {validImages.map((_, i) => (
+                      <button
+                        key={i}
+                        onClick={(e) => { e.stopPropagation(); setImgIndex(i); }}
+                        className={`w-1.5 h-1.5 rounded-full transition ${i === imgIndex ? "bg-[var(--color-accent)]" : "bg-white/40"}`}
+                      />
+                    ))}
+                  </div>
+                )}
+
                 {/* Logo */}
-                <div className="absolute bottom-0 left-5 translate-y-1/2 w-14 h-14 brutal-border bg-white overflow-hidden flex items-center justify-center">
+                <div className="absolute bottom-0 left-5 translate-y-1/2 w-12 h-12 brutal-border bg-white overflow-hidden flex items-center justify-center z-10">
                   <Image
-                    src={`/logos/${selected.id}.png`}
+                    src={selected.logo}
                     alt={selected.title}
-                    width={56}
-                    height={56}
-                    className="object-contain p-1"
+                    width={48}
+                    height={48}
+                    className="object-contain p-1.5"
                     onError={(e) => { (e.target as HTMLImageElement).style.display = "none"; }}
                   />
                 </div>
+
                 <button
-                  onClick={() => setSelected(null)}
-                  className="absolute top-3 right-3 brutal-border bg-white w-8 h-8 flex items-center justify-center font-black text-sm hover:bg-[var(--color-accent)] transition"
-                >
-                  ✕
-                </button>
+                  onClick={close}
+                  className="absolute top-3 right-3 brutal-border bg-white w-8 h-8 flex items-center justify-center font-black text-sm hover:bg-[var(--color-accent)] transition z-10"
+                >✕</button>
               </div>
 
               {/* Content */}

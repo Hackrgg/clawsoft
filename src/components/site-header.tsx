@@ -6,8 +6,7 @@ import { WA_URL } from "@/lib/config";
 
 const navItems = [
   { href: "/#about", label: "About" },
-  { href: "/demos", label: "Demos" },
-  { href: "/packages", label: "Packages" },
+  { href: "/#work", label: "Work" },
   { href: "/blog", label: "Blog" },
   { href: WA_URL, label: "Contact" },
 ];

@@ -209,8 +209,8 @@ export default function Home() {
               {
                 title: "Nimra App",
                 desc: "Mobile app for on-demand services. Flutter build, iOS & Android.",
-                tags: ["Mobile App", "Flutter"],
-                url: "https://nimra.app",
+                tags: ["Mobile App", "Flutter", "In Progress"],
+                url: null,
                 accent: "var(--color-teal)",
               },
               {
@@ -231,20 +231,20 @@ export default function Home() {
                 title: "The Bed Store",
                 desc: "E-commerce store for furniture — product listings, cart, and checkout.",
                 tags: ["E-commerce", "Web"],
-                url: "#",
+                url: "https://thebedstore.shop",
                 accent: "var(--color-teal)",
               },
             ].map((project) => (
               <a
                 key={project.title}
-                href={project.url}
-                target={project.url !== "#" ? "_blank" : undefined}
+                href={project.url ?? undefined}
+                target={project.url ? "_blank" : undefined}
                 rel="noreferrer"
-                className="brutal-border brutal-shadow bg-white flex flex-col p-6 gap-4 transition hover:translate-x-[2px] hover:translate-y-[2px] hover:shadow-none group"
+                className={`brutal-border bg-white flex flex-col p-6 gap-4 group ${project.url ? "brutal-shadow transition hover:translate-x-[2px] hover:translate-y-[2px] hover:shadow-none cursor-pointer" : "opacity-60 cursor-default"}`}
               >
                 <div className="flex items-start justify-between gap-2">
                   <p className="font-black uppercase tracking-[-0.02em] text-[var(--color-text)] text-base leading-tight">{project.title}</p>
-                  <span className="font-mono text-[11px] text-[var(--color-muted)] group-hover:text-[var(--color-text)] transition">↗</span>
+                  <span className="font-mono text-[11px] text-[var(--color-muted)] group-hover:text-[var(--color-text)] transition">{project.url ? "↗" : ""}</span>
                 </div>
                 <p className="text-sm leading-6 text-[var(--color-muted)] flex-1">{project.desc}</p>
                 <div className="flex gap-2 flex-wrap">

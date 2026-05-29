@@ -131,7 +131,7 @@ const projects = [
     url: "https://thebedstore.shop",
     accent: "var(--color-teal)",
     logo: "/logos/the-bed-store.png",
-    images: ["/work/the-bed-store.png", "/work/the-bed-store-2.png", "/work/the-bed-store-3.png"],
+    images: ["/work/the-bed-store.png", "/work/the-bed-store-2.png", "/work/the-bed-store-3.png", "/work/the-bed-store-4.png", "/work/the-bed-store-5.png", "/work/the-bed-store-6.png"],
   },
   {
     id: "zevra-creative",

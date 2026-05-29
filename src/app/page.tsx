@@ -83,7 +83,7 @@ const projects = [
     url: "https://hackr.gg",
     accent: "var(--color-accent)",
     logo: "/logos/hackr-gg.png",
-    images: ["/work/hackrgg.png", "/work/hackrgg-2.png", "/work/hackrgg-3.png"],
+    images: ["/work/hackrgg.png", "/work/hackrgg-2.png", "/work/hackrgg-3.png", "/work/hackrgg-4.png"],
   },
   {
     id: "nimra",

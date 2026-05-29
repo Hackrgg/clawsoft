@@ -143,7 +143,7 @@ const projects = [
     url: "https://zevracreative.com",
     accent: "var(--color-accent-strong)",
     logo: "/logos/zevra-creative.png",
-    images: ["/work/zevra-creative.png", "/work/zevra-creative-2.png"],
+    images: ["/work/zevra-creative.png", "/work/zevra-creative-2.png", "/work/zevra-creative-3.png", "/work/zevra-creative-4.png"],
   },
 ];
 

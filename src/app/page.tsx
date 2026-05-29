@@ -119,7 +119,7 @@ const projects = [
     url: "https://ok-permanent.com",
     accent: "var(--color-accent)",
     logo: "/logos/ok-permanent.png",
-    images: ["/work/ok-permanent.png", "/work/ok-permanent-2.png", "/work/ok-permanent-3.png"],
+    images: ["/work/ok-permanent.png", "/work/ok-permanent-2.png", "/work/ok-permanent-3.png", "/work/ok-permanent-4.png", "/work/ok-permanent-5.png"],
   },
   {
     id: "the-bed-store",

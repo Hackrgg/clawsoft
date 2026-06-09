@@ -19,6 +19,7 @@ import {
   SiVercel,
 } from "react-icons/si";
 import { BookingWidget } from "@/components/booking-widget";
+import { QuoteCalculator } from "@/components/quote-calculator";
 import { SiteFooter } from "@/components/site-footer";
 import { SiteHeader } from "@/components/site-header";
 import { WA_URL } from "@/lib/config";
@@ -386,45 +387,51 @@ export default function Home() {
             transition={{ duration: 6, repeat: Infinity, ease: "easeInOut" }}
             className="absolute left-[22%] top-[18%] h-7 w-7 rounded-full bg-[var(--color-accent-strong)] opacity-60"
           />
-          <div className="pointer-events-none absolute right-4 top-6 text-[7rem] font-black leading-none text-[rgba(44,35,28,0.06)] sm:text-[11rem] lg:text-[16rem]">
-            WEB
+          <div className="pointer-events-none absolute -right-4 bottom-2 text-[6rem] font-black leading-none text-[rgba(44,35,28,0.05)] sm:text-[8rem] lg:text-[10rem]">
+            SHIPPED
           </div>
         </div>
 
         <div className="relative mx-auto max-w-7xl">
-          <div className="space-y-8">
-            <div className="inline-flex items-center gap-2 brutal-border bg-[var(--color-accent)] px-4 py-2 font-mono text-xs font-bold uppercase tracking-[0.24em] text-black brutal-shadow">
-              <span className="relative flex h-2 w-2">
-                <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-[#22c55e] opacity-75" style={{ animationDuration: "2s" }} />
-                <span className="relative inline-flex h-2 w-2 rounded-full bg-[#22c55e]" />
-              </span>
-              Available for projects
+          <div className="grid items-start gap-10 lg:grid-cols-[minmax(0,460px)_1fr] lg:gap-14">
+            <div className="order-2 lg:order-1">
+              <QuoteCalculator />
             </div>
 
-            <div className="space-y-5">
-              <h1 className="text-balance text-5xl font-black uppercase leading-[0.92] tracking-[-0.06em] text-[var(--color-text)] sm:text-6xl lg:text-[6rem]">
-                We Build.
-                <br />
-                You Grow.
-              </h1>
-              <p className="max-w-2xl text-base leading-7 text-[var(--color-muted)]">
-                A web studio for founders and businesses. We design, build, and ship conversion-first websites and MVPs — fast, clean, and production-ready.
-              </p>
-            </div>
+            <div className="order-1 space-y-7 lg:order-2">
+              <div className="inline-flex items-center gap-2 brutal-border bg-[var(--color-accent)] px-4 py-2 font-mono text-xs font-bold uppercase tracking-[0.24em] text-black brutal-shadow">
+                <span className="relative flex h-2 w-2">
+                  <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-[#22c55e] opacity-75" style={{ animationDuration: "2s" }} />
+                  <span className="relative inline-flex h-2 w-2 rounded-full bg-[#22c55e]" />
+                </span>
+                Available for projects
+              </div>
 
-            <div className="flex flex-wrap gap-4">
-              <Link
-                href="/#work"
-                className="brutal-border brutal-shadow bg-white px-7 py-3 text-sm font-black uppercase tracking-[0.18em] text-[var(--color-text)] transition hover:translate-x-[2px] hover:translate-y-[2px] hover:shadow-none"
-              >
-                View Our Work
-              </Link>
-              <a
-                href={WA_URL}
-                className="brutal-border brutal-shadow bg-[var(--color-accent-strong)] px-7 py-3 text-sm font-black uppercase tracking-[0.18em] text-[var(--color-text)] transition hover:translate-x-[2px] hover:translate-y-[2px] hover:shadow-none"
-              >
-                Start Your Project →
-              </a>
+              <div className="space-y-5">
+                <h1 className="text-balance text-5xl font-black uppercase leading-[0.92] tracking-[-0.06em] text-[var(--color-text)] sm:text-6xl lg:text-[5.25rem]">
+                  We Build.
+                  <br />
+                  You Grow.
+                </h1>
+                <p className="max-w-md text-base leading-7 text-[var(--color-muted)]">
+                  A web studio for founders and businesses. We design, build, and ship conversion-first websites and MVPs — fast, clean, and production-ready.
+                </p>
+              </div>
+
+              <div className="flex flex-wrap gap-4">
+                <Link
+                  href="/#work"
+                  className="brutal-border brutal-shadow bg-white px-7 py-3 text-sm font-black uppercase tracking-[0.18em] text-[var(--color-text)] transition hover:translate-x-[2px] hover:translate-y-[2px] hover:shadow-none"
+                >
+                  View Our Work
+                </Link>
+                <a
+                  href={WA_URL}
+                  className="brutal-border brutal-shadow bg-[var(--color-accent-strong)] px-7 py-3 text-sm font-black uppercase tracking-[0.18em] text-[var(--color-text)] transition hover:translate-x-[2px] hover:translate-y-[2px] hover:shadow-none"
+                >
+                  Start Your Project →
+                </a>
+              </div>
             </div>
 
           </div>

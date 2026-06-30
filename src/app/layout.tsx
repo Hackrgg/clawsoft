@@ -18,6 +18,9 @@ const ibmPlexMono = IBM_Plex_Mono({
 
 export const metadata: Metadata = {
   metadataBase: new URL("https://clawsoft.net"),
+  verification: {
+    google: "7xQEbqim_73X3jOMBcefX9MMU2mXvkVlM_7tsxMtweM",
+  },
   title: {
     default: "Clawsoft — We Build. We Ship.",
     template: "%s | Clawsoft",

@@ -433,7 +433,6 @@ export default function Home() {
                 </a>
               </div>
             </div>
-
           </div>
         </div>
       </section>
@@ -512,13 +511,17 @@ export default function Home() {
                 A studio that builds,<br />not just designs.
               </h2>
               <p className="text-base leading-8 text-[var(--color-muted)]">
-                DIGUZ is a web studio. The work covers the full build — from brief to a live, working product. Websites, SaaS products, custom solutions, MVPs, and mobile apps. No fixed industry, no minimum budget tier — the scope depends on what the project actually needs.
+                Clawsoft is a web studio. The work covers the full build — from brief to a live, working product. Websites, SaaS products, custom solutions, MVPs, and mobile apps. No fixed industry, no minimum budget tier — the scope depends on what the project actually needs.
               </p>
               <p className="text-base leading-8 text-[var(--color-muted)]">
                 Projects are handled using modern tools and a direct process: scope it, build it, ship it. No handoff chains, no account managers. Direct communication from start to delivery.
               </p>
             </div>
-            <div className="grid gap-4 sm:grid-cols-2">
+            <div className="space-y-4">
+              <div className="brutal-border brutal-shadow overflow-hidden" style={{ height: "220px" }}>
+                <img src="/graphics/about.png" alt="" className="w-full h-full object-cover object-center" />
+              </div>
+              <div className="grid gap-4 sm:grid-cols-2">
               {[
                 { label: "Websites", desc: "Marketing sites, landing pages, e-commerce. Built to convert and easy to maintain." },
                 { label: "Web Apps", desc: "Full-stack products with auth, databases, payments — whatever the feature set requires." },
@@ -532,6 +535,7 @@ export default function Home() {
                   <p className="text-sm leading-6 text-[var(--color-muted)]">{desc}</p>
                 </div>
               ))}
+              </div>
             </div>
           </div>
         </div>

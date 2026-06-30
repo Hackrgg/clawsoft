@@ -355,9 +355,77 @@ function WorkSection() {
   );
 }
 
+const faqSchema = {
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "@id": "https://clawsoft.net/#faq",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "How much does a website cost?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "A landing page starts from $150. A multi-page business website costs $350–$1,200. E-commerce stores start from $550. Web apps and SaaS platforms range from $1,700–$6,500. All prices are fixed — you pay once and receive full source code.",
+      },
+    },
+    {
+      "@type": "Question",
+      "name": "How long does it take to build a website?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "A landing page takes 3–8 days. A multi-page website takes 7–25 days. E-commerce stores take 12–42 days. Mobile apps take 18–65 days. Web apps and SaaS platforms take 25–90 days depending on scope.",
+      },
+    },
+    {
+      "@type": "Question",
+      "name": "What does Clawsoft build?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Clawsoft builds websites, web apps, SaaS platforms, e-commerce stores, mobile apps (iOS and Android with Flutter), browser extensions, and MVPs. All projects are handled end-to-end — design, development, and deployment.",
+      },
+    },
+    {
+      "@type": "Question",
+      "name": "Does Clawsoft offer fixed-price projects?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Yes. Every project is fixed-price. You receive a quote upfront, pay once, and get the full source code at delivery. No hourly rates, no retainers, no ongoing fees.",
+      },
+    },
+    {
+      "@type": "Question",
+      "name": "How much does a mobile app cost?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "A mobile app (iOS and Android) typically costs $1,200–$4,500 depending on features, with delivery in 18–65 days. Clawsoft builds cross-platform apps with Flutter — one codebase for both platforms.",
+      },
+    },
+    {
+      "@type": "Question",
+      "name": "What tech stack does Clawsoft use?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Clawsoft uses Next.js, TypeScript, React, and Tailwind CSS for frontend. Backend runs on Supabase, PostgreSQL, GraphQL, and Docker. Mobile apps are built with Flutter. Deployments go to Vercel.",
+      },
+    },
+    {
+      "@type": "Question",
+      "name": "How much does a SaaS platform cost?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "A SaaS platform or web app with auth, payments, dashboards, and multi-user support typically costs $1,700–$6,500 fixed-price, with delivery in 25–90 days depending on feature scope.",
+      },
+    },
+  ],
+};
+
 export default function Home() {
   return (
     <main className="min-h-screen bg-[var(--color-bg)] text-[var(--color-text)]">
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }}
+      />
       <SiteHeader />
 
       <section className="dot-grid relative overflow-hidden border-b-2 border-[rgba(44,35,28,0.85)] px-5 py-14 sm:px-8 lg:px-10 lg:py-18">

@@ -1,120 +1,285 @@
 "use client";
 
-import { useMemo, useState } from "react";
+import { useRef, useState } from "react";
 import { WA_URL } from "@/lib/config";
 
-type ProjectType = "landing" | "website" | "ecommerce" | "mobile" | "saas";
+type Quote = {
+  summary: string;
+  priceLow: number;
+  priceHigh: number;
+  deliveryLowDays: number;
+  deliveryHighDays: number;
+  pitch: string;
+};
 
-const PROJECTS: { id: ProjectType; label: string; emoji: string; tiers: (number | null)[] }[] = [
-  { id: "landing",   label: "Landing",  emoji: "🚀", tiers: [180, 320, null] },
-  { id: "website",   label: "Website",  emoji: "🌐", tiers: [350, 650, 1000] },
-  { id: "ecommerce", label: "E-comm",   emoji: "🛒", tiers: [560, 1050, 2000] },
-  { id: "mobile",    label: "Mobile",   emoji: "📱", tiers: [1250, 2450, 4200] },
-  { id: "saas",      label: "Web App",  emoji: "⚙️", tiers: [1750, 3500, 6300] },
-];
+const PROJECT_TYPES = [
+  "Landing Page",
+  "E-commerce Store",
+  "Mobile App",
+  "Web App / SaaS Platform",
+  "Browser Extension",
+  "Not sure yet",
+] as const;
 
-const SCOPES = ["Simple", "Medium", "Complex"];
+type ProjectType = (typeof PROJECT_TYPES)[number];
 
-const ADDONS = [
-  { id: "auth",     label: "Login / Auth",         price: 100 },
-  { id: "payments", label: "Payments",             price: 200 },
-  { id: "admin",    label: "Admin Panel",          price: 280 },
-  { id: "push",     label: "Push Notifications",   price: 140 },
-  { id: "lang",     label: "Multi-language",       price: 175 },
-  { id: "ai",       label: "AI / Chatbot",         price: 350 },
-  { id: "stores",   label: "App Store + Play Store",  price: 200 },
-  { id: "anim",     label: "Premium Animations",   price: 200 },
-];
+const ADDONS_BY_TYPE: Record<ProjectType, string[]> = {
+  "Landing Page": [
+    "Copywriting",
+    "Custom Animations",
+    "SEO Setup",
+    "Contact Form",
+    "Newsletter Signup",
+    "Multi-language",
+    "Analytics Setup",
+    "Premium Graphics",
+  ],
+  "E-commerce Store": [
+    "Login / Auth",
+    "Admin Panel",
+    "Discount & Coupon System",
+    "Inventory Management",
+    "Multi-language",
+    "Premium Animations",
+    "Landing Page",
+    "Analytics Setup",
+  ],
+  "Mobile App": [
+    "Login / Auth",
+    "Payments",
+    "Push Notifications",
+    "Admin Panel",
+    "App Store + Play Store",
+    "AI / Chatbot",
+    "Multi-language",
+    "Landing Page",
+  ],
+  "Web App / SaaS Platform": [
+    "Login / Auth",
+    "Payments / Billing",
+    "Admin Panel",
+    "AI / Chatbot",
+    "Multi-language",
+    "Analytics Dashboard",
+    "Premium Animations",
+    "Landing Page",
+  ],
+  "Browser Extension": [
+    "Login / Auth",
+    "Premium Unlock / Payments",
+    "Usage Dashboard",
+    "Multi-language",
+    "AI / Chatbot",
+    "Analytics Setup",
+    "Landing Page",
+    "Premium Animations",
+  ],
+  "Not sure yet": [
+    "Login / Auth",
+    "Payments",
+    "Admin Panel",
+    "Multi-language",
+    "AI / Chatbot",
+    "Landing Page",
+    "Analytics Setup",
+    "Premium Animations",
+  ],
+};
+
+function formatDelivery(low: number, high: number): string {
+  if (high <= 13) return `${low}–${high} days`;
+  return `${Math.round(low / 7)}–${Math.round(high / 7)} weeks`;
+}
+
+function fileToDataUrl(file: File): Promise<string> {
+  return new Promise((resolve, reject) => {
+    const reader = new FileReader();
+    reader.onload = () => resolve(reader.result as string);
+    reader.onerror = reject;
+    reader.readAsDataURL(file);
+  });
+}
 
 export function QuoteCalculator() {
-  const [type, setType] = useState<ProjectType>("mobile");
-  const [scope, setScope] = useState(0);
-  const [rush, setRush] = useState(false);
-  const [picked, setPicked] = useState<Record<string, boolean>>({});
+  const [projectType, setProjectType] = useState<ProjectType | "">("");
+  const [addons, setAddons] = useState<string[]>([]);
+  const [addonsOpen, setAddonsOpen] = useState(false);
+  const [description, setDescription] = useState("");
+  const [images, setImages] = useState<{ name: string; url: string }[]>([]);
+  const [loading, setLoading] = useState(false);
+  const [error, setError] = useState("");
+  const [quote, setQuote] = useState<Quote | null>(null);
+  const fileInputRef = useRef<HTMLInputElement>(null);
 
-  const project = PROJECTS.find((p) => p.id === type)!;
-  const range = useMemo(() => {
-    const base = project.tiers[scope] ?? project.tiers.find((t) => t !== null) ?? 0;
-    const extras = ADDONS.filter((a) => picked[a.id]).reduce((s, a) => s + a.price, 0);
-    const sub = base + extras;
-    const total = rush ? Math.round(sub * 1.3) : sub;
-    return [Math.round(total * 0.95), Math.round(total * 1.1)] as const;
-  }, [project, scope, picked, rush]);
+  const availableAddons = projectType ? ADDONS_BY_TYPE[projectType] : [];
 
-  const addonNames = ADDONS.filter((a) => picked[a.id]).map((a) => a.label).join(", ") || "none";
-  const summary = `Hi! Quote request: ${project.label} (${SCOPES[scope]}), add-ons: ${addonNames}, ${rush ? "rush 2wk" : "standard"}. Est. $${range[0]}–$${range[1]}.`;
+  function selectType(t: string) {
+    setProjectType(t as ProjectType | "");
+    setAddons([]);
+    setAddonsOpen(false);
+  }
+
+  function toggleAddon(a: string) {
+    setAddons((prev) => (prev.includes(a) ? prev.filter((x) => x !== a) : [...prev, a]));
+  }
+
+  async function handleFiles(files: FileList | null) {
+    if (!files) return;
+    const next = [...images];
+    for (const file of Array.from(files).slice(0, 4 - images.length)) {
+      if (!file.type.startsWith("image/")) continue;
+      const url = await fileToDataUrl(file);
+      next.push({ name: file.name, url });
+    }
+    setImages(next);
+  }
+
+  function removeImage(i: number) {
+    setImages((imgs) => imgs.filter((_, idx) => idx !== i));
+  }
+
+  async function getQuote() {
+    if (!description.trim() || loading) return;
+    setLoading(true);
+    setError("");
+    setQuote(null);
+    try {
+      const res = await fetch("/api/quote", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ description, projectType, addons, images: images.map((i) => i.url) }),
+      });
+      const data = await res.json();
+      if (!res.ok) throw new Error(data.error || "Something went wrong.");
+      setQuote(data);
+    } catch (e) {
+      setError(e instanceof Error ? e.message : "Something went wrong. Try again.");
+    } finally {
+      setLoading(false);
+    }
+  }
+
+  const summary = quote
+    ? `Hi! Project: ${projectType ? `${projectType} — ` : ""}${description.slice(0, 300)}${description.length > 300 ? "…" : ""}${addons.length ? `\nAdd-ons: ${addons.join(", ")}` : ""}\n\nQuoted: $${quote.priceLow}–$${quote.priceHigh}, ~${formatDelivery(quote.deliveryLowDays, quote.deliveryHighDays)}. Fixed-price — full source code handed over, not a hire/retainer.`
+    : "";
   const waLink = `${WA_URL}?text=${encodeURIComponent(summary)}`;
 
   return (
     <div className="shell brutal-border brutal-shadow flex flex-col gap-4 p-5 sm:p-6">
       <div className="flex items-center justify-between">
-        <p className="font-mono text-[10px] uppercase tracking-[0.24em] text-[var(--color-muted)]">Instant Quote</p>
+        <p className="font-mono text-[10px] uppercase tracking-[0.24em] text-[var(--color-muted)]">AI Instant Quote</p>
         <span className="brutal-border bg-[var(--color-accent)] px-2 py-1 font-mono text-[9px] uppercase tracking-[0.18em] text-black">No call needed</span>
       </div>
+      <p className="-mt-2 font-mono text-[9px] uppercase tracking-[0.14em] text-[var(--color-muted)]">
+        Fixed price · full source code handed over · not a hire or retainer
+      </p>
+
+      <div className="grid grid-cols-2 gap-2">
+        <div className="space-y-1">
+          <p className="font-mono text-[9px] uppercase tracking-[0.18em] text-[var(--color-muted)]">What are you building?</p>
+          <select
+            value={projectType}
+            onChange={(e) => selectType(e.target.value)}
+            className="brutal-border w-full bg-white px-2.5 py-2.5 font-mono text-[11px] uppercase tracking-[0.04em] text-[var(--color-text)] focus:outline-none"
+          >
+            <option value="">Select one</option>
+            {PROJECT_TYPES.map((t) => (
+              <option key={t} value={t}>{t}</option>
+            ))}
+          </select>
+        </div>
+
+        <div className="relative space-y-1">
+          <p className="font-mono text-[9px] uppercase tracking-[0.18em] text-[var(--color-muted)]">Add-ons</p>
+          <button
+            type="button"
+            onClick={() => projectType && setAddonsOpen((v) => !v)}
+            disabled={!projectType}
+            className="brutal-border flex w-full items-center justify-between bg-white px-2.5 py-2.5 font-mono text-[11px] uppercase tracking-[0.04em] text-[var(--color-text)] disabled:opacity-40"
+          >
+            {!projectType ? "Pick a type first" : addons.length ? `${addons.length} selected` : "Select"}
+            <span className="text-[9px]">{addonsOpen ? "▲" : "▼"}</span>
+          </button>
+          {addonsOpen && projectType && (
+            <div className="brutal-border brutal-shadow absolute left-0 right-0 top-full z-10 mt-1 max-h-48 overflow-y-auto bg-white p-1.5">
+              {availableAddons.map((a) => (
+                <label key={a} className="flex cursor-pointer items-center gap-2 px-1.5 py-1.5 font-mono text-[10px] uppercase tracking-[0.02em] hover:bg-[var(--color-accent)]">
+                  <input type="checkbox" checked={addons.includes(a)} onChange={() => toggleAddon(a)} className="h-3 w-3 accent-black" />
+                  {a}
+                </label>
+              ))}
+            </div>
+          )}
+        </div>
+      </div>
 
       <div className="space-y-2">
-        <p className="font-mono text-[10px] uppercase tracking-[0.2em] text-[var(--color-muted)]">1. What are you building?</p>
-        <div className="grid grid-cols-5 gap-1.5">
-          {PROJECTS.map((p) => (
-            <button key={p.id} type="button"
-              onClick={() => { setType(p.id); if (p.tiers[scope] == null) setScope(0); }}
-              className={`brutal-border px-1 py-2 text-[10px] font-black uppercase transition ${type === p.id ? "bg-[var(--color-text)] text-[var(--color-bg)]" : "bg-white hover:bg-[var(--color-accent)]"}`}>
-              <div className="mb-1 text-base leading-none">{p.emoji}</div>
-              {p.label}
-            </button>
+        <p className="font-mono text-[10px] uppercase tracking-[0.2em] text-[var(--color-muted)]">Tell us about your project</p>
+        <textarea
+          value={description}
+          onChange={(e) => setDescription(e.target.value)}
+          placeholder={`e.g. "I need a website for my gym with class booking, and eventually a mobile app for members too. Attached a couple of sites I like the look of."`}
+          rows={5}
+          className="brutal-border w-full resize-none bg-white p-3 font-mono text-[12px] leading-relaxed text-[var(--color-text)] placeholder:text-[var(--color-muted)] focus:outline-none"
+        />
+
+        <div className="flex flex-wrap items-center gap-2">
+          <button
+            type="button"
+            onClick={() => fileInputRef.current?.click()}
+            disabled={images.length >= 4}
+            className="brutal-border bg-white px-3 py-1.5 font-mono text-[10px] uppercase tracking-[0.14em] text-[var(--color-text)] transition hover:bg-[var(--color-accent)] disabled:opacity-40"
+          >
+            + Attach reference image
+          </button>
+          <input
+            ref={fileInputRef}
+            type="file"
+            accept="image/*"
+            multiple
+            className="hidden"
+            onChange={(e) => handleFiles(e.target.files)}
+          />
+          {images.map((img, i) => (
+            <span key={i} className="brutal-border flex items-center gap-1.5 bg-white px-2 py-1 font-mono text-[9px] uppercase text-[var(--color-muted)]">
+              {img.name.slice(0, 14)}
+              <button type="button" onClick={() => removeImage(i)} className="text-[var(--color-text)] hover:text-[var(--color-accent-strong)]">✕</button>
+            </span>
           ))}
         </div>
       </div>
 
-      <div className="space-y-2">
-        <p className="font-mono text-[10px] uppercase tracking-[0.2em] text-[var(--color-muted)]">2. Scope</p>
-        <div className="grid grid-cols-3 gap-1.5">
-          {SCOPES.map((s, i) => {
-            const disabled = project.tiers[i] == null;
-            return (
-              <button key={s} type="button" disabled={disabled} onClick={() => setScope(i)}
-                className={`brutal-border px-2 py-2 text-[11px] font-black uppercase transition ${scope === i ? "bg-[var(--color-accent-strong)] text-black" : "bg-white hover:bg-[var(--color-accent-strong)]"} ${disabled ? "cursor-not-allowed opacity-30" : ""}`}>
-                {s}
-              </button>
-            );
-          })}
+      <button
+        type="button"
+        onClick={getQuote}
+        disabled={!description.trim() || loading}
+        className="brutal-border brutal-shadow bg-[var(--color-accent-strong)] px-4 py-3 text-center text-xs font-black uppercase tracking-[0.18em] text-black transition hover:translate-x-[2px] hover:translate-y-[2px] hover:shadow-none disabled:opacity-50 disabled:hover:translate-x-0 disabled:hover:translate-y-0 disabled:hover:shadow-[4px_4px_0_rgba(44,35,28,0.9)]"
+      >
+        {loading ? "Reading your project…" : "Get my instant quote"}
+      </button>
+
+      {error && (
+        <p className="font-mono text-[10px] uppercase tracking-[0.1em] text-red-700">{error}</p>
+      )}
+
+      {quote && (
+        <div className="space-y-3">
+          <p className="font-mono text-[11px] leading-relaxed text-[var(--color-muted)]">{quote.summary}</p>
+
+          <div className="brutal-border bg-[var(--color-text)] p-4 text-[var(--color-bg)]">
+            <p className="font-mono text-[10px] uppercase tracking-[0.24em] text-white/50">Your Estimate</p>
+            <p className="mt-1 text-3xl font-black tracking-tight">${quote.priceLow.toLocaleString()} <span className="text-white/40">—</span> ${quote.priceHigh.toLocaleString()}</p>
+            <p className="mt-2 font-mono text-[10px] uppercase tracking-[0.18em] text-[var(--color-accent)]">Est. delivery: {formatDelivery(quote.deliveryLowDays, quote.deliveryHighDays)}</p>
+          </div>
+
+          <p className="brutal-border bg-[var(--color-teal)] p-3 font-mono text-[11px] leading-relaxed text-black">{quote.pitch}</p>
+
+          <a href={waLink} target="_blank" rel="noreferrer"
+            className="brutal-border brutal-shadow flex items-center justify-center bg-[#25D366] px-4 py-3 text-center text-xs font-black uppercase tracking-[0.18em] text-white transition hover:translate-x-[2px] hover:translate-y-[2px] hover:shadow-none">
+            Continue on WhatsApp →
+          </a>
         </div>
-      </div>
-
-      <div className="space-y-2">
-        <p className="font-mono text-[10px] uppercase tracking-[0.2em] text-[var(--color-muted)]">3. Add-ons</p>
-        <div className="grid grid-cols-2 gap-1.5">
-          {ADDONS.map((a) => (
-            <label key={a.id}
-              className={`brutal-border flex cursor-pointer items-center justify-between gap-2 px-2 py-2 transition ${picked[a.id] ? "bg-[var(--color-teal)]" : "bg-white hover:bg-[rgba(255,250,241,0.92)]"}`}>
-              <span className="flex items-center gap-2">
-                <input type="checkbox" checked={!!picked[a.id]} onChange={() => setPicked((s) => ({ ...s, [a.id]: !s[a.id] }))} className="h-3 w-3 accent-black" />
-                <span className="text-[10px] font-bold uppercase leading-tight tracking-[0.02em]">{a.label}</span>
-              </span>
-              <span className="font-mono text-[10px]">+${a.price}</span>
-            </label>
-          ))}
-        </div>
-      </div>
-
-      <label className={`brutal-border flex cursor-pointer items-center justify-between gap-2 px-3 py-2 transition ${rush ? "bg-[var(--color-accent)]" : "bg-white"}`}>
-        <span className="flex items-center gap-2 text-[11px] font-black uppercase">
-          <input type="checkbox" checked={rush} onChange={(e) => setRush(e.target.checked)} className="h-3 w-3 accent-black" />
-          Rush — 2 weeks
-        </span>
-        <span className="font-mono text-[10px]">+30%</span>
-      </label>
-
-      <div className="brutal-border bg-[var(--color-text)] p-4 text-[var(--color-bg)]">
-        <p className="font-mono text-[10px] uppercase tracking-[0.24em] text-white/50">Your Estimate</p>
-        <p className="mt-1 text-3xl font-black tracking-tight">${range[0].toLocaleString()} <span className="text-white/40">—</span> ${range[1].toLocaleString()}</p>
-        <p className="mt-1 font-mono text-[10px] text-white/60">USD · {project.label} · {SCOPES[scope]}{rush ? " · Rush" : ""}</p>
-      </div>
-
-      <a href={waLink} target="_blank" rel="noreferrer"
-        className="brutal-border brutal-shadow bg-[var(--color-accent-strong)] px-4 py-3 text-center text-xs font-black uppercase tracking-[0.18em] text-black transition hover:translate-x-[2px] hover:translate-y-[2px] hover:shadow-none">
-        Lock this price → WhatsApp
-      </a>
+      )}
     </div>
   );
 }

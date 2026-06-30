@@ -25,27 +25,21 @@ export function SiteHeader() {
         className="block border-b border-[rgba(44,35,28,0.15)] bg-[var(--color-text)] py-2 text-center font-mono text-[11px] uppercase tracking-[0.12em] transition-all duration-300 whitespace-nowrap overflow-hidden cursor-pointer"
         style={{ background: hovered ? "var(--color-accent)" : "var(--color-text)" }}
       >
-        {!hovered ? (
-          <span className="flex items-center justify-center gap-3">
-            <span className="animate-bounce inline-block text-[var(--color-teal)]" style={{ animationDelay: "0ms" }}>
-              →
-            </span>
-            <span className="animate-bounce inline-block text-[var(--color-accent-strong)]" style={{ animationDelay: "100ms" }}>
-              →
-            </span>
-            <span className="text-[var(--color-accent)] font-black tracking-[0.18em]">BOOK YOUR DEMO</span>
-            <span className="animate-bounce inline-block text-[var(--color-accent-strong)]" style={{ animationDelay: "100ms" }}>
-              ←
-            </span>
-            <span className="animate-bounce inline-block text-[var(--color-teal)]" style={{ animationDelay: "0ms" }}>
-              ←
-            </span>
+        <span className="flex items-center justify-center gap-3">
+          <span className="animate-bounce inline-block text-[var(--color-teal)]" style={{ animationDelay: "0ms" }}>
+            →
           </span>
-        ) : (
-          <span className="text-black font-black tracking-[0.12em]">
-            We&apos;ll prototype it first (on the house) — <span className="underline underline-offset-2">then you decide</span>
+          <span className="animate-bounce inline-block text-[var(--color-accent-strong)]" style={{ animationDelay: "100ms" }}>
+            →
           </span>
-        )}
+          <span className={hovered ? "text-black font-black tracking-[0.18em]" : "text-[var(--color-accent)] font-black tracking-[0.18em]"}>BOOK YOUR DEMO</span>
+          <span className="animate-bounce inline-block text-[var(--color-accent-strong)]" style={{ animationDelay: "100ms" }}>
+            ←
+          </span>
+          <span className="animate-bounce inline-block text-[var(--color-teal)]" style={{ animationDelay: "0ms" }}>
+            ←
+          </span>
+        </span>
       </a>
       <div className="mx-auto flex w-full max-w-7xl items-center justify-center px-5 py-4 sm:px-8 lg:px-10 relative">
         <Link

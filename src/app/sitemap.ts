@@ -1,6 +1,14 @@
 import type { MetadataRoute } from "next";
+import { getBlogs } from "@/data/blogs";
 
 export default function sitemap(): MetadataRoute.Sitemap {
+  const blogEntries: MetadataRoute.Sitemap = getBlogs().map((post) => ({
+    url: `https://clawsoft.net/blog/${post.slug}`,
+    lastModified: new Date(),
+    changeFrequency: "monthly",
+    priority: 0.6,
+  }));
+
   return [
     {
       url: "https://clawsoft.net",
@@ -26,5 +34,6 @@ export default function sitemap(): MetadataRoute.Sitemap {
       changeFrequency: "monthly",
       priority: 0.6,
     },
+    ...blogEntries,
   ];
 }
